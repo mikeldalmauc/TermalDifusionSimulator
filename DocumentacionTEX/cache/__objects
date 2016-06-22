@@ -1,0 +1,7 @@
+unnamed-chunk-1	eff12	eff12s	eff16	eff16s	eff2	eff24	eff24s	eff2s	eff32	eff32s	eff4	eff4s	eff8	eff8s	effres	effresS	fa12	fa12s	fa16	fa16s	fa2	fa24	fa24s	fa2s	fa32	fa32s	fa4	fa4s	fa8	fa8s	fares	faresS	y12m	y12s	y16m	y16s	y1m	y24m	y24s	y2m	y2s	y32m	y32s	y4m	y4s	y8m	y8s	ym	ys
+unnamed-chunk-2	x
+fig.height	eff16	eff32	eff4	eff8	fa16	fa32	fa4	fa8	linetype	x	xrange	yrange
+unnamed-chunk-3	linetype	x	xrange	y1	y16	y32	y4	y8	yrange
+unnamed-chunk-4	eff16	eff32	eff4	eff8	fa16	fa32	fa4	fa8	linetype	x	xrange	yrange
+unnamed-chunk-5	eff1	eff16	eff2	eff24	eff32	eff4	eff8	effres	fa1	fa16	fa2	fa24	fa32	fa4	fa8	fares	Seffres	Sfares	t1	t16	t2	t24	t32	t4	t8	Ts
+unnamed-chunk-6	x

@@ -1,0 +1,3110 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.26)  24 MAY 2016 13:23
+entering extended mode
+**C:/Users/Mikel/Google*Drive/Grado*en*Ing*Informática/Cuarto/SCP/SCP-Proyecto
+/Documentacion/Documentacion.tex
+
+("C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto
+/Documentacion/Documentacion.tex"
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+
+("C:\Users\Mikel\Google Drive\Grado en Ing Informática\Cuarto\SCP\SCP-Proyecto
+\Documentacion\ifirak.cls"
+Document Class: ifirak 2012/05/18 v0.1
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size10.clo"
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+\footheight=\dimen105
+\footsep=\dimen106
+)
+("C:\Users\Mikel\Google Drive\Grado en Ing Informática\Cuarto\SCP\SCP-Proyecto
+\Documentacion\framed.sty"
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip43
+\fb@frw=\dimen107
+\fb@frh=\dimen108
+\FrameRule=\dimen109
+\FrameSep=\dimen110
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\alltt.sty"
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count88
+\lst@gtempboxa=\box26
+\lst@token=\toks15
+\lst@length=\count89
+\lst@currlwidth=\dimen111
+\lst@column=\count90
+\lst@pos=\count91
+\lst@lostspace=\dimen112
+\lst@width=\dimen113
+\lst@newlines=\count92
+\lst@lineno=\count93
+\lst@maxwidth=\dimen114
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count94
+\lst@skipnumbers=\count95
+\lst@framebox=\box27
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks16
+\inpenc@posthook=\toks17
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
+File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
+Now handling font encoding OML ...
+... no UTF-8 mapping file for font encoding OML
+Now handling font encoding T1 ...
+... processing UTF-8 mapping file for font encoding T1
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C0 (decimal 192)
+   defining Unicode char U+00C1 (decimal 193)
+   defining Unicode char U+00C2 (decimal 194)
+   defining Unicode char U+00C3 (decimal 195)
+   defining Unicode char U+00C4 (decimal 196)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00C7 (decimal 199)
+   defining Unicode char U+00C8 (decimal 200)
+   defining Unicode char U+00C9 (decimal 201)
+   defining Unicode char U+00CA (decimal 202)
+   defining Unicode char U+00CB (decimal 203)
+   defining Unicode char U+00CC (decimal 204)
+   defining Unicode char U+00CD (decimal 205)
+   defining Unicode char U+00CE (decimal 206)
+   defining Unicode char U+00CF (decimal 207)
+   defining Unicode char U+00D0 (decimal 208)
+   defining Unicode char U+00D1 (decimal 209)
+   defining Unicode char U+00D2 (decimal 210)
+   defining Unicode char U+00D3 (decimal 211)
+   defining Unicode char U+00D4 (decimal 212)
+   defining Unicode char U+00D5 (decimal 213)
+   defining Unicode char U+00D6 (decimal 214)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00D9 (decimal 217)
+   defining Unicode char U+00DA (decimal 218)
+   defining Unicode char U+00DB (decimal 219)
+   defining Unicode char U+00DC (decimal 220)
+   defining Unicode char U+00DD (decimal 221)
+   defining Unicode char U+00DE (decimal 222)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E0 (decimal 224)
+   defining Unicode char U+00E1 (decimal 225)
+   defining Unicode char U+00E2 (decimal 226)
+   defining Unicode char U+00E3 (decimal 227)
+   defining Unicode char U+00E4 (decimal 228)
+   defining Unicode char U+00E5 (decimal 229)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00E7 (decimal 231)
+   defining Unicode char U+00E8 (decimal 232)
+   defining Unicode char U+00E9 (decimal 233)
+   defining Unicode char U+00EA (decimal 234)
+   defining Unicode char U+00EB (decimal 235)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F0 (decimal 240)
+   defining Unicode char U+00F1 (decimal 241)
+   defining Unicode char U+00F2 (decimal 242)
+   defining Unicode char U+00F3 (decimal 243)
+   defining Unicode char U+00F4 (decimal 244)
+   defining Unicode char U+00F5 (decimal 245)
+   defining Unicode char U+00F6 (decimal 246)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+00F9 (decimal 249)
+   defining Unicode char U+00FA (decimal 250)
+   defining Unicode char U+00FB (decimal 251)
+   defining Unicode char U+00FC (decimal 252)
+   defining Unicode char U+00FD (decimal 253)
+   defining Unicode char U+00FE (decimal 254)
+   defining Unicode char U+00FF (decimal 255)
+   defining Unicode char U+0102 (decimal 258)
+   defining Unicode char U+0103 (decimal 259)
+   defining Unicode char U+0104 (decimal 260)
+   defining Unicode char U+0105 (decimal 261)
+   defining Unicode char U+0106 (decimal 262)
+   defining Unicode char U+0107 (decimal 263)
+   defining Unicode char U+010C (decimal 268)
+   defining Unicode char U+010D (decimal 269)
+   defining Unicode char U+010E (decimal 270)
+   defining Unicode char U+010F (decimal 271)
+   defining Unicode char U+0110 (decimal 272)
+   defining Unicode char U+0111 (decimal 273)
+   defining Unicode char U+0118 (decimal 280)
+   defining Unicode char U+0119 (decimal 281)
+   defining Unicode char U+011A (decimal 282)
+   defining Unicode char U+011B (decimal 283)
+   defining Unicode char U+011E (decimal 286)
+   defining Unicode char U+011F (decimal 287)
+   defining Unicode char U+0130 (decimal 304)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0132 (decimal 306)
+   defining Unicode char U+0133 (decimal 307)
+   defining Unicode char U+0139 (decimal 313)
+   defining Unicode char U+013A (decimal 314)
+   defining Unicode char U+013D (decimal 317)
+   defining Unicode char U+013E (decimal 318)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0143 (decimal 323)
+   defining Unicode char U+0144 (decimal 324)
+   defining Unicode char U+0147 (decimal 327)
+   defining Unicode char U+0148 (decimal 328)
+   defining Unicode char U+014A (decimal 330)
+   defining Unicode char U+014B (decimal 331)
+   defining Unicode char U+0150 (decimal 336)
+   defining Unicode char U+0151 (decimal 337)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0154 (decimal 340)
+   defining Unicode char U+0155 (decimal 341)
+   defining Unicode char U+0158 (decimal 344)
+   defining Unicode char U+0159 (decimal 345)
+   defining Unicode char U+015A (decimal 346)
+   defining Unicode char U+015B (decimal 347)
+   defining Unicode char U+015E (decimal 350)
+   defining Unicode char U+015F (decimal 351)
+   defining Unicode char U+0160 (decimal 352)
+   defining Unicode char U+0161 (decimal 353)
+   defining Unicode char U+0162 (decimal 354)
+   defining Unicode char U+0163 (decimal 355)
+   defining Unicode char U+0164 (decimal 356)
+   defining Unicode char U+0165 (decimal 357)
+   defining Unicode char U+016E (decimal 366)
+   defining Unicode char U+016F (decimal 367)
+   defining Unicode char U+0170 (decimal 368)
+   defining Unicode char U+0171 (decimal 369)
+   defining Unicode char U+0178 (decimal 376)
+   defining Unicode char U+0179 (decimal 377)
+   defining Unicode char U+017A (decimal 378)
+   defining Unicode char U+017B (decimal 379)
+   defining Unicode char U+017C (decimal 380)
+   defining Unicode char U+017D (decimal 381)
+   defining Unicode char U+017E (decimal 382)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201A (decimal 8218)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+201E (decimal 8222)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+2039 (decimal 8249)
+   defining Unicode char U+203A (decimal 8250)
+   defining Unicode char U+2423 (decimal 9251)
+)
+Now handling font encoding OT1 ...
+... processing UTF-8 mapping file for font encoding OT1
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00B8 (decimal 184)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+)
+Now handling font encoding OMS ...
+... processing UTF-8 mapping file for font encoding OMS
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+)
+Now handling font encoding OMX ...
+... no UTF-8 mapping file for font encoding OMX
+Now handling font encoding U ...
+... no UTF-8 mapping file for font encoding U
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+02C6 (decimal 710)
+   defining Unicode char U+02DC (decimal 732)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2026 (decimal 8230)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2423 (decimal 9251)
+)) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\colortbl\colortbl.sty"
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen115
+\extrarowheight=\dimen116
+\NC@list=\toks18
+\extratabsurround=\skip44
+\backup@length=\skip45
+)
+\everycr=\toks19
+\minrowclearance=\skip46
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 702.
+\rownum=\count96
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\wrapfig\wrapfig.sty"
+\wrapoverhang=\dimen117
+\WF@size=\dimen118
+\c@WF@wrappedlines=\count97
+\WF@box=\box28
+\WF@everypar=\toks20
+Package: wrapfig 2003/01/31  v 3.6
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks21
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:66: LaTeX Error: Option clash for package graphi
+cx.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help
+The package graphicx has already been loaded with options:
+  []
+There has now been an attempt to load it with options
+  [pdftex]
+Adding the global options:
+  ,pdftex
+to your \documentclass declaration may fix this.
+Try typing  <return>  to proceed.
+
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\makeidx.sty"
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\multicol.sty"
+Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
+\c@tracingmulticols=\count98
+\mult@box=\box29
+\multicol@leftmargin=\dimen119
+\c@unbalance=\count99
+\c@collectmore=\count100
+\doublecol@number=\count101
+\multicoltolerance=\count102
+\multicolpretolerance=\count103
+\full@width=\dimen120
+\page@free=\dimen121
+\premulticols=\dimen122
+\postmulticols=\dimen123
+\multicolsep=\skip47
+\multicolbaselineskip=\skip48
+\partial@page=\box30
+\last@line=\box31
+\mult@rightbox=\box32
+\mult@grightbox=\box33
+\mult@gfirstbox=\box34
+\mult@firstbox=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\c@columnbadness=\count104
+\c@finalcolumnbadness=\count105
+\last@try=\dimen124
+\multicolovershoot=\dimen125
+\multicolundershoot=\dimen126
+\mult@nat@firstbox=\box53
+\colbreak@box=\box54
+\multicol@sort@counter=\count106
+)
+(C:\Users\Mikel\AppData\Roaming\MiKTeX\2.9\tex\latex\titlesec\titlesec.sty
+Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
+\ttl@box=\box55
+\beforetitleunit=\skip49
+\aftertitleunit=\skip50
+\ttl@plus=\dimen127
+\ttl@minus=\dimen128
+\ttl@toksa=\toks22
+\titlewidth=\dimen129
+\titlewidthlast=\dimen130
+\titlewidthfirst=\dimen131
+)
+(C:\Users\Mikel\AppData\Roaming\MiKTeX\2.9\tex\latex\pdfpages\pdfpages.sty
+Package: pdfpages 2016/04/19 v0.5f Insert pages of external PDF documents (AM)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count107
+\calc@Bcount=\count108
+\calc@Adimen=\dimen132
+\calc@Bdimen=\dimen133
+\calc@Askip=\skip51
+\calc@Bskip=\skip52
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count109
+\calc@Cskip=\skip53
+)
+(C:\Users\Mikel\AppData\Roaming\MiKTeX\2.9\tex\latex\eso-pic\eso-pic.sty
+Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\atbegshi.sty"
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)))
+\AM@pagewidth=\dimen134
+\AM@pageheight=\dimen135
+
+(C:\Users\Mikel\AppData\Roaming\MiKTeX\2.9\tex\latex\pdfpages\pppdftex.def
+File: pppdftex.def 2016/04/19 v0.5f Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box56
+\AM@global@opts=\toks23
+\AM@toc@title=\toks24
+\c@AM@survey=\count110
+\AM@templatesizebox=\box57
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\eurosym\eurosym.sty"
+Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
+\@eurobox=\box58
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\upquote\upquote.sty"
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+)
+\c@subsubsubsection=\count111
+
+LaTeX Warning: Unused global option(s):
+    [gi].
+
+
+("C:\Users\Mikel\Google Drive\Grado en Ing Informática\Cuarto\SCP\SCP-Proyecto
+\Documentacion\Documentacion.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count112
+\scratchdimen=\dimen136
+\scratchbox=\box59
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count115
+\MPscratchDim=\dimen137
+\MPnumerator=\count116
+\makeMPintoPDFobject=\count117
+\everyMPtoPDFconversion=\toks26
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\textcomp.sty"
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1enc.def"
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+Now handling font encoding TS1 ...
+... processing UTF-8 mapping file for font encoding TS1
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1enc.dfu"
+File: ts1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A2 (decimal 162)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00A4 (decimal 164)
+   defining Unicode char U+00A5 (decimal 165)
+   defining Unicode char U+00A6 (decimal 166)
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00A8 (decimal 168)
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AC (decimal 172)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00AF (decimal 175)
+   defining Unicode char U+00B0 (decimal 176)
+   defining Unicode char U+00B1 (decimal 177)
+   defining Unicode char U+00B2 (decimal 178)
+   defining Unicode char U+00B3 (decimal 179)
+   defining Unicode char U+00B4 (decimal 180)
+   defining Unicode char U+00B5 (decimal 181)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+00B9 (decimal 185)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+00BC (decimal 188)
+   defining Unicode char U+00BD (decimal 189)
+   defining Unicode char U+00BE (decimal 190)
+   defining Unicode char U+00D7 (decimal 215)
+   defining Unicode char U+00F7 (decimal 247)
+   defining Unicode char U+0192 (decimal 402)
+   defining Unicode char U+02C7 (decimal 711)
+   defining Unicode char U+02D8 (decimal 728)
+   defining Unicode char U+02DD (decimal 733)
+   defining Unicode char U+0E3F (decimal 3647)
+   defining Unicode char U+2016 (decimal 8214)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+203B (decimal 8251)
+   defining Unicode char U+203D (decimal 8253)
+   defining Unicode char U+2044 (decimal 8260)
+   defining Unicode char U+204E (decimal 8270)
+   defining Unicode char U+2052 (decimal 8274)
+   defining Unicode char U+20A1 (decimal 8353)
+   defining Unicode char U+20A4 (decimal 8356)
+   defining Unicode char U+20A6 (decimal 8358)
+   defining Unicode char U+20A9 (decimal 8361)
+   defining Unicode char U+20AB (decimal 8363)
+   defining Unicode char U+20AC (decimal 8364)
+   defining Unicode char U+20B1 (decimal 8369)
+   defining Unicode char U+2103 (decimal 8451)
+   defining Unicode char U+2116 (decimal 8470)
+   defining Unicode char U+2117 (decimal 8471)
+   defining Unicode char U+211E (decimal 8478)
+   defining Unicode char U+2120 (decimal 8480)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2126 (decimal 8486)
+   defining Unicode char U+2127 (decimal 8487)
+   defining Unicode char U+212E (decimal 8494)
+   defining Unicode char U+2190 (decimal 8592)
+   defining Unicode char U+2191 (decimal 8593)
+   defining Unicode char U+2192 (decimal 8594)
+   defining Unicode char U+2193 (decimal 8595)
+   defining Unicode char U+2329 (decimal 9001)
+   defining Unicode char U+232A (decimal 9002)
+   defining Unicode char U+2422 (decimal 9250)
+   defining Unicode char U+25E6 (decimal 9702)
+   defining Unicode char U+25EF (decimal 9711)
+   defining Unicode char U+266A (decimal 9834)
+))
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 311.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 312.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 313.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 314.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 315.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 316.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 317.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 318.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 319.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 320.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 321.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 322.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 323.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 324.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 326.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 327.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 328.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 329.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 330.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 331.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 332.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 333.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 334.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 335.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 336.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
+)
+\c@lstlisting=\count118
+\AtBeginShipoutBox=\box60
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\pdflscape.sty"
+Package: pdflscape 2008/08/11 v0.10 Display of landscape pages in PDF (HO)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\lscape.sty"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)) <ehu.pdf, id=1, 533.995pt x 230.8625pt>
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 132.
+(pdftex.def)             Requested size: 118.45703pt x 51.21262pt.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 132.
+
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1phv.fd"
+File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 132.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 132.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+<informatika.pdf, id=2, 205.19662pt x 81.50223pt>
+File: informatika.pdf Graphic file (type pdf)
+ <use informatika.pdf>
+Package pdftex.def Info: informatika.pdf used on input line 132.
+(pdftex.def)             Requested size: 128.04091pt x 50.85667pt.
+
+Overfull \hbox (29.77303pt too wide) in paragraph at lines 132--132
+[]  $[]$ 
+ []
+
+ [1
+
+{C:/Users/Mikel/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/Mi
+kel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/Documentacio
+n/ehu.pdf> <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SC
+P-Proyecto/Documentacion/informatika.pdf>]
+("C:\Users\Mikel\Google Drive\Grado en Ing Informática\Cuarto\SCP\SCP-Proyecto
+\Documentacion\Documentacion.toc"
+Underfull \hbox (badness 5036) in paragraph at lines 17--17
+ [][] []\OT1/cmr/m/n/10 Pruebas del nuevo 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+ [][] []\OT1/cmr/m/n/10 Comunicaciones colec-ti-vas 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+ \OT1/cmr/m/n/10 Multi-threading y 
+ []
+
+)
+\tf@toc=\write3
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 144.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--160
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
+
+ []
+
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 174.
+
+<P0aResto.png, id=21, 594.72188pt x 252.19218pt>
+File: P0aResto.png Graphic file (type png)
+ <use P0aResto.png>
+Package pdftex.def Info: P0aResto.png used on input line 201.
+(pdftex.def)             Requested size: 227.76358pt x 96.58055pt.
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 203.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [3]
+<BloquesFrontera.png, id=26, 433.62pt x 252.19218pt>
+File: BloquesFrontera.png Graphic file (type png)
+ <use BloquesFrontera.png>
+Package pdftex.def Info: BloquesFrontera.png used on input line 231.
+(pdftex.def)             Requested size: 227.76358pt x 132.46829pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 234--235
+
+ []
+
+
+<IntercambioFronteras.png, id=27, 466.74374pt x 309.40594pt>
+File: IntercambioFronteras.png Graphic file (type png)
+ <use IntercambioFronteras.png>
+Package pdftex.def Info: IntercambioFronteras.png used on input line 238.
+(pdftex.def)             Requested size: 227.76358pt x 150.98705pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--243
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
+
+ []
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 259.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [4 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proye
+cto/Documentacion/P0aResto.png> <C:/Users/Mikel/Google Drive/Grado en Ing Infor
+mática/Cuarto/SCP/SCP-Proyecto/Documentacion/BloquesFrontera.png> <C:/Users/Mi
+kel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/Documentacio
+n/IntercambioFronteras.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 276--277
+
+ []
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:289: Extra }, or forgotten \endgroup
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+Overfull \hbox (2.5429pt too wide) in paragraph at lines 283--297
+ [] 
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 300.
+
+
+<figure/unnamed-chunk-1-1.pdf, id=33, 289.08pt x 505.89pt>
+File: figure/unnamed-chunk-1-1.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-1-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-1-1.pdf used on input line 302.
+(pdftex.def)             Requested size: 227.76358pt x 398.58345pt.
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 311.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [5 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proye
+cto/Documentacion/figure/unnamed-chunk-1-1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 314--315
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--317
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 318--319
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 365--366
+[]\OT1/cmr/m/n/10 La sigu-iente tabla, com-para los tiem-pos
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 389.
+
+
+<figure/unnamed-chunk-2-1.pdf, id=42, 578.16pt x 259.97125pt>
+File: figure/unnamed-chunk-2-1.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-1.pdf used on input line 390.
+(pdftex.def)             Requested size: 483.9799pt x 217.62065pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 390--391
+[][] 
+ []
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 395.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [6]
+Underfull \hbox (badness 10000) in paragraph at lines 397--398
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 421--422
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 423--424
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 425--426
+
+ []
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 440.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [7 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proye
+cto/Documentacion/figure/unnamed-chunk-2-1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 443--444
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 465--465
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 465--465
+
+ []
+
+
+Overfull \hbox (13.46664pt too wide) in paragraph at lines 445--466
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 467--468
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 496--496
+
+ []
+
+
+Underfull \hbox (badness 6284) in paragraph at lines 469--497
+[]\OT1/cmr/m/n/10 Este es pseu-docodigo del pro-ceso worker,
+ []
+
+
+Overfull \hbox (13.46664pt too wide) in paragraph at lines 469--497
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 499--500
+\OT1/cmr/m/n/10 Se ha a~nadido un nuevo parametro a la
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 499--500
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 504--505
+
+ []
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:515: Extra }, or forgotten \endgroup
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 525--526
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--528
+
+ []
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 528.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [8]
+Underfull \hbox (badness 10000) in paragraph at lines 529--530
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 531--532
+
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 536.
+
+
+<figure/unnamed-chunk-3-1.pdf, id=58, 578.16pt x 259.97125pt>
+File: figure/unnamed-chunk-3-1.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-3-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-3-1.pdf used on input line 537.
+(pdftex.def)             Requested size: 483.9799pt x 217.62065pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 537--538
+[][] 
+ []
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:546: Extra }, or forgotten \endgroup
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 560.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [9 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proye
+cto/Documentacion/figure/unnamed-chunk-3-1.pdf>]
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 623.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [10]
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 687.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [11]
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 730.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [12]
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 795.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [13]
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 859.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [14]
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 919.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [15]
+LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 963
+.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1cmtt.fd"
+File: ts1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 981.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [16]
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 1046.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [17]
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 1108.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [18]
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 1167.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [19]
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 1231.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [20]
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 1292.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [21]
+Underfull \hbox (badness 10000) in paragraph at lines 1295--1296
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1297--1298
+
+ []
+
+
+<TreeSum.png, id=108, 727.96968pt x 398.99063pt>
+File: TreeSum.png Graphic file (type png)
+ <use TreeSum.png>
+Package pdftex.def Info: TreeSum.png used on input line 1306.
+(pdftex.def)             Requested size: 227.76358pt x 124.83646pt.
+
+<TreeBroadcast.png, id=109, 759.58781pt x 435.12563pt>
+File: TreeBroadcast.png Graphic file (type png)
+
+<use TreeBroadcast.png>
+Package pdftex.def Info: TreeBroadcast.png used on input line 1314.
+(pdftex.def)             Requested size: 227.76358pt x 130.47229pt.
+
+<Butterfly.png, id=110, 527.72156pt x 289.83281pt>
+File: Butterfly.png Graphic file (type png)
+ <use Butterfly.png>
+Package pdftex.def Info: Butterfly.png used on input line 1321.
+(pdftex.def)             Requested size: 227.76358pt x 125.09003pt.
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 1333.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [22 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/TreeSum.png> <C:/Users/Mikel/Google Drive/Grado en Ing Infor
+mática/Cuarto/SCP/SCP-Proyecto/Documentacion/TreeBroadcast.png> <C:/Users/Mike
+l/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/Documentacion/
+Butterfly.png>]
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 1343
+.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+Underfull \hbox (badness 10000) in paragraph at lines 1364--1365
+[]\OT1/cmr/m/n/10 Respecto al tipo de dato que mane-jan,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1364--1365
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1366--1367
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1368--1369
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1414--1415
+
+ []
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 1419.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [23]
+<Mat.png, id=118, 339.51843pt x 283.0575pt>
+File: Mat.png Graphic file (type png)
+ <use Mat.png>
+Package pdftex.def Info: Mat.png used on input line 1421.
+(pdftex.def)             Requested size: 182.21155pt x 151.9072pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1424--1425
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1426--1428
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1431--1432
+
+ []
+
+
+Underfull \hbox (badness 5519) in paragraph at lines 1436--1437
+\OT1/cmr/m/n/10 ho-mogeneos, aunque esten en posi-ciones
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1442--1443
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1456--1457
+
+ []
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 1459.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [24 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Mat.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1472--1473
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1476--1477
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1479--1480
+
+ []
+
+
+<VectorStride.png, id=122, 662.475pt x 191.21437pt>
+File: VectorStride.png Graphic file (type png)
+
+<use VectorStride.png>
+Package pdftex.def Info: VectorStride.png used on input line 1483.
+(pdftex.def)             Requested size: 227.76358pt x 65.73853pt.
+
+<Strides.png, id=123, 711.4078pt x 173.14688pt>
+File: Strides.png Graphic file (type png)
+ <use Strides.png>
+Package pdftex.def Info: Strides.png used on input line 1496.
+(pdftex.def)             Requested size: 227.76358pt x 55.43454pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1503--1504
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1505--1506
+
+ []
+
+
+<paking.png, id=124, 695.59875pt x 198.7425pt>
+File: paking.png Graphic file (type png)
+ <use paking.png>
+Package pdftex.def Info: paking.png used on input line 1509.
+(pdftex.def)             Requested size: 227.76358pt x 65.07271pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1518--1519
+
+ []
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 1524.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [25 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/VectorStride.png> <C:/Users/Mikel/Google Drive/Grado en Ing 
+Informática/Cuarto/SCP/SCP-Proyecto/Documentacion/Strides.png> <C:/Users/Mikel
+/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/Documentacion/p
+aking.png>]
+<domaindecomp.png, id=129, 292.09125pt x 162.6075pt>
+File: domaindecomp.png Graphic file (type png)
+
+<use domaindecomp.png>
+Package pdftex.def Info: domaindecomp.png used on input line 1526.
+(pdftex.def)             Requested size: 227.76358pt x 126.80107pt.
+
+<distributions.png, id=131, 377.91188pt x 290.58563pt>
+File: distributions.png Graphic file (type png)
+
+<use distributions.png>
+Package pdftex.def Info: distributions.png used on input line 1531.
+(pdftex.def)             Requested size: 227.76358pt x 175.13309pt.
+
+<functionaldecomp.png, id=132, 441.90094pt x 265.74281pt>
+File: functionaldecomp.png Graphic file (type png)
+
+<use functionaldecomp.png>
+Package pdftex.def Info: functionaldecomp.png used on input line 1540.
+(pdftex.def)             Requested size: 227.76358pt x 136.97058pt.
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1557: Package inputenc Error: Unicode char \u8:�
+\lst@FillFixed@\lst@EC� not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1557: Package inputenc Error: Keyboard character
+ used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1558: Package inputenc Error: Unicode char \u8:�
+\lst@FillFixed@\lst@EC� not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1558: Package inputenc Error: Keyboard character
+ used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1564: Package inputenc Error: Unicode char \u8:�
+\lst@FillFixed@\lst@EC� not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1564: Package inputenc Error: Keyboard character
+ used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1565: Package inputenc Error: Unicode char \u8:�
+\lst@FillFixed@\lst@EC� not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1565: Package inputenc Error: Keyboard character
+ used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1572: Package inputenc Error: Unicode char \u8:�
+\lst@FillFixed@\lst@EC� not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1572: Package inputenc Error: Keyboard character
+ used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1573: Package inputenc Error: Unicode char \u8:�
+\lst@FillFixed@\lst@EC� not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1573: Package inputenc Error: Keyboard character
+ used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1576: Package inputenc Error: Unicode char \u8:�
+\lst@FillFixed@\lst@EC� not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1576: Package inputenc Error: Keyboard character
+ used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1577: Package inputenc Error: Unicode char \u8:�
+\lst@FillFixed@\lst@EC� not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1577: Package inputenc Error: Keyboard character
+ used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1583--1585
+
+ []
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 1591.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [26 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/domaindecomp.png> <C:/Users/Mikel/Google Drive/Grado en Ing 
+Informática/Cuarto/SCP/SCP-Proyecto/Documentacion/distributions.png> <C:/Users
+/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/Documenta
+cion/functionaldecomp.png>]
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 1610.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [27]
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1622: Misplaced \noalign
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1645--1648
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1670--1671
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1672--1673
+
+ []
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1674: Misplaced \noalign
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1676--1677
+
+ []
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 1713.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [28]
+
+Package xcolor Warning: Incompatible color definition on input line 1721.
+
+
+<figure/unnamed-chunk-4-1.pdf, id=145, 578.16pt x 289.08pt>
+File: figure/unnamed-chunk-4-1.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-4-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-4-1.pdf used on input line 1722.
+(pdftex.def)             Requested size: 483.9799pt x 241.98744pt.
+
+Package xcolor Warning: Incompatible color definition on input line 1727.
+
+
+<figure/unnamed-chunk-5-1.pdf, id=146, 578.16pt x 332.24126pt>
+File: figure/unnamed-chunk-5-1.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-5-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-5-1.pdf used on input line 1728.
+(pdftex.def)             Requested size: 483.9799pt x 278.11752pt.
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 1734.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [29 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/figure/unnamed-chunk-4-1.pdf> <C:/Users/Mikel/Google Drive/G
+rado en Ing Informática/Cuarto/SCP/SCP-Proyecto/Documentacion/figure/unnamed-c
+hunk-5-1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1737--1738
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1739--1740
+
+ []
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1741: Misplaced \noalign
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1743--1744
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1772--1773
+
+ []
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1774: Misplaced \noalign
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 1811.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [30]
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1816: Misplaced \noalign
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1814--1816
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1818--1819
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1836--1837
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1850--1851
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1852--1853
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1854--1855
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1857--1858
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1859--1860
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1865--1866
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1867--1868
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1869--1870
+
+ []
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1871: Misplaced \noalign
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1873--1874
+
+ []
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 1875.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [31]
+Underfull \hbox (badness 10000) in paragraph at lines 1875--1876
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1919--1920
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1921--1922
+
+ []
+
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1968: Package inputenc Error: Unicode char \u8:�
+\expandafter not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:1968: Package inputenc Error: Keyboard character
+ used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 1970.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [32]
+Underfull \hbox (badness 10000) in paragraph at lines 1973--1974
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1975--1976
+
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 2000.
+
+
+<figure/unnamed-chunk-7-1.pdf, id=173, 578.16pt x 505.89pt>
+File: figure/unnamed-chunk-7-1.pdf Graphic file (type pdf)
+ <use figure/unnamed-chunk-7-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-7-1.pdf used on input line 2001.
+(pdftex.def)             Requested size: 483.9799pt x 423.47803pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 2001--2002
+[][] 
+ []
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 2006.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [33]
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 2006.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [34 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/figure/unnamed-chunk-7-1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 2015--2016
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2017--2018
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2019--2020
+
+ []
+
+
+<frontera.png, id=187, 419.31656pt x 150.5625pt>
+File: frontera.png Graphic file (type png)
+ <use frontera.png>
+Package pdftex.def Info: frontera.png used on input line 2023.
+(pdftex.def)             Requested size: 182.21155pt x 65.42523pt.
+
+C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto/D
+ocumentacion/Documentacion.tex:2026: Misplaced \noalign
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 2076.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [35 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/frontera.png>]
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 2107.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [36]
+<mpiinteractive.png, id=194, 584.1825pt x 247.92625pt>
+File: mpiinteractive.png Graphic file (type png)
+ <use mpiinteractive.png>
+Package pdftex.def Info: mpiinteractive.png used on input line 2120.
+(pdftex.def)             Requested size: 408.92496pt x 173.54718pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2124--2125
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2126--2127
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2128--2129
+
+ []
+
+
+<mpibatchconfig.png, id=195, 458.71375pt x 165.61874pt>
+File: mpibatchconfig.png Graphic file (type png)
+ <use mpibatchconfig.png>
+Package pdftex.def Info: mpibatchconfig.png used on input line 2134.
+(pdftex.def)             Requested size: 321.09743pt x 115.93231pt.
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 2138.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [37 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/mpiinteractive.png> <C:/Users/Mikel/Google Drive/Grado en In
+g Informática/Cuarto/SCP/SCP-Proyecto/Documentacion/mpibatchconfig.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 2164--2165
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2166--2167
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2168--2173
+
+ []
+
+
+Overfull \hbox (0.81528pt too wide) in paragraph at lines 2174--2180
+[]\OT1/cmr/m/n/10 Para cono-cer la in-for-macion so-bre el Sis-tema Op-er-a-ti
+vo que esta en eje-cucion se uti-liza el co-mando \lsb[]release
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2174--2180
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2181--2185
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2188
+
+ []
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 2188.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [38]
+Underfull \hbox (badness 10000) in paragraph at lines 2190--2191
+
+ []
+
+
+<monocore.png, id=206, 411.5375pt x 277.035pt>
+File: monocore.png Graphic file (type png)
+ <use monocore.png>
+Package pdftex.def Info: monocore.png used on input line 2193.
+(pdftex.def)             Requested size: 288.07428pt x 193.92317pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2196--2197
+
+ []
+
+
+<multicore.png, id=207, 495.8525pt x 337.26pt>
+File: multicore.png Graphic file (type png)
+ <use multicore.png>
+Package pdftex.def Info: multicore.png used on input line 2200.
+(pdftex.def)             Requested size: 347.09438pt x 236.08038pt.
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 2202.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [39 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/monocore.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 2203--2204
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2205--2206
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2207--2208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2210--2211
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2212--2213
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2214--2215
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2216--2217
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2218--2219
+
+ []
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 2219.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [40 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/multicore.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 2220--2222
+
+ []
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 2224.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [41]
+<Esquemilla.png, id=220, 554.07pt x 331.2375pt>
+File: Esquemilla.png Graphic file (type png)
+ <use Esquemilla.png>
+Package pdftex.def Info: Esquemilla.png used on input line 2228.
+(pdftex.def)             Requested size: 483.9799pt x 289.33676pt.
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 2262.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [42 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Esquemilla.png>]
+
+pdfTeX warning: pdflatex.EXE (file C:/Users/Mikel/Google Drive/Grado en Ing Inf
+ormática/Cuarto/SCP/SCP-Proyecto/Documentacion/Acta_Constitucion.pdf): PDF inc
+lusion: found PDF version <1.7>, but at most version <1.5> allowed
+
+<Acta_Constitucion.pdf, id=225, 597.55246pt x 845.07724pt>
+File: Acta_Constitucion.pdf Graphic file (type pdf)
+ <use Acta_Constitucion.pdf>
+Package pdftex.def Info: Acta_Constitucion.pdf used on input line 2262.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
+
+
+pdfTeX warning: pdflatex.EXE (file C:/Users/Mikel/Google Drive/Grado en Ing Inf
+ormática/Cuarto/SCP/SCP-Proyecto/Documentacion/Acta_Constitucion.pdf): PDF inc
+lusion: found PDF version <1.7>, but at most version <1.5> allowed
+File: Acta_Constitucion.pdf Graphic file (type pdf)
+ <use Acta_Constitucion.pdf>
+Package pdftex.def Info: Acta_Constitucion.pdf used on input line 2262.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
+
+
+pdfTeX warning: pdflatex.EXE (file C:/Users/Mikel/Google Drive/Grado en Ing Inf
+ormática/Cuarto/SCP/SCP-Proyecto/Documentacion/Acta_Constitucion.pdf): PDF inc
+lusion: found PDF version <1.7>, but at most version <1.5> allowed
+
+
+pdfTeX warning: pdflatex.EXE (file C:/Users/Mikel/Google Drive/Grado en Ing Inf
+ormática/Cuarto/SCP/SCP-Proyecto/Documentacion/Acta_Constitucion.pdf): PDF inc
+lusion: found PDF version <1.7>, but at most version <1.5> allowed
+
+<Acta_Constitucion.pdf, id=228, page=1, 597.55246pt x 845.07724pt>
+File: Acta_Constitucion.pdf Graphic file (type pdf)
+
+<use Acta_Constitucion.pdf, page 1>
+Package pdftex.def Info: Acta_Constitucion.pdf, page1 used on input line 2262.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
+File: Acta_Constitucion.pdf Graphic file (type pdf)
+
+<use Acta_Constitucion.pdf, page 1>
+Package pdftex.def Info: Acta_Constitucion.pdf, page1 used on input line 2262.
+(pdftex.def)             Requested size: 478.04262pt x 676.06271pt.
+File: Acta_Constitucion.pdf Graphic file (type pdf)
+
+<use Acta_Constitucion.pdf, page 1>
+Package pdftex.def Info: Acta_Constitucion.pdf, page1 used on input line 2262.
+(pdftex.def)             Requested size: 478.04262pt x 676.06271pt.
+File: Acta_Constitucion.pdf Graphic file (type pdf)
+
+<use Acta_Constitucion.pdf, page 1>
+Package pdftex.def Info: Acta_Constitucion.pdf, page1 used on input line 2262.
+(pdftex.def)             Requested size: 478.04262pt x 676.06271pt.
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 2262.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+File: Acta_Constitucion.pdf Graphic file (type pdf)
+
+<use Acta_Constitucion.pdf, page 1>
+Package pdftex.def Info: Acta_Constitucion.pdf, page1 used on input line 2262.
+(pdftex.def)             Requested size: 478.04262pt x 676.06271pt.
+ [43 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Acta_Constitucion.pdf>]
+
+pdfTeX warning: pdflatex.EXE (file C:/Users/Mikel/Google Drive/Grado en Ing Inf
+ormática/Cuarto/SCP/SCP-Proyecto/Documentacion/Acta_14_marzo.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+
+<Acta_14_marzo.pdf, id=238, 597.55246pt x 845.07724pt>
+File: Acta_14_marzo.pdf Graphic file (type pdf)
+ <use Acta_14_marzo.pdf>
+Package pdftex.def Info: Acta_14_marzo.pdf used on input line 2264.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
+
+
+pdfTeX warning: pdflatex.EXE (file C:/Users/Mikel/Google Drive/Grado en Ing Inf
+ormática/Cuarto/SCP/SCP-Proyecto/Documentacion/Acta_14_marzo.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+File: Acta_14_marzo.pdf Graphic file (type pdf)
+ <use Acta_14_marzo.pdf>
+Package pdftex.def Info: Acta_14_marzo.pdf used on input line 2264.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
+
+
+pdfTeX warning: pdflatex.EXE (file C:/Users/Mikel/Google Drive/Grado en Ing Inf
+ormática/Cuarto/SCP/SCP-Proyecto/Documentacion/Acta_14_marzo.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+
+
+pdfTeX warning: pdflatex.EXE (file C:/Users/Mikel/Google Drive/Grado en Ing Inf
+ormática/Cuarto/SCP/SCP-Proyecto/Documentacion/Acta_14_marzo.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+
+<Acta_14_marzo.pdf, id=241, page=1, 597.55246pt x 845.07724pt>
+File: Acta_14_marzo.pdf Graphic file (type pdf)
+
+<use Acta_14_marzo.pdf, page 1>
+Package pdftex.def Info: Acta_14_marzo.pdf, page1 used on input line 2264.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
+File: Acta_14_marzo.pdf Graphic file (type pdf)
+
+<use Acta_14_marzo.pdf, page 1>
+Package pdftex.def Info: Acta_14_marzo.pdf, page1 used on input line 2264.
+(pdftex.def)             Requested size: 537.79224pt x 760.5625pt.
+File: Acta_14_marzo.pdf Graphic file (type pdf)
+
+<use Acta_14_marzo.pdf, page 1>
+Package pdftex.def Info: Acta_14_marzo.pdf, page1 used on input line 2264.
+(pdftex.def)             Requested size: 537.79224pt x 760.5625pt.
+File: Acta_14_marzo.pdf Graphic file (type pdf)
+
+<use Acta_14_marzo.pdf, page 1>
+Package pdftex.def Info: Acta_14_marzo.pdf, page1 used on input line 2264.
+(pdftex.def)             Requested size: 537.79224pt x 760.5625pt.
+File: Acta_14_marzo.pdf Graphic file (type pdf)
+
+<use Acta_14_marzo.pdf, page 1>
+Package pdftex.def Info: Acta_14_marzo.pdf, page1 used on input line 2264.
+(pdftex.def)             Requested size: 537.79224pt x 760.5625pt.
+ [44 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Acta_14_marzo.pdf>]
+
+pdfTeX warning: pdflatex.EXE (file C:/Users/Mikel/Google Drive/Grado en Ing Inf
+ormática/Cuarto/SCP/SCP-Proyecto/Documentacion/Acta_4_abril.pdf): PDF inclusio
+n: found PDF version <1.7>, but at most version <1.5> allowed
+
+<Acta_4_abril.pdf, id=250, 597.55246pt x 845.07724pt>
+File: Acta_4_abril.pdf Graphic file (type pdf)
+ <use Acta_4_abril.pdf>
+Package pdftex.def Info: Acta_4_abril.pdf used on input line 2266.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
+
+
+pdfTeX warning: pdflatex.EXE (file C:/Users/Mikel/Google Drive/Grado en Ing Inf
+ormática/Cuarto/SCP/SCP-Proyecto/Documentacion/Acta_4_abril.pdf): PDF inclusio
+n: found PDF version <1.7>, but at most version <1.5> allowed
+File: Acta_4_abril.pdf Graphic file (type pdf)
+ <use Acta_4_abril.pdf>
+Package pdftex.def Info: Acta_4_abril.pdf used on input line 2266.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
+
+
+pdfTeX warning: pdflatex.EXE (file C:/Users/Mikel/Google Drive/Grado en Ing Inf
+ormática/Cuarto/SCP/SCP-Proyecto/Documentacion/Acta_4_abril.pdf): PDF inclusio
+n: found PDF version <1.7>, but at most version <1.5> allowed
+
+
+pdfTeX warning: pdflatex.EXE (file C:/Users/Mikel/Google Drive/Grado en Ing Inf
+ormática/Cuarto/SCP/SCP-Proyecto/Documentacion/Acta_4_abril.pdf): PDF inclusio
+n: found PDF version <1.7>, but at most version <1.5> allowed
+
+<Acta_4_abril.pdf, id=253, page=1, 597.55246pt x 845.07724pt>
+File: Acta_4_abril.pdf Graphic file (type pdf)
+ <use Acta_4_abril.pdf, page 1>
+Package pdftex.def Info: Acta_4_abril.pdf, page1 used on input line 2266.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
+File: Acta_4_abril.pdf Graphic file (type pdf)
+ <use Acta_4_abril.pdf, page 1>
+Package pdftex.def Info: Acta_4_abril.pdf, page1 used on input line 2266.
+(pdftex.def)             Requested size: 537.79224pt x 760.5625pt.
+File: Acta_4_abril.pdf Graphic file (type pdf)
+ <use Acta_4_abril.pdf, page 1>
+Package pdftex.def Info: Acta_4_abril.pdf, page1 used on input line 2266.
+(pdftex.def)             Requested size: 537.79224pt x 760.5625pt.
+File: Acta_4_abril.pdf Graphic file (type pdf)
+ <use Acta_4_abril.pdf, page 1>
+Package pdftex.def Info: Acta_4_abril.pdf, page1 used on input line 2266.
+(pdftex.def)             Requested size: 537.79224pt x 760.5625pt.
+File: Acta_4_abril.pdf Graphic file (type pdf)
+ <use Acta_4_abril.pdf, page 1>
+Package pdftex.def Info: Acta_4_abril.pdf, page1 used on input line 2266.
+(pdftex.def)             Requested size: 537.79224pt x 760.5625pt.
+ [45 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Acta_4_abril.pdf>]
+Overfull \hbox (12.8946pt too wide) in paragraph at lines 2275--2289
+[][] 
+ []
+
+
+Underfull \hbox (badness 1789) in paragraph at lines 2291--2292
+[]\OT1/cmr/m/n/10 La me-dia de los datos de la tabla es: 39.0415. Parece que no
+ es acorde
+ []
+
+
+Underfull \hbox (badness 2573) in paragraph at lines 2291--2292
+\OT1/cmr/m/n/10 a los datos, esto se debe a que la me-dia no es un es-tadstic
+o ro-busto y se
+ []
+
+
+Underfull \hbox (badness 2334) in paragraph at lines 2291--2292
+\OT1/cmr/m/n/10 ve in-flu-en-ci-ada con fa-cil-i-dad por los val-ores ex-tremos
+, no as la moda, que s
+ []
+
+
+Underfull \hbox (badness 1275) in paragraph at lines 2291--2292
+\OT1/cmr/m/n/10 lo es y tiene un valor: 24 re-fleja mu-cho mejor el tiempo de e
+je-cucion del pro-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2291--2292
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2293--2294
+
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 2296.
+
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2298.
+
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 230
+1.
+
+(C:/PROGRA~1/R/R-32~1.3/share/texmf/tex/latex\omscmtt.fd
+File: omscmtt.fd 
+)
+LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2301.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2315--2316
+
+ []
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 2318.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [46]
+Underfull \hbox (badness 10000) in paragraph at lines 2318--2338
+\OT1/cmr/m/n/10 sacar con-clu-siones.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2340--2341
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2342--2343
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2344--2346
+
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 2348.
+
+
+<figure/unnamed-chunk-8-1.pdf, id=265, 578.16pt x 433.62pt>
+File: figure/unnamed-chunk-8-1.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-8-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-8-1.pdf used on input line 2349.
+(pdftex.def)             Requested size: 483.9799pt x 362.98119pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 2349--2350
+[][] 
+ []
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 2354.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [47 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/figure/unnamed-chunk-8-1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 2355--2356
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2357--2382
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2357--2382
+
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 2386.
+
+
+<figure/unnamed-chunk-9-1.pdf, id=275, 578.16pt x 289.08pt>
+File: figure/unnamed-chunk-9-1.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-9-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-9-1.pdf used on input line 2387.
+(pdftex.def)             Requested size: 483.9799pt x 241.98744pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 2387--2388
+[][] 
+ []
+
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 2405.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+ [48 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/figure/unnamed-chunk-9-1.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=285, 597.25134pt x 845.1374pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf used on input line 2406.
+
+(pdftex.def)             Requested size: 597.24988pt x 845.13535pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf used on input line 2406.
+
+(pdftex.def)             Requested size: 597.24988pt x 845.13535pt.
+
+<Proyecto-puzle-aplicacion.pdf, id=288, page=1, 597.25134pt x 845.1374pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 1>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page1 used on input lin
+e 2406.
+(pdftex.def)             Requested size: 597.24988pt x 845.13535pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 1>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page1 used on input lin
+e 2406.
+(pdftex.def)             Requested size: 477.80171pt x 676.11086pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 1>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page1 used on input lin
+e 2406.
+(pdftex.def)             Requested size: 477.80171pt x 676.11086pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 1>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page1 used on input lin
+e 2406.
+(pdftex.def)             Requested size: 477.80171pt x 676.11086pt.
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 2406.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 1>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page1 used on input lin
+e 2406.
+(pdftex.def)             Requested size: 477.80171pt x 676.11086pt.
+ [49 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf used on input line 2408.
+
+(pdftex.def)             Requested size: 597.24988pt x 845.13535pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf used on input line 2408.
+
+(pdftex.def)             Requested size: 597.24988pt x 845.13535pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf used on input line 2408.
+
+(pdftex.def)             Requested size: 597.24988pt x 845.13535pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf used on input line 2408.
+
+(pdftex.def)             Requested size: 597.24988pt x 845.13535pt.
+
+<Proyecto-puzle-aplicacion.pdf, id=318, page=3, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 3>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page3 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 3>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page3 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 3>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page3 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 3>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page3 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 3>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page3 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [50 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=336, page=4, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 4>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page4 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 4>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page4 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 4>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page4 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [51 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=348, page=5, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 5>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page5 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 5>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page5 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 5>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page5 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [52 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=356, page=6, 845.07718pt x 597.55246pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 6>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page6 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 845.07512pt x 597.551pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 6>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page6 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 845.07512pt x 597.551pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 6>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page6 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 845.07512pt x 597.551pt.
+ [53 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=360, page=7, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 7>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page7 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 7>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page7 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 7>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page7 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [54 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=380, page=8, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 8>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page8 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 8>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page8 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 8>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page8 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [55 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=385, page=9, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 9>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page9 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 9>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page9 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 9>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page9 used on input lin
+e 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [56 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=389, page=10, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 10>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page10 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 10>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page10 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 10>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page10 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [57 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=393, page=11, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 11>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page11 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 11>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page11 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 11>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page11 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [58 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=397, page=12, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 12>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page12 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 12>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page12 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 12>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page12 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [59 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=401, page=13, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 13>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page13 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 13>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page13 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 13>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page13 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [60 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=405, page=15, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 15>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page15 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 15>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page15 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 15>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page15 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [61 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=410, page=17, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 17>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page17 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 17>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page17 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 17>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page17 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [62 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=414, page=18, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 18>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page18 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 18>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page18 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 18>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page18 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [63 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=418, page=19, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 19>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page19 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 19>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page19 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 19>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page19 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [64 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=422, page=20, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 20>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page20 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 20>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page20 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 20>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page20 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [65 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=426, page=21, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 21>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page21 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 21>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page21 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 21>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page21 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [66 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=430, page=22, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 22>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page22 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 22>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page22 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 22>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page22 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [67 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=435, page=23, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 23>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page23 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 23>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page23 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 23>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page23 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [68 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=446, page=24, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 24>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page24 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 24>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page24 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 24>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page24 used on input li
+ne 2408.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [69 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf used on input line 2411.
+
+(pdftex.def)             Requested size: 597.24988pt x 845.13535pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf used on input line 2411.
+
+(pdftex.def)             Requested size: 597.24988pt x 845.13535pt.
+
+<Proyecto-puzle-aplicacion.pdf, id=452, page=25, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 25>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page25 used on input li
+ne 2411.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 25>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page25 used on input li
+ne 2411.
+(pdftex.def)             Requested size: 537.79224pt x 760.56244pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 25>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page25 used on input li
+ne 2411.
+(pdftex.def)             Requested size: 537.79224pt x 760.56244pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 25>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page25 used on input li
+ne 2411.
+(pdftex.def)             Requested size: 537.79224pt x 760.56244pt.
+File: ehu.pdf Graphic file (type pdf)
+ <use ehu.pdf>
+Package pdftex.def Info: ehu.pdf used on input line 2411.
+(pdftex.def)             Requested size: 128.0374pt x 55.35529pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 25>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page25 used on input li
+ne 2411.
+(pdftex.def)             Requested size: 537.79224pt x 760.56244pt.
+ [70 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf used on input line 2413.
+
+(pdftex.def)             Requested size: 597.24988pt x 845.13535pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf used on input line 2413.
+
+(pdftex.def)             Requested size: 597.24988pt x 845.13535pt.
+
+<Proyecto-puzle-aplicacion.pdf, id=466, page=26, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 26>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page26 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 26>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page26 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 26>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page26 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 26>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page26 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 26>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page26 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [71 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=470, page=27, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 27>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page27 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 27>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page27 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 27>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page27 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [72 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=474, page=28, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 28>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page28 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 28>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page28 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 28>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page28 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [73 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=479, page=29, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 29>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page29 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 29>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page29 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 29>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page29 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [74 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=483, page=30, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 30>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page30 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 30>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page30 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 30>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page30 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [75 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=487, page=31, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 31>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page31 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 31>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page31 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 31>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page31 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [76 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=491, page=32, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 32>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page32 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 32>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page32 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 32>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page32 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [77 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=495, page=33, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 33>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page33 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 33>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page33 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 33>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page33 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [78 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=499, page=34, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 34>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page34 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 34>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page34 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 34>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page34 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [79 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+<Proyecto-puzle-aplicacion.pdf, id=504, page=35, 597.55246pt x 845.07718pt>
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 35>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page35 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 35>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page35 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: Proyecto-puzle-aplicacion.pdf Graphic file (type pdf)
+
+<use Proyecto-puzle-aplicacion.pdf, page 35>
+Package pdftex.def Info: Proyecto-puzle-aplicacion.pdf, page35 used on input li
+ne 2413.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ [80 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Proyecto-puzle-aplicacion.pdf>]
+("C:\Users\Mikel\Google Drive\Grado en Ing Informática\Cuarto\SCP\SCP-Proyecto
+\Documentacion\Documentacion.aux") ) 
+Here is how much of TeX's memory you used:
+ 6582 strings out of 493921
+ 93999 string characters out of 3144876
+ 428313 words of memory out of 3000000
+ 9707 multiletter control sequences out of 15000+200000
+ 19988 words of font info for 64 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 39i,19n,49p,900b,1997s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\Mikel\AppData\Local\MiKTeX\2.9\f
+onts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk> <C:\Users\Mikel\AppData\Local\Mi
+KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tctt0800.pk>{C:/Program Files (x86)
+/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files (x86)/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmitt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmtt8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/eurosy
+m/feymr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8
+a.pfb>
+Output written on Documentacion.pdf (80 pages, 2863446 bytes).
+PDF statistics:
+ 564 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 421 words of extra memory for PDF output out of 10000 (max. 10000000)
+

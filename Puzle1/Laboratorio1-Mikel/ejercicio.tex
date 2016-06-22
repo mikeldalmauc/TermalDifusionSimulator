@@ -1,0 +1,244 @@
+% LaTeX Language and campus name and format package
+\documentclass[es,gi]{ifirak}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+% ERABILIKO DIREN PAKETEAK %
+
+% listings pakage is for code formating
+\usepackage{listings}
+% Paquete for acents and other special characters
+% It is not necesary to use all this packages add or remove those you are interested on
+\usepackage[utf8]{inputenc}
+\usepackage{colortbl}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amsfonts}
+\usepackage{makeidx}
+\usepackage{wrapfig}
+% Definition of colors
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{lightgray}{rgb}{0.95,0.95,0.95}
+\definecolor{gray}{rgb}{0.85,0.85,0.85}
+\definecolor{white}{rgb}{1,1,1}
+\definecolor{purple}{rgb}{0.51,0,0.25}
+\definecolor{orange}{rgb}{0.255,0.178,0.102}
+%Definition of style for code
+\lstdefinestyle{customc}{
+	belowcaptionskip=1\baselineskip,
+	breaklines=true,
+	tabsize=4,
+	language=C,
+	showstringspaces=false,
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\bfseries\color{darkgreen},
+	commentstyle=\itshape\color{purple},
+	identifierstyle=\color{blue},
+	stringstyle=\color{orange},
+	backgroundcolor=\color{lightgray},
+}
+\lstset{language=C,escapechar=@,style=customc}
+\DeclareMathSizes{10}{10}{10}{10}
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\columnwidth}}
+  {\endminipage\par\medskip}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+% Course year
+\ikasturtea{2015 - 2016}
+% Subject or course name
+\irakasgaia{Sistemas de Cómputo Paralelo}
+% Title
+\title{Ejercicios}
+% Name of Author
+\author{Mikel Dalmau}
+
+\maketitle
+
+
+
+
+\setlength{\columnsep}{1cm}
+
+\textbf{Ejercicio 1:} Se ejecuta 8 veces un determinado programa y se mide su tiempo de ejecución. Los resultados obtenidos aparecen en la siguiente tabla. Hacer una estimación del tiempo de ejecución del programa.
+\begin{wraptable}{l}{2cm}
+	\begin{tabular}{|c|}
+		\hline
+		\cellcolor{gray}Tiempo (ms) \\
+		\hline
+		23,256 \\
+		24,128 \\
+		23,872 \\
+		24,190 \\
+		25,876 \\
+		144,637 \\
+		22,987 \\
+		23,386\\ 
+		\hline
+	\end{tabular}
+\end{wraptable} 
+
+La media de los datos de la tabla es: 39.0415. Parece que no es acorde a los datos, esto se debe a que la media no es un estadístico robusto y se ve influenciada con facilidad por los valores extremos, no así la moda, que sí lo es y tiene un valor: 24 refleja mucho mejor el tiempo de ejecución del programa. \\
+
+De todas formas no podemos desechar un valor a la ligera, para ello voy a utilizar un modelo en el que considero como extremos todos los datos que no se encuentren entre los cuartiles Q1 y Q3 de la distribución. Para no hacer un modelo tan restrictivo multiplico el rango intercuartil por 1.5.\\
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{Q1} \hlkwb{<-} \hlkwd{quantile}\hlstd{(x,}\hlkwc{probs}\hlstd{=}\hlnum{0.25}\hlstd{)}
+\hlstd{Q3} \hlkwb{<-} \hlkwd{quantile}\hlstd{(x,}\hlkwc{probs}\hlstd{=}\hlnum{0.75}\hlstd{)}
+\hlstd{step}\hlkwb{<-} \hlnum{2.5} \hlopt{*} \hlstd{(Q3}\hlopt{-}\hlstd{Q1)}
+\hlstd{res} \hlkwb{<-} \hlkwd{sapply}\hlstd{(x,}\hlkwc{FUN}\hlstd{=}\hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{)\{}
+        \hlkwa{if}\hlstd{( x} \hlopt{<} \hlstd{Q3}\hlopt{-}\hlstd{step} \hlopt{|} \hlstd{x} \hlopt{>} \hlstd{Q1}\hlopt{+}\hlstd{step )\{}
+            \hlstd{x} \hlkwb{<-} \hlnum{NA}
+        \hlstd{\}}\hlkwa{else}\hlstd{\{ x \}\})}
+\hlstd{res}
+\end{alltt}
+\begin{verbatim}
+## [1] 23.256 24.128 23.872 24.190 25.876     NA 22.987 23.386
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+
+En definitiva, el programa tendría un tiempo de ejecución de 24 ms, la media del resto de valores no excluidos.\\
+
+\pagebreak
+\textbf{Ejercicio 2:} En un determinado experimento se ha medido el tiempo de ejecución de dos alternativas de un programa en función del tamaño de los vectores procesados (y, en consecuencia, en función de la carga de cálculo), y se han obtenido los datos de la tabla. Representar los datos en un gráfico de la manera más adecuada posible y sacar conclusiones.
+\begin{wraptable}{l}{5.5cm}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\cellcolor{gray} N(Bytes) &\cellcolor{gray} T1(ms) &\cellcolor{gray} T2(ms)\\
+		\hline
+		1 & 0,081 & 20,020 \\
+		2 & 0,162 & 20,053 \\
+		5 &0,405 &20,215 \\
+		100 &8,104 &22,167 \\
+		1000 &81,062 &39,893 \\
+		2000 &162,010 &59,756 \\
+3000 &242,013 &80,176 \\
+		3200 &259,197 &83,830 \\
+		3500 &283,518 &89,875 \\
+		4000 &323,998 &99,518 \\
+		20000 &1620,012 &421,532 \\
+		100000 &8099,996 &2020,225 \\
+		\hline
+	\end{tabular}
+\end{wraptable}
+
+Los datos de la siguiente tabla abarcan un gran número de valores y N incrementa diferentemente. Sabemos que ambos algoritmos son lineales mirando a los datos, el tiempo crece con N = 100 de 8ms para T1 y 22ms para T2 a 8000ms y 20000ms con N=100*1000.También sabemos que hay un punto de corte entre 100 y  1000.\\
+
+Los siguientes gráficos muestran ambas rectas y su punto de corte, que se ha realizando creando puntos entre 100 y 1000 con las funciones ajustadas de T1 y T2.\\
+
+Podemos concluir que el programa 1 es más rápido con vectores pequeños, de 350 Bytes o menos aproximadamente, a partir de dicho tamaño el programa 2 es mejor ya que crece con una pendiente de 2\%
+y el programa 1 del 8\%.\\
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-1-1} 
+
+\end{knitrout}
+
+\pagebreak
+
+\textbf{Ejercicio 3:} Las siguientes tablas muestran los tiempos de ejecución de dos programas diferentes en función del parámetro N. Representa los datos y obtén una expresión matemática que indique cómo varía T en función de N. A partir de ahí calcula el tiempo de ejecución esperado en cada caso para N=100.\\
+
+\begin{tabular}{|c|c|}
+		\hline
+		\cellcolor{gray} N &\cellcolor{gray} T1\\
+		\hline
+		10&83\\
+		20&108\\
+		30&141\\
+		40&179\\
+		50&207\\
+		60&241\\
+		\hline
+	\end{tabular}
+\begin{tabular}{|c|c|}
+		\hline
+		\cellcolor{gray} N &\cellcolor{gray} T2\\
+		\hline
+		1&53\\
+		5&77\\
+		10&118\\
+		15&185\\
+		25&440\\
+		40&1611\\
+		\hline
+	\end{tabular}\\
+\\
+
+En las siguientes gráficas pueden verse las representaciones de los datos en negro y sus respectivos ajustes en rojo. 
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-1} 
+
+\end{knitrout}
+
+Se ha ajustado las tablas con las siguientes funciones:
+
+\begin{itemize}
+\item[]  Lineal : $y=$ 47.3333333 $+$ 3.2142857 $x$
+\item[] Cuadrático : $y=$ 116.7037178 \ensuremath{-18.5565452} $x$ $+$ 1.3840086 $x^2$
+\end{itemize}
+
+El tiempo de ejecución esperado a cada caso sería aproximado al los siguientes:
+\begin{itemize}
+\item[ ]Lineal : 368.7619048 ms.
+\item[ ]Cuadrático : \ensuremath{1.2101135\times 10^{4}} ms.
+\end{itemize}
+
+\end{document}

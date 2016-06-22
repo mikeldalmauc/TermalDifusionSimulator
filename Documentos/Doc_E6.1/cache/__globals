@@ -1,0 +1,4 @@
+unnamed-chunk-1	c	mean	sd
+unnamed-chunk-2	axis	c	eff16	eff2	eff24	eff32	eff4	eff8	fa16	fa2	fa24	fa32	fa4	fa8	lines	par	plot
+unnamed-chunk-3	^	axis	c	lines	par	plot	sapply
+unnamed-chunk-4	axis	c	expression	par	plot	y16m	y1m	y24m	y2m	y32m	y4m	y8m

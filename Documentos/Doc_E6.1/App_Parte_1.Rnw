@@ -1,0 +1,219 @@
+% LaTeX Language and campus name and format package
+\documentclass[es,gi]{ifirak}
+
+% ERABILIKO DIREN PAKETEAK %
+
+% listings pakage is for code formating
+\usepackage{listings}
+% Paquete for acents and other special characters
+% It is not necesary to use all this packages add or remove those you are interested on
+\usepackage[utf8]{inputenc}
+\usepackage{colortbl}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amsfonts}
+\usepackage{makeidx}
+% Definition of colors
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{lightgray}{rgb}{0.95,0.95,0.95}
+\definecolor{gray}{rgb}{0.85,0.85,0.85}
+\definecolor{white}{rgb}{1,1,1}
+\definecolor{purple}{rgb}{0.51,0,0.25}
+\definecolor{orange}{rgb}{0.255,0.178,0.102}
+%Definition of style for code
+\lstdefinestyle{customc}{
+	belowcaptionskip=1\baselineskip,
+	breaklines=true,
+	tabsize=4,
+	language=C,
+	showstringspaces=false,
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\bfseries\color{darkgreen},
+	commentstyle=\itshape\color{purple},
+	identifierstyle=\color{blue},
+	stringstyle=\color{orange},
+	backgroundcolor=\color{lightgray},
+}
+\lstset{language=C,escapechar=@,style=customc}
+\DeclareMathSizes{10}{10}{10}{10}
+%\lstset{language=C++,
+	%	basicstyle=\scriptsize\ttfamily,
+	%	keywordstyle=\color{darkgreen}\bfseries,
+	%	identifierstyle=\color{black},
+	%	commentstyle=\color{gray}, 
+	%	stringstyle=\ttfamily,
+	%	showstringspaces=false,
+	%	tabsize=2,
+%	\textit{K}(\textit{m}, \textit{j}) = max \{ \textit{K}(\textit{m} - \textit{m_{j}}, \textit{j} - 1) + \textit{v_{j}} , \textit{K}(\textit{m}, \textit{j} - 1) \}
+	%	backgroundcolor=\color{lightgray}}
+%par(pch=22, col="black", mfrow = c(2,1))
+
+\begin{document}
+% Course year
+\ikasturtea{2015 - 2016}
+% Subject or course name
+\irakasgaia{Sistemas de Cómputo Paralelo}
+% Title
+\title{Aplicación, Parte 1}
+% Name of Author
+\author{Mikel Dalmau, Jose Ángel Gumiel}
+
+\maketitle
+
+<<setup, echo=FALSE, cache=FALSE>>=
+library(knitr)
+# global chunk options
+opts_chunk$set(cache=TRUE, autodep=TRUE)
+@
+
+Tabla con las medias de tiempos de 5 ejecuciones, para distintos números de procesadores, utilizando el fichero card.
+
+<<echo=FALSE >>=
+
+y1 <- c(2500,2500,2500,2500,2500)
+y1m <- mean(y1)
+y1s <- sd(y1)
+
+y2 <- c(2380.114, 2380.114, 2380.114, 2380.114, 2380.114)
+y2m <- mean(y2)
+y2s <- sd(y2)
+
+y4 <- c(594.113, 595.086, 592.468, 597.246, 595.061)
+y4m <- mean(y4)
+y4s <- sd(y4)
+
+y8 <- c(310.684, 307.733, 310.550,  307.344,  306.682)
+y8m <- mean(y8)
+y8s <- sd(y8)
+
+y16 <- c(179.349,  177.859, 179.196, 179.196, 179.196)
+y16m <- mean(y16)
+y16s <- sd(y16)
+
+y24 <- c(134.170, 133.922, 133.952, 133.999, 133.759)
+y24m <- mean(y24)
+y24s <- sd(y24)
+
+y32 <- c(119.87, 118.116, 120.157, 120.019, 120.87)
+y32m <- mean(y32)
+y32s <- sd(y32)
+
+means.sd0  <- c(y2m-y2s,y4m-y4s,y8m-y8s,y16m-y16s,y24m-y24s,y32m-y32s)
+means <- c(y1m,y2m,y4m,y8m,y16m,y24m,y32m)
+means.sd1  <- c(y2m+y2s,y4m+y4s,y8m+y8s,y16m+y16s,y24m+y24s,y32m+y32s)
+
+fa2 <- y1m/y2m;
+fa4 <- y1m/y4m;
+fa8 <- y1m/y8m;
+fa16 <-y1m/y16m;
+fa24 <-y1m/y24m;
+fa32 <-y1m/y32m;
+
+eff2 <- fa2/2.0;
+eff4 <- fa4/4.0;
+eff8 <- fa8/8.0;
+eff16 <- fa16/16.0;
+eff24 <- fa24/24.0;
+eff32 <- fa32/32.0;
+@
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{c c c c}
+		\textbf{ Proc.} & $\overline{\textbf{Tex}}$(s)& \textbf{speed-up} & \textbf{efficiency} \\
+		\hline
+		 serial & 2500 & - & - \\
+		 \hline
+		 2 &  \Sexpr{round(y2m,2)} & \Sexpr{round(fa2,2)} & \Sexpr{round(eff2,2)}\\
+		 4 &  \Sexpr{round(y4m,2)} & \Sexpr{round(fa4,2)} & \Sexpr{round(eff4,2)}\\
+		 8 &  \Sexpr{round(y8m,2)} & \Sexpr{round(fa8,2)} & \Sexpr{round(eff8,2)}\\
+		 16 & \Sexpr{round(y16m,2)} & \Sexpr{round(fa16,2)} & \Sexpr{round(eff16,2)}\\
+		 24 & \Sexpr{round(y24m,2)} & \Sexpr{round(fa24,2)} & \Sexpr{round(eff24,2)}\\
+		 32 & \Sexpr{round(y32m,2)} & \Sexpr{round(fa32,2)} & \Sexpr{round(eff32,2)}\\
+		 \hline
+	\end{tabular}
+\end{table}
+
+<<echo=FALSE ,fig.width=8, fig.height=3.6,fig.pos='!h'>>=
+par(mfrow=c(1,2),mar=c(5.1,4.1,4.1,2.1), oma=c(0,0,0,0))
+
+fares <- c(fa2,fa4,fa8,fa16,fa24,fa32)
+x <- c(2,4,8,16,24,32);
+plot(x, fares ,lty=1,type="o",xlab="p",xaxt="n",pch=0, ylab="fa",xlim=c(1, 32), ylim=c(0, 32))
+axis(1, at=x)
+lines(x,x,type="o",lty=3)
+
+effres <- c(eff2,eff4,eff8,eff16,eff24,eff32)
+
+plot(x, effres ,lty=1,type="o",xlab="p",xaxt="n",pch=0, ylab="eff",xlim=c(1, 32), ylim=c(0, 1.1))
+axis(1, at=x)
+@
+
+Los anteriores gráficos muestran los factores de aceleración y eficiencia medias obtenidos para cada número de procesadores.\\
+
+Para mejorar la eficiencia con muchos procesos es necesario, o bien aumentar las dimensiones de la placa o bien cambiar la definición de frontera. También puede mejorarse la eficiencia aprovechando los tiempos de espera de la comunicación para realizar cálculos como se ha indicado en clase.\\
+
+El coste de la comunicación es lineal con P, se comunican 2P filas en total, cuantos más procesos intervengan en el cálculo el número de filas a procesar será menor y por lo tanto la relación entre filas a comunicar / filas a procesar será mayor, lo que explica la reducción de la eficiencia. \\
+
+Para n filas y P procesadores,
+
+$$\frac{filas\; a\; comunicar}{filas\; a\; procesar} =\frac{2P}{n/P} = \frac{2P^2}{n}\;\;\;,\; n >> P $$
+
+Dado un número de filas n, podemos hallar el número de Procesadores que minimizan dicha relación. La línea contínua representa el crecimiento del coste de la comunicación frente al coste del procesado e inversamente la línea de puntos es el coste de procesar frente al coste de comunicación.
+
+<<echo=FALSE ,fig.width=7, fig.height=6.5,fig.pos='!h'>>=
+par(mfrow=c(2,2))
+n <- 200
+P <- c(1:128)
+y <- sapply(P,FUN=function(x){
+					x <-((2*(x^2))/n)		
+			})
+j <- sapply(P,FUN=function(x){
+					x <-(n/(2*(x^2)))		
+			})	
+	
+plot(P, y ,lty=1,type="l",xlab="P",xaxt="n", ylab="relation",main=n,xlim=c(1,18),ylim=c(0,25))
+axis(1, at=c(1,4,8,16))
+lines(P,j,type="l",lty=2)
+
+n <- 1000
+y <- sapply(P,FUN=function(x){
+					x <-((2*(x^2))/n)		
+			})
+j <- sapply(P,FUN=function(x){
+					x <-(n/(2*(x^2)))		
+			})	
+			
+plot(P, y ,lty=1,type="l",xlab="P",xaxt="n", ylab="relation",main=n)
+axis(1, at=c(1,4,8,16,32,64,128))
+lines(P,j,type="l",lty=2)
+
+n <- 2000
+y <- sapply(P,FUN=function(x){
+					x <-((2*(x^2))/n)		
+			})
+j <- sapply(P,FUN=function(x){
+					x <-(n/(2*(x^2)))		
+			})	
+			
+plot(P, y ,lty=1,type="l",xlab="P",xaxt="n", ylab="relation",main=n)
+axis(1, at=c(1,4,8,16,32,64,128))
+lines(P,j,type="l",lty=2)
+
+n <- 20000
+y <- sapply(P,FUN=function(x){
+					x <-((2*(x^2))/n)		
+			})
+j <- sapply(P,FUN=function(x){
+					x <-(n/(2*(x^2)))		
+			})	
+			
+plot(P, y ,lty=1,type="l",xlab="P",xaxt="n", ylab="relation",main=n)
+axis(1, at=c(1,4,8,16,32,64,128))
+lines(P,j,type="l",lty=2)
+@
+
+El problema de este modelo es que no tiene en cuenta el tamaño de la fila y su posible influencia en el funcionamiento de la máquina, ya sea por los accesos costosos a memoria principal u otros factores, también ignora los costes de comunicación o el estado de la red, por lo que de elegir algún número P habría de estar siempre a la izquierda del punto de cruze, para dedicar así más trabajo a procesar.
+
+\end{document}

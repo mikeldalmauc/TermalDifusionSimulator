@@ -1,0 +1,162 @@
+% LaTeX Language and campus name and format package
+\documentclass[es,gi]{ifirak}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+% ERABILIKO DIREN PAKETEAK %
+
+% listings pakage is for code formating
+\usepackage{listings}
+% Paquete for acents and other special characters
+% It is not necesary to use all this packages add or remove those you are interested on
+\usepackage[utf8]{inputenc}
+\usepackage{colortbl}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amsfonts}
+\usepackage{makeidx}
+% Definition of colors
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{lightgray}{rgb}{0.95,0.95,0.95}
+\definecolor{gray}{rgb}{0.85,0.85,0.85}
+\definecolor{white}{rgb}{1,1,1}
+\definecolor{purple}{rgb}{0.51,0,0.25}
+\definecolor{orange}{rgb}{0.255,0.178,0.102}
+%Definition of style for code
+\lstdefinestyle{customc}{
+	belowcaptionskip=1\baselineskip,
+	breaklines=true,
+	tabsize=4,
+	language=C,
+	showstringspaces=false,
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\bfseries\color{darkgreen},
+	commentstyle=\itshape\color{purple},
+	identifierstyle=\color{blue},
+	stringstyle=\color{orange},
+	backgroundcolor=\color{lightgray},
+}
+\lstset{language=C,escapechar=@,style=customc}
+\DeclareMathSizes{10}{10}{10}{10}
+%\lstset{language=C++,
+	%	basicstyle=\scriptsize\ttfamily,
+	%	keywordstyle=\color{darkgreen}\bfseries,
+	%	identifierstyle=\color{black},
+	%	commentstyle=\color{gray}, 
+	%	stringstyle=\ttfamily,
+	%	showstringspaces=false,
+	%	tabsize=2,
+%	\textit{K}(\textit{m}, \textit{j}) = max \{ \textit{K}(\textit{m} - \textit{m_{j}}, \textit{j} - 1) + \textit{v_{j}} , \textit{K}(\textit{m}, \textit{j} - 1) \}
+	%	backgroundcolor=\color{lightgray}}
+%par(pch=22, col="black", mfrow = c(2,1))
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+% Course year
+\ikasturtea{2015 - 2016}
+% Subject or course name
+\irakasgaia{Sistemas de Cómputo Paralelo}
+% Title
+\title{Aplicación, Parte 1}
+% Name of Author
+\author{Mikel Dalmau, Jose Ángel Gumiel}
+
+\maketitle
+
+
+
+Tabla con las medias de tiempos de 5 ejecuciones, para distintos números de procesadores, utilizando el fichero card.
+
+
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{c c c c}
+		\textbf{ Proc.} & $\overline{\textbf{Tex}}$(s)& \textbf{speed-up} & \textbf{efficiency} \\
+		\hline
+		 serial & 2500 & - & - \\
+		 \hline
+		 2 &  2380.11 & 1.05 & 0.53\\
+		 4 &  594.79 & 4.2 & 1.05\\
+		 8 &  308.6 & 8.1 & 1.01\\
+		 16 & 178.96 & 13.97 & 0.87\\
+		 24 & 133.96 & 18.66 & 0.78\\
+		 32 & 119.81 & 20.87 & 0.65\\
+		 \hline
+	\end{tabular}
+\end{table}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-1} 
+
+\end{knitrout}
+
+Los anteriores gráficos muestran los factores de aceleración y eficiencia medias obtenidos para cada número de procesadores.\\
+
+Para mejorar la eficiencia con muchos procesos es necesario, o bien aumentar las dimensiones de la placa o bien cambiar la definición de frontera. También puede mejorarse la eficiencia aprovechando los tiempos de espera de la comunicación para realizar cálculos como se ha indicado en clase.\\
+
+El coste de la comunicación es lineal con P, se comunican 2P filas en total, cuantos más procesos intervengan en el cálculo el número de filas a procesar será menor y por lo tanto la relación entre filas a comunicar / filas a procesar será mayor, lo que explica la reducción de la eficiencia. \\
+
+Para n filas y P procesadores,
+
+$$\frac{filas\; a\; comunicar}{filas\; a\; procesar} =\frac{2P}{n/P} = \frac{2P^2}{n}\;\;\;,\; n >> P $$
+
+Dado un número de filas n, podemos hallar el número de Procesadores que minimizan dicha relación. La línea contínua representa el crecimiento del coste de la comunicación frente al coste del procesado e inversamente la línea de puntos es el coste de procesar frente al coste de comunicación.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-3-1} 
+
+\end{knitrout}
+
+El problema de este modelo es que no tiene en cuenta el tamaño de la fila y su posible influencia en el funcionamiento de la máquina, ya sea por los accesos costosos a memoria principal u otros factores, también ignora los costes de comunicación o el estado de la red, por lo que de elegir algún número P habría de estar siempre a la izquierda del punto de cruze, para dedicar así más trabajo a procesar.
+
+\end{document}

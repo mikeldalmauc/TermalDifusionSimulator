@@ -1,0 +1,250 @@
+% LaTeX Language and campus name and format package
+\documentclass[es,gi]{ifirak}
+% ERABILIKO DIREN PAKETEAK %
+
+% listings pakage is for code formating
+\usepackage{listings}
+% Paquete for acents and other special characters
+% It is not necesary to use all this packages add or remove those you are interested on
+\usepackage[utf8]{inputenc}
+\usepackage{colortbl}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amsfonts}
+\usepackage{makeidx}
+\usepackage{multicol}
+% Definition of colors
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{lightgray}{rgb}{0.95,0.95,0.95}
+\definecolor{gray}{rgb}{0.85,0.85,0.85}
+\definecolor{white}{rgb}{1,1,1}
+\definecolor{purple}{rgb}{0.51,0,0.25}
+\definecolor{orange}{rgb}{0.255,0.178,0.102}
+%Definition of style for code
+\lstdefinestyle{customc}{
+	belowcaptionskip=1\baselineskip,
+	breaklines=true,
+	tabsize=4,
+	language=C,
+	showstringspaces=false,
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\bfseries\color{darkgreen},
+	commentstyle=\itshape\color{purple},
+	identifierstyle=\color{blue},
+	stringstyle=\color{orange},
+	backgroundcolor=\color{lightgray},
+}
+\lstset{language=C,escapechar=@,style=customc}
+\DeclareMathSizes{10}{10}{10}{10}
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\columnwidth}}
+  {\endminipage\par\medskip}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+% Course year
+\ikasturtea{2015 - 2016}
+% Subject or course name
+\irakasgaia{Sistemas de Cómputo Paralelo}
+% Title
+\title{Puzle, Parte 1}
+% Name of Author
+\author{Mikel Dalmau}
+
+\maketitle
+
+\setlength{\columnsep}{1cm}
+%\section{Código}
+\begin{multicols}{2}
+\section{Comunicaciones colectivas}
+\paragraph{}
+Las comunicaciones colectivas consisten en distribuir la carga de trabajo que conlleva la comunicación de forma equitativa o eficiente entre los procesos. 
+\subsection{Comunicación en forma de árbol}
+\paragraph{}
+Esta forma de comunicación, aunque inicialmente pueda parecer que no mejora demasiado, ya que la mitad de los nodos realizan las mismas comunicaciones que realizarían punto a punto(esto es, cuando todos los nodos envían su valor a un único nodo), mejora considerablemente reduciendo la cantidad de recepciones y sumas que tiene que realizar el nodo líder. 
+\paragraph{}
+En el ejemplo de la imagen, el nodo 0 pasa de realizar \textit{n-1} recepciones y sumas a realizar 3 recepciones y sumas ($log_d \; n$ en el caso general, siendo \textit{d} el grado de árbol). De esta forma la carga de trabajo de los nodos crece logarítmica-mente con el número de procesadores, la mejora es notable frente al crecimiento lineal de la comunicación punto a punto.\\
+
+\begin{Figure}
+	\centering
+	\includegraphics[width=1.1\columnwidth]{TreeSum.png}
+	%\caption{Imágen extraída de \cite{key-1} , Apartado 3.4.1 .}  	    
+	\label{figure}
+\end{Figure}
+	
+\paragraph{}
+El problema de este modelo de comunicación es la dificultad de programarlo, existen incontables maneras distintas de hacerlo pero no sabríamos cual es la mejor, para que tipos y tamaños de problemas cual es la óptima. 
+\subsection{MPI\_Reduce}
+\paragraph{}
+Esta función implementa la comunicación colectiva vista en el apartado anterior, las decisiones de implementación tomadas en base a los criterios de los desarrolladores de MPI.
+
+\begin{verbatim}
+NAME
+     MPI_Reduce -  Reduces values on all
+            processes to a single value
+
+SYNOPSIS
+     int MPI_Reduce(MPICH2_CONST void *sendbuf, 
+     void *recvbuf, int count, MPI_Datatype 
+     datatype, MPI_Op op, int root, MPI_Comm comm)
+
+INPUT PARAMETERS
+     sendbuf - address of send buffer (choice)
+     count - number of elements in send 
+    		buffer (integer)
+     datatype - data type of elements of send 
+     		buffer (handle)
+     op     - reduce operation (handle)
+     root   - rank of root process (integer)
+     comm   - communicator (handle)
+
+OUTPUT PARAMETER
+     recvbufm- address of receive buffer 
+          (choice, significant only at root )
+\end{verbatim}
+
+\pagebreak
+Es de especial interés el parámetro \textit{op} que define el tipo de operación a realizar. Existen los siguientes tipos de operaciones:
+
+\begin{center}
+	\begin{tabular}{|l|l|}
+		\hline
+		\cellcolor{gray}Operation Value & \cellcolor{gray}Meaning \\
+		\hline
+		MPI\_MAX & Máximo\\
+		MPI\_MIN & Mínimo\\
+		MPI\_SUM & Suma\\
+		MPI\_PROD & Producto\\
+		MPI\_LAND & And lógico	\\
+		MPI\_BAND & And binario	\\
+		MPI\_LOR & Or lógico\\
+		MPI\_BOR & Or binario	\\
+		MPI\_LXOR & Or exclusivo lógico	\\
+		MPI\_BXOR & Or exclusivo binario	\\
+		MPI\_MAXLOC & Máximo y su dirección	\\
+		MPI\_MINLOC & Mínimo y su dirección	\\
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsubsection{ MPI\_ALLreduce }
+\paragraph{}
+Esta función es una variación de \textbf{MPI\_Reduce} en la que todos los nodos involucrados en la comunicación reciben el resultado. Los parámetros son idénticos con la excepción de que ahora sobra el parámetro \textit{root} ya que todos recibirán el mensaje. \\
+
+\begin{Figure}
+	\centering
+		\includegraphics[width=1.1\columnwidth]{Butterfly.png}
+		%\caption{Imágen extraída de \cite{key-1} , Apartado 3.4.5 .}						\label{figure}
+\end{Figure}
+
+La siguiente imagen muestra la estructura de comunicación utilizada por \textbf{MPI\_ALLreduce} que tiene forma de mariposa.
+\subsection{MPI\_Bcast}
+\paragraph{}
+En el caso de desear transmitir un mensaje a todos los nodos, se utiliza la misma estructura de árbol que hemos visto en el apartado anterior pero a la inversa.
+
+\begin{Figure}
+	\centering
+		\includegraphics[width=1.1\columnwidth]{TreeBroadcast.png}
+		%\caption{Imágen extraída de \cite{key-1} , Apartado 3.4.5 .}						\label{figure}
+\end{Figure}
+
+\begin{verbatim}
+NAME
+    MPI_Bcast -  Broadcasts a message from
+       	  the process with rank "root" to all 
+       	  other processes of the communicator
+
+SYNOPSIS
+    int MPI_Bcast( void *buffer, int count, 
+         MPI_Datatype datatype, 
+                     int root,
+                     MPI_Comm comm )
+
+INPUT/OUTPUT PARAMETER
+    buffer - starting address of buffer 
+           (choice)
+
+INPUT PARAMETERS
+    count  - number of entries in buffer (integer)
+    datatype
+           - data type of buffer (handle)
+    root   - rank of broadcast root (integer)
+    comm   - communicator (handle)
+\end{verbatim}
+
+\subsection{MPI\_Scatter}
+\subsection{MPI\_Gather}
+\subsection{MPI\_Allgather}	
+	
+\section{Ejercicios, primera parte del puzle.}
+
+\subsection{P1.1}
+\paragraph{}
+Hay que repartir un vector de N elementos entre npr procesos. Completa el programa serie \textit{P11-distribute0.c}, para que genere el tamaño de cada trozo del vector y el desplazamiento desde el origen del vector al comienzo de cada trozo, en estos dos casos: 
+
+\begin{itemize}
+\item[\textbf{a.}] los posibles restos se añaden al último trozo
+\item[\textbf{b.}] los posibles restos se añaden uno a uno a diferentes trozos
+\end{itemize}
+
+\subsubsection{a.}
+\paragraph{}
+Inicialmente calculo Nloc y remainder.
+\begin{lstlisting}
+	//Compute Nloc and remainder
+	Nloc = floor((double)N/(double)npr);
+	remainder = N - Nloc*npr;
+\end{lstlisting}
+\paragraph{}
+Este caso es sencillo y se resuelve con el siguiente bucle y las asignaciones finales.
+\begin{lstlisting}
+	//We distribute the work among the procesesses
+	for(i=0; i<npr-1; i++){
+		size[i] = Nloc;
+		shift[i] = i*Nloc;
+	}
+	//Finally we charge the last process with the remainder
+	size[npr-1] = Nloc + remainder;
+	shift[npr-1] = (npr-1)*Nloc;
+\end{lstlisting}
+
+\subsubsection{b.}
+\paragraph{}
+En este segundo caso he comenzado distribuyendo la carga del resto entre los primeros procesadores, luego,
+las cargas distintas entre procesos no permiten el cálculo de shift usado anteriormente, por lo que tomo las referencias de tamaño y shift calculadas en la anterior iteración para calcular el shift, sabemos donde empezamos porque sabemos dónde termina el anterior.
+
+\begin{lstlisting}
+	//Value asignment to first process  
+	size2[0] = Nloc;
+	shift2[0] = 0; 
+
+	//Distribution of the remainder among the first processes 
+	i = 0;
+	while(remainder){
+		size2[i] += 1;
+		remainder -= 1;
+		i++;
+	}
+	
+	//Distribute the rest of the vector among the processes
+	for(i=1; i<npr; i++){
+	  size2[i] += Nloc;
+	  shift2[i] = shift2[(i-1)] + size2[(i-1)];
+	}
+\end{lstlisting}
+
+\subsection{P1.2}
+El programa \textit{P12-inteser.c} calcula el valor de una integral mediante el conocido método de sumar las áreas de n trapecios bajo la curva que representa una función. A mayor valor de n, más preciso el resultado.\\
+
+Completa el programa MPI \textit{P12-inteser.c} para realizar esa misma función entre P procesos, utilizando funciones de comunicación colectiva. Compara el resultado con el de la versión serie. 
+
+
+\begin{thebibliography}
+\bibitem[1] Pacheco P.:\textit{An Introduction to Parallel Programming}. Morgan Kaufmann,2011. Capítulo 3, apartado 4.
+
+\end{thebibliography}
+
+\end{multicols}
+
+\end{document}

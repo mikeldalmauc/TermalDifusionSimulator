@@ -1,0 +1,563 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.26)  20 MAY 2016 22:07
+entering extended mode
+**Chopper.tex
+
+("C:\Users\Mikel\Google Drive\Grado en Ing Informática\Cuarto\SCP\SCP-Proyecto
+\Documentacion\Chopper.tex"
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size10.clo"
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(C:\Users\Mikel\AppData\Roaming\MiKTeX\2.9\tex\latex\pdfpages\pdfpages.sty
+Package: pdfpages 2016/04/19 v0.5f Insert pages of external PDF documents (AM)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count87
+\calc@Bcount=\count88
+\calc@Adimen=\dimen103
+\calc@Bdimen=\dimen104
+\calc@Askip=\skip43
+\calc@Bskip=\skip44
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count89
+\calc@Cskip=\skip45
+)
+(C:\Users\Mikel\AppData\Roaming\MiKTeX\2.9\tex\latex\eso-pic\eso-pic.sty
+Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\atbegshi.sty"
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+\Gread@gobject=\count90
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+)
+\Gin@req@height=\dimen105
+\Gin@req@width=\dimen106
+)
+\AM@pagewidth=\dimen107
+\AM@pageheight=\dimen108
+
+(C:\Users\Mikel\AppData\Roaming\MiKTeX\2.9\tex\latex\pdfpages\pppdftex.def
+File: pppdftex.def 2016/04/19 v0.5f Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box26
+\AM@global@opts=\toks15
+\AM@toc@title=\toks16
+\c@AM@survey=\count91
+\AM@templatesizebox=\box27
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count92
+\lst@gtempboxa=\box28
+\lst@token=\toks17
+\lst@length=\count93
+\lst@currlwidth=\dimen109
+\lst@column=\count94
+\lst@pos=\count95
+\lst@lostspace=\dimen110
+\lst@width=\dimen111
+\lst@newlines=\count96
+\lst@lineno=\count97
+\lst@maxwidth=\dimen112
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count98
+\lst@skipnumbers=\count99
+\lst@framebox=\box29
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+("C:\Users\Mikel\Google Drive\Grado en Ing Informática\Cuarto\SCP\SCP-Proyecto
+\Documentacion\Chopper.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+\AtBeginShipoutBox=\box30
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count100
+\scratchdimen=\dimen113
+\scratchbox=\box31
+\nofMPsegments=\count101
+\nofMParguments=\count102
+\everyMPshowfont=\toks18
+\MPscratchCnt=\count103
+\MPscratchDim=\dimen114
+\MPnumerator=\count104
+\makeMPintoPDFobject=\count105
+\everyMPtoPDFconversion=\toks19
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\pdflscape.sty"
+Package: pdflscape 2008/08/11 v0.10 Display of landscape pages in PDF (HO)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\lscape.sty"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+))
+\c@lstlisting=\count106
+
+<Documentacion.pdf, id=1, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf>
+Package pdftex.def Info: Documentacion.pdf used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf>
+Package pdftex.def Info: Documentacion.pdf used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+
+<Documentacion.pdf, id=4, page=3, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 3>
+Package pdftex.def Info: Documentacion.pdf, page3 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 3>
+Package pdftex.def Info: Documentacion.pdf, page3 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 3>
+Package pdftex.def Info: Documentacion.pdf, page3 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 3>
+Package pdftex.def Info: Documentacion.pdf, page3 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 3>
+Package pdftex.def Info: Documentacion.pdf, page3 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [1
+
+ <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proyecto
+/Documentacion/Documentacion.pdf{C:/Users/Mikel/AppData/Local/MiKTeX/2.9/pdftex
+/config/pdftex.map}>]
+<Documentacion.pdf, id=43, page=4, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 4>
+Package pdftex.def Info: Documentacion.pdf, page4 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 4>
+Package pdftex.def Info: Documentacion.pdf, page4 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 4>
+Package pdftex.def Info: Documentacion.pdf, page4 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [2 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proye
+cto/Documentacion/Documentacion.pdf>]
+<Documentacion.pdf, id=60, page=5, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 5>
+Package pdftex.def Info: Documentacion.pdf, page5 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 5>
+Package pdftex.def Info: Documentacion.pdf, page5 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 5>
+Package pdftex.def Info: Documentacion.pdf, page5 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [3 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proye
+cto/Documentacion/Documentacion.pdf>]
+<Documentacion.pdf, id=70, page=6, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 6>
+Package pdftex.def Info: Documentacion.pdf, page6 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 6>
+Package pdftex.def Info: Documentacion.pdf, page6 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 6>
+Package pdftex.def Info: Documentacion.pdf, page6 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [4 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proye
+cto/Documentacion/Documentacion.pdf>]
+<Documentacion.pdf, id=74, page=7, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 7>
+Package pdftex.def Info: Documentacion.pdf, page7 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 7>
+Package pdftex.def Info: Documentacion.pdf, page7 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 7>
+Package pdftex.def Info: Documentacion.pdf, page7 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [5 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proye
+cto/Documentacion/Documentacion.pdf>]
+<Documentacion.pdf, id=84, page=8, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 8>
+Package pdftex.def Info: Documentacion.pdf, page8 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 8>
+Package pdftex.def Info: Documentacion.pdf, page8 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 8>
+Package pdftex.def Info: Documentacion.pdf, page8 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [6 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proye
+cto/Documentacion/Documentacion.pdf>]
+<Documentacion.pdf, id=88, page=9, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 9>
+Package pdftex.def Info: Documentacion.pdf, page9 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 9>
+Package pdftex.def Info: Documentacion.pdf, page9 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 9>
+Package pdftex.def Info: Documentacion.pdf, page9 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [7 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proye
+cto/Documentacion/Documentacion.pdf>]
+<Documentacion.pdf, id=100, page=10, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 10>
+Package pdftex.def Info: Documentacion.pdf, page10 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 10>
+Package pdftex.def Info: Documentacion.pdf, page10 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 10>
+Package pdftex.def Info: Documentacion.pdf, page10 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [8 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proye
+cto/Documentacion/Documentacion.pdf>]
+<Documentacion.pdf, id=109, page=11, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 11>
+Package pdftex.def Info: Documentacion.pdf, page11 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 11>
+Package pdftex.def Info: Documentacion.pdf, page11 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 11>
+Package pdftex.def Info: Documentacion.pdf, page11 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [9 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proye
+cto/Documentacion/Documentacion.pdf>]
+<Documentacion.pdf, id=113, page=12, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 12>
+Package pdftex.def Info: Documentacion.pdf, page12 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 12>
+Package pdftex.def Info: Documentacion.pdf, page12 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 12>
+Package pdftex.def Info: Documentacion.pdf, page12 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [10 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Documentacion.pdf>]
+<Documentacion.pdf, id=117, page=13, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 13>
+Package pdftex.def Info: Documentacion.pdf, page13 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 13>
+Package pdftex.def Info: Documentacion.pdf, page13 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 13>
+Package pdftex.def Info: Documentacion.pdf, page13 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [11 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Documentacion.pdf>]
+<Documentacion.pdf, id=121, page=14, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 14>
+Package pdftex.def Info: Documentacion.pdf, page14 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 14>
+Package pdftex.def Info: Documentacion.pdf, page14 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 14>
+Package pdftex.def Info: Documentacion.pdf, page14 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [12 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Documentacion.pdf>]
+<Documentacion.pdf, id=125, page=15, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 15>
+Package pdftex.def Info: Documentacion.pdf, page15 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 15>
+Package pdftex.def Info: Documentacion.pdf, page15 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 15>
+Package pdftex.def Info: Documentacion.pdf, page15 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [13 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Documentacion.pdf>]
+<Documentacion.pdf, id=130, page=16, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 16>
+Package pdftex.def Info: Documentacion.pdf, page16 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 16>
+Package pdftex.def Info: Documentacion.pdf, page16 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 16>
+Package pdftex.def Info: Documentacion.pdf, page16 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [14 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Documentacion.pdf>]
+<Documentacion.pdf, id=139, page=17, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 17>
+Package pdftex.def Info: Documentacion.pdf, page17 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 17>
+Package pdftex.def Info: Documentacion.pdf, page17 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 17>
+Package pdftex.def Info: Documentacion.pdf, page17 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [15 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Documentacion.pdf>]
+<Documentacion.pdf, id=143, page=18, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 18>
+Package pdftex.def Info: Documentacion.pdf, page18 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 18>
+Package pdftex.def Info: Documentacion.pdf, page18 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 18>
+Package pdftex.def Info: Documentacion.pdf, page18 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [16 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Documentacion.pdf>]
+<Documentacion.pdf, id=147, page=19, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 19>
+Package pdftex.def Info: Documentacion.pdf, page19 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 19>
+Package pdftex.def Info: Documentacion.pdf, page19 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 19>
+Package pdftex.def Info: Documentacion.pdf, page19 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [17 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Documentacion.pdf>]
+<Documentacion.pdf, id=151, page=20, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 20>
+Package pdftex.def Info: Documentacion.pdf, page20 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 20>
+Package pdftex.def Info: Documentacion.pdf, page20 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 20>
+Package pdftex.def Info: Documentacion.pdf, page20 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [18 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Documentacion.pdf>]
+<Documentacion.pdf, id=155, page=21, 597.50829pt x 845.0471pt>
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 21>
+Package pdftex.def Info: Documentacion.pdf, page21 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+ <use Documentacion.pdf, page 21>
+Package pdftex.def Info: Documentacion.pdf, page21 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Documentacion.pdf Graphic file (type pdf)
+
+<use Documentacion.pdf, page 21>
+Package pdftex.def Info: Documentacion.pdf, page21 used on input line 6.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+ [19 <C:/Users/Mikel/Google Drive/Grado en Ing Informática/Cuarto/SCP/SCP-Proy
+ecto/Documentacion/Documentacion.pdf>]
+("C:\Users\Mikel\Google Drive\Grado en Ing Informática\Cuarto\SCP\SCP-Proyecto
+\Documentacion\Chopper.aux") ) 
+Here is how much of TeX's memory you used:
+ 3666 strings out of 493921
+ 53488 string characters out of 3144876
+ 110412 words of memory out of 3000000
+ 6956 multiletter control sequences out of 15000+200000
+ 3640 words of font info for 14 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 39i,19n,46p,259b,444s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmbxti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmitt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmtt8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr
+8a.pfb>
+Output written on Chopper.pdf (19 pages, 270390 bytes).
+PDF statistics:
+ 171 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 111 words of extra memory for PDF output out of 10000 (max. 10000000)
+

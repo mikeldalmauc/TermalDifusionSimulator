@@ -1,0 +1,61 @@
+\contentsline {section}{\numberline {1}Comunicaciones colectivas}{1}
+\contentsline {paragraph}{}{1}
+\contentsline {subsection}{\numberline {1.1}Comunicaci\IeC {\'o}n en forma de \IeC {\'a}rbol}{1}
+\contentsline {paragraph}{}{1}
+\contentsline {paragraph}{}{1}
+\contentsline {paragraph}{}{2}
+\contentsline {subsection}{\numberline {1.2}Comunicaciones colectivas frente a comunicaciones Punto a Punto}{2}
+\contentsline {subsection}{\numberline {1.3}Funciones de Comunicaci\IeC {\'o}n Colectiva en MPI}{2}
+\contentsline {paragraph}{}{2}
+\contentsline {section}{\numberline {2}Tipos de datos derivados y comunicadores}{3}
+\contentsline {paragraph}{}{3}
+\contentsline {subsection}{\numberline {2.1}Tipos de datos elementales}{4}
+\contentsline {paragraph}{}{4}
+\contentsline {subsection}{\numberline {2.2}Tipos de datos derivados}{4}
+\contentsline {paragraph}{}{4}
+\contentsline {subsubsection}{\numberline {2.2.1}Datatype signatures}{4}
+\contentsline {paragraph}{}{4}
+\contentsline {subsubsection}{\numberline {2.2.2}Basic calls}{4}
+\contentsline {paragraph}{}{4}
+\contentsline {subsubsection}{\numberline {2.2.3}Tipo contiguo}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {subsubsection}{\numberline {2.2.4}Tipo vector}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {subsubsection}{\numberline {2.2.5}Tipo indexado}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {subsubsection}{\numberline {2.2.6}Tipo struct}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {subsubsection}{\numberline {2.2.7}Empaquetado}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {section}{\numberline {3}Reparto din\IeC {\'a}mico de carga}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {subsection}{\numberline {3.1}Intercambio de informaci\IeC {\'o}n local}{6}
+\contentsline {subsection}{\numberline {3.2}Ejemplo de env\IeC {\'\i }o: Ping-Pong}{6}
+\contentsline {subsection}{\numberline {3.3}Comunicaci\IeC {\'o}n bloqueante}{6}
+\contentsline {paragraph}{}{6}
+\contentsline {section}{\numberline {4}Ejercicios}{7}
+\contentsline {subsection}{\numberline {4.1}P1.1}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {paragraph}{a.}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {paragraph}{b.}{7}
+\contentsline {subsection}{\numberline {4.2}P1.2}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {subsection}{\numberline {4.3}P1.3}{9}
+\contentsline {paragraph}{}{9}
+\contentsline {paragraph}{}{9}
+\contentsline {subsection}{\numberline {4.4}P2.1}{9}
+\contentsline {paragraph}{}{9}
+\contentsline {paragraph}{}{9}
+\contentsline {subsection}{\numberline {4.5}P2.2}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {subsection}{\numberline {4.6}P3.1}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {section}{\numberline {5}Anexo}{12}
+\contentsline {subsection}{\numberline {5.1}Poster}{12}
+\contentsline {subsection}{\numberline {5.2}Tabla de dedicaci\IeC {\'o}n}{12}
+\contentsline {subsection}{\numberline {5.3}Acta de Constituci\IeC {\'o}n del Grupo}{13}
+\contentsline {subsection}{\numberline {5.4}Actas de Reuni\IeC {\'o}n}{14}

@@ -1,0 +1,68 @@
+\contentsline {section}{\numberline {1}La aplicaci\IeC {\'o}n}{3}
+\contentsline {subsection}{\numberline {1.1}El programa serie}{3}
+\contentsline {subsection}{\numberline {1.2}Fase 1: Paralelizaci\IeC {\'o}n del programa serie}{3}
+\contentsline {subsubsection}{\numberline {1.2.1}Lectura de los datos:}{3}
+\contentsline {subsubsection}{\numberline {1.2.2}Reparto del dominio:}{3}
+\contentsline {subsubsection}{\numberline {1.2.3}Problema de la frontera:}{4}
+\contentsline {subsubsection}{\numberline {1.2.4}C\IeC {\'a}lculo de la temperatura media}{5}
+\contentsline {subsubsection}{\numberline {1.2.5}Resultados de la paralelizaci\IeC {\'o}n}{5}
+\contentsline {subsection}{\numberline {1.3}Fase 2: Mejoras del programa paralelo}{6}
+\contentsline {subsubsection}{\numberline {1.3.1}Comunicaciones inmediatas}{6}
+\contentsline {subsubsection}{\numberline {1.3.2}Modelo manager - worker}{7}
+\contentsline {subsubsubsection}{\numberline {1.3.2.1}Tipo de dato Chip}{7}
+\contentsline {subsubsubsection}{\numberline {1.3.2.2}Creaci\IeC {\'o}n de los comunicadores}{7}
+\contentsline {subsubsubsection}{\numberline {1.3.2.3}El M\IeC {\'a}nager}{8}
+\contentsline {subsubsubsection}{\numberline {1.3.2.4}El Worker}{8}
+\contentsline {subsubsubsection}{\numberline {1.3.2.5}Otros cambios en el c\IeC {\'o}digo}{8}
+\contentsline {subsubsubsection}{\numberline {1.3.2.6}Pruebas del nuevo modelo}{8}
+\contentsline {subsection}{\numberline {1.4}C\IeC {\'o}digo primera fase}{10}
+\contentsline {subsubsection}{\numberline {1.4.1}\textit {heats.c}}{10}
+\contentsline {subsubsection}{\numberline {1.4.2}\textit {difussion.c}}{13}
+\contentsline {subsection}{\numberline {1.5}C\IeC {\'o}digo segunda fase}{15}
+\contentsline {subsubsection}{\numberline {1.5.1}\textit {heats.c}}{15}
+\contentsline {subsubsection}{\numberline {1.5.2}\textit {difussion.c}}{20}
+\contentsline {section}{\numberline {2}Puzle}{22}
+\contentsline {subsection}{\numberline {2.1}Comunicaciones colectivas}{22}
+\contentsline {subsubsection}{\numberline {2.1.1}Comunicaci\IeC {\'o}n en forma de \IeC {\'a}rbol}{22}
+\contentsline {subsubsection}{\numberline {2.1.2}Comunicaciones colectivas frente a comunicaciones Punto a Punto}{22}
+\contentsline {subsubsection}{\numberline {2.1.3}Funciones de Comunicaci\IeC {\'o}n Colectiva en MPI}{23}
+\contentsline {subsection}{\numberline {2.2}Tipos de datos derivados y comunicadores}{24}
+\contentsline {subsubsection}{\numberline {2.2.1}Tipos de datos elementales}{24}
+\contentsline {subsubsection}{\numberline {2.2.2}Tipos de datos derivados}{24}
+\contentsline {subsubsubsection}{\numberline {2.2.2.1}Datatype signatures}{24}
+\contentsline {subsubsubsection}{\numberline {2.2.2.2}Basic calls}{25}
+\contentsline {subsubsubsection}{\numberline {2.2.2.3}Tipo contiguo}{25}
+\contentsline {subsubsubsection}{\numberline {2.2.2.4}Tipo vector}{25}
+\contentsline {subsubsubsection}{\numberline {2.2.2.5}Tipo indexado}{25}
+\contentsline {subsubsubsection}{\numberline {2.2.2.6}Tipo struct}{25}
+\contentsline {subsubsubsection}{\numberline {2.2.2.7}Empaquetado}{25}
+\contentsline {subsection}{\numberline {2.3}Reparto din\IeC {\'a}mico de carga}{25}
+\contentsline {subsubsection}{\numberline {2.3.1}Partici\IeC {\'o}n de los datos}{25}
+\contentsline {subsubsection}{\numberline {2.3.2}Descomposici\IeC {\'o}n del dominio del problema}{26}
+\contentsline {subsubsection}{\numberline {2.3.3}Descomposici\IeC {\'o}n funcional}{26}
+\contentsline {subsubsection}{\numberline {2.3.4}Intercambio de las fronteras}{26}
+\contentsline {subsubsection}{\numberline {2.3.5}Ejemplo de env\IeC {\'\i }o: Ping-Pong}{26}
+\contentsline {subsubsection}{\numberline {2.3.6}Comunicaci\IeC {\'o}n bloqueante}{26}
+\contentsline {subsection}{\numberline {2.4}Ejercicios}{28}
+\contentsline {subsubsection}{\numberline {2.4.1}P1.1}{28}
+\contentsline {subsubsection}{\numberline {2.4.2}P1.2}{28}
+\contentsline {subsubsection}{\numberline {2.4.3}P1.3}{30}
+\contentsline {subsubsection}{\numberline {2.4.4}P2.1}{30}
+\contentsline {subsubsection}{\numberline {2.4.5}P2.2}{31}
+\contentsline {subsubsection}{\numberline {2.4.6}P2.3}{31}
+\contentsline {subsubsection}{\numberline {2.4.7}P3.1}{31}
+\contentsline {subsubsection}{\numberline {2.4.8}P3.2}{35}
+\contentsline {section}{\numberline {3}Anexos}{37}
+\contentsline {subsection}{\numberline {3.1}El Hardware}{37}
+\contentsline {subsection}{\numberline {3.2}Modelo B\IeC {\'a}sico: Configuraci\IeC {\'o}n MPI Interactiva}{37}
+\contentsline {subsection}{\numberline {3.3}Caracter\IeC {\'\i }sticas de las M\IeC {\'a}quinas}{38}
+\contentsline {subsubsection}{\numberline {3.3.1}Posibles mejoras de hardware}{39}
+\contentsline {subsubsubsection}{\numberline {3.3.1.1}Combinar MPI con Multi-threading y OpenMP}{39}
+\contentsline {subsubsubsection}{\numberline {3.3.1.2}Mejora de las comunicaciones}{40}
+\contentsline {subsubsubsection}{\numberline {3.3.1.3}Procesadores}{40}
+\contentsline {subsection}{\numberline {3.4}Poster}{42}
+\contentsline {subsection}{\numberline {3.5}Tabla de dedicaci\IeC {\'o}n}{42}
+\contentsline {subsection}{\numberline {3.6}Actas}{43}
+\contentsline {subsection}{\numberline {3.7}Ejercicios de representaci\IeC {\'o}n de datos}{46}
+\contentsline {subsection}{\numberline {3.8}Escenario y Puzle}{49}
+\contentsline {subsection}{\numberline {3.9}Aplicaci\IeC {\'o}n a paralelizar}{70}

@@ -1,0 +1,12 @@
+
+
+	Para compilar - make all
+
+	
+	Para hacer las pruebas - make prueba (No es necesario hace mpdboot, tampoco mpdallexit si
+						las pruebas terminan normalmente)
+
+				 El directorio del proyecto tiene en su padre el archivo .mpd.conf 
+				 necesario para levantar las máquinas. 
+	
+	Para elminiar archivos de prueba y .o  - make clean

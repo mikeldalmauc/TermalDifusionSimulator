@@ -1,0 +1,2805 @@
+% LaTeX Language and campus name and format package
+\documentclass[es,gi]{ifirak}
+
+% ERABILIKO DIREN PAKETEAK %
+
+% listings pakage is for code formating
+\usepackage{listings}
+% Paquete for acents and other special characters
+% It is not necesary to use all this packages add or remove those you are interested on
+\usepackage[utf8]{inputenc}
+\usepackage{colortbl}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amsfonts}
+\usepackage[pdftex]{graphicx}
+\usepackage{makeidx}
+\usepackage{multicol}
+\usepackage{titlesec}
+\usepackage{pdfpages}
+\usepackage{eurosym}
+
+% Definition of colors
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{lightgray}{rgb}{0.97,0.97,0.97}
+\definecolor{gray}{rgb}{0.85,0.85,0.85}
+\definecolor{white}{rgb}{1,1,1}
+\definecolor{purple}{rgb}{0.51,0,0.25}
+\definecolor{orange}{rgb}{1.0,0.49,0.0}
+%Definition of style for code
+\lstdefinestyle{customc}{
+	belowcaptionskip=1\baselineskip,
+	breaklines=true,
+	tabsize=4,
+	language=C,
+	showstringspaces=false,
+	numberstyle=\color{blue},
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\bfseries\color{darkgreen},
+	commentstyle=\itshape\color{purple},
+	identifierstyle=\color{black},
+	stringstyle=\color{orange},
+	backgroundcolor=\color{lightgray},
+}
+\lstset{language=C,escapechar=@,style=customc}
+\DeclareMathSizes{10}{10}{10}{10}
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\columnwidth}}
+  {\endminipage\par\medskip}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\renewcommand{\contentsname}{Índice}
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\def\toclevel@subsubsubsection{4}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+
+\makeatother
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+
+\begin{document}
+
+% Course year
+\ikasturtea{2015 - 2016}
+% Subject or course name
+\irakasgaia{Sistemas de Cómputo Paralelo}
+% Title
+\title{Portfolio}
+% Name of Author
+\author{Jose Ángel Gumiel y Mikel Dalmau}
+
+
+\maketitle
+
+\pagebreak
+
+\setlength{\columnsep}{1cm}
+
+\begin{multicols}{2}
+
+\tableofcontents
+
+\end{multicols}
+\pagebreak
+
+\begin{multicols}{2}
+\section{La aplicación}
+
+La aplicación a paralelizar se trata de un algoritmo que estudia placas con microchips, precisamente lo que realiza es una simulación de distribución de calor, con el objetivo de hallar la configuración que una vez estabilizada, tenga la temperatura media mínima.\\
+
+Véase en el Anexo apartado 3.4 \textit{Escenario y Puzle} una introducción más extensa al problema y a las herramientas de trabajo.
+
+\subsection{El programa serie}
+
+El programa serie está compuesto por los siguientes ficheros:\\
+
+\begin{itemize}
+\item[-] \textit{heats.c} contiene el main y se encarga de leer el fichero de configuraciones de la placa así como de algunas inicializaciones, tiene un bucle  principal que ejecuta cada configuración y recoge resultados.\\
+\item[-] La ejecución de las configuraciones se realiza en el fichero \textit{difussion.c} que implementa la función de difusión del calor y es donde se realiza la mayor parte del cálculo.\\
+\item[-] Por otro lado, están los ficheros \textit{faux.c} y \textit{defines.h} que se encargan de algunas funciones básicas de lectura y síntesis de resultados y de algunas definiciones de variables y estructuras.\\
+
+\end{itemize}
+ 
+En el Anexo apartado 3.5 \textit{Aplicación a Paralelizar} puede hallarse mas información sobre cada fichero y su código fuente.
+
+\subsection{Fase 1: Paralelización del programa serie}
+En este apartado se muestran los cambios más significativos realizados para adaptar el programa serie al modelo paralelo. En \textit{heat.c} se ha cambiado la \textit{Lectura de los datos} (1.2.1) y se realiza el \textit{Reparto del dominio} (1.2.2), esto es, un proceso reparte y recoge los datos tras el cálculo.\\
+
+En \textit{diffusion.c} se ha adaptado el código para que cada proceso calcule tantos datos como le corresponden y es aquí donde se lidia con el \textit{Problema de la frontera} (1.2.3). También se ha adaptado el \textit{Cálculo de la temperatura media} (1.2.4).
+\subsubsection{Lectura de los datos:} 
+Con múltiples procesos de trabajo solo uno de ellos realiza la lectura del fichero de configuraciones. De los datos leídos, empaqueta y envía al resto los parámetros que necesitan.
+
+\begin{lstlisting}
+
+if(pid == 0){
+	...
+	...
+	...
+	MPI_Pack(&param.scale, 1, MPI_INT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+	MPI_Pack(&param.nconf, 1, MPI_INT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+	MPI_Pack(&param.t_ext, 1, MPI_FLOAT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+	MPI_Pack(&param.t_delta, 1, MPI_FLOAT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+	MPI_Pack(&param.max_iter, 1, MPI_INT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+}			
+MPI_Bcast(&buf, sizebuf, MPI_PACKED, 0, MPI_COMM_WORLD);
+
+if(pid!=0){
+	MPI_Unpack(buf, sizebuf, &pos, &param.scale, 	1, MPI_INT, MPI_COMM_WORLD);
+	MPI_Unpack(buf, sizebuf, &pos, &param.nconf, 	1, MPI_INT, MPI_COMM_WORLD);
+	MPI_Unpack(buf, sizebuf, &pos, &param.t_ext, 	1, MPI_FLOAT, MPI_COMM_WORLD);
+	MPI_Unpack(buf, sizebuf, &pos, &param.t_delta, 	1, MPI_FLOAT, MPI_COMM_WORLD);
+	MPI_Unpack(buf, sizebuf, &pos, &param.max_iter, 1, MPI_INT, MPI_COMM_WORLD);
+}
+
+\end{lstlisting}
+ 
+\subsubsection{Reparto del dominio:}
+ El reparto de los datos de la placa se ha hecho por bloques de filas, la placa está ordenada de esa manera en un array de gran longitud. Cualquier otro tipo de reparto requeriría de costosas operaciones sobre los datos. Cabe destacar que la placa es rectangular y el tamaño de las filas corresponde al lado más corto, de no ser así habría sido mejor repartir bloques de columnas.
+
+\begin{Figure}
+\centering
+\includegraphics[width=1\columnwidth]{P0aResto.png}
+\end{Figure}
+
+Primero cada proceso calcula los vectores de tamaño y desplazamiento para saber cuantos datos le corresponden y cual es su primer dato. De esta manera, para cada configuración, cuando el proceso líder construya la placa de chips podrá realizar una llamada colectiva Scatter y distribuir cada trozo a su proceso correspondiente.
+
+\begin{lstlisting}
+
+MPI_Scatterv(&grid_chips[NCOL], &size[0], &displacement[0],  MPI_FLOAT,&grid_aux[NCOL], size[pid], MPI_FLOAT, 0, MPI_COMM_WORLD);
+
+//Update values of the grid
+for (i=1; i<=nrows; i++)
+for (j=1; j<NCOL-1; j++)
+	grid_chips[i*NCOL+j] = grid_aux[i*NCOL+j]; 
+		  
+init_grids(param, grid, grid_aux, nrows);
+		  
+// main loop: thermal injection/disipation until convergence (t_delta or max_iter)
+diffusion (param, &grid[0], &grid_chips[0], &grid_aux[0], nrows, npr, pid);
+
+// Gathering of grid
+MPI_Gatherv(&grid_aux[NCOL], size[pid],MPI_FLOAT, &grid[NCOL], &size[0], &displacement[0], MPI_FLOAT, 0, MPI_COMM_WORLD);
+						
+\end{lstlisting}
+
+Notese que en la función colectiva, se comienza a enviar desde NCOL, esto es, desde la segunda línea, y equivalentemente cada proceso recoge los datos comenzando desde la segunda línea. En el siguiente apartado se explica el motivo de esto.
+
+\subsubsection{Problema de la frontera:} La función de difusión térmica que se implementa, para actualizar la temperatura de una casilla, necesita conocer la temperatura de las que la rodean. Esto supone un problema con las casillas que requieren de datos de otro proceso. En la imagen siguiente se muestra una ejemplo del problema de la frontera en la difusión, donde se quiere calcular T$_{i}$ en P1 y se necesita conocer tres puntos que corresponden a P0.
+
+\begin{Figure}
+\centering
+\includegraphics[width=1\columnwidth]{BloquesFrontera.png}
+\end{Figure}
+
+Para trabajar con este problema, se han añadido dos filas más a cada bloque, una en la parte superior y otra en la inferior. Estas filas corresponden a los datos de frontera de los bloques contiguos, y se actualizan mediante envíos y recepciones antes de procesar cada iteración.\\
+
+\begin{Figure}
+\centering
+\includegraphics[width=1\columnwidth]{IntercambioFronteras.png}
+\end{Figure}
+
+
+En el siguiente código aparecen una serie de envíos y recepciones, donde los procesos primero y último, solo realizarán un envío/recepción de frontera, la inferior o la superior dependiendo del caso. El resto de procesos comunicarán ambas fronteras.\\
+\begin{lstlisting}
+
+if(pid < npr - 1){
+	MPI_Send(&grid[NCOL*nrows], NCOL, MPI_FLOAT, pid+1 , 0, MPI_COMM_WORLD);
+}
+if(pid > 0){
+	MPI_Recv(&grid[0], NCOL, MPI_FLOAT,   pid-1, 0, MPI_COMM_WORLD,&info);
+	MPI_Send(&grid[NCOL], NCOL, MPI_FLOAT, pid-1 , 0, MPI_COMM_WORLD);
+}
+if(pid < npr - 1){
+	MPI_Recv(&grid[NCOL*(nrows+1)], NCOL, MPI_FLOAT, pid+1, 0, MPI_COMM_WORLD, &info);
+}
+\end{lstlisting}
+
+\subsubsection{Cálculo de la temperatura media}
+Cada 10 iteraciones del búcle de difusión del calor, se calcula la temperatura media de la placa para ver si esta se ha estabilizado. Ahora, la temperatura está dividida entre los distintos procesos. Hemos utilizado la función MPI\_AllReduce para que todos los procesos tengan la temperatura total de la placa y todos alcancen así el criterio de convergencia a la vez.\\
+\begin{lstlisting}
+
+// convergence every 10 iterations
+if (niter % 10 == 0){
+			
+	MPI_Allreduce(&Tmean, &tmean, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
+		   
+	tmean = tmean / ((NCOL-2)*(NROW-2));
+	if ((fabs(tmean - Tmean0) < param.t_delta) || (niter > param.max_iter))
+		end = 1;
+	else 
+		Tmean0 = tmean;
+}
+\end{lstlisting}
+
+\subsubsection{Resultados de la paralelización}
+
+Para ejecutar las pruebas se ha utilizado un fichero de configuraciones llamado \textit{card.txt} que contiene 20 configuraciones distintas. Cada placa tiene 2000 x 1000 bloques y cuatro chips de distintos tamaños.\\
+
+La siguiente tabla muestra los tiempos medios de cinco ejecuciones para distintos números de procesadores. De los gráficos se puede distinguir la eficiencia y speed-up de cada caso. El descenso de la eficiencia se explica por el sobrecoste de comunicación que se da al enviar las fronteras. Podemos concluir que 8 es el número de procesadores optimo par el tamaño de grid utilizado.
+
+<<datos1, echo=FALSE >>=
+
+y1m <- 2400
+
+y2m <- mean(c(1225.594,1225.479,1254.135))
+de2m <- sd(c(1225.594,1225.479,1254.135))
+y2s <- mean(c(1393.492,1393.442,1394.127))
+de2s <- sd(c(1393.492,1393.442,1394.127))
+
+y4m <- mean(c(606.045,606.329,607.438,608.246))
+de4m <-sd(c(606.045,606.329,607.438,608.246))
+y4s <- mean(c(602.751,602.522,602.572,602.574,602.201,602.232,602.618,602.286))
+de4s <- sd(c(602.751,602.522,602.572,602.574,602.201,602.232,602.618,602.286))
+
+y8m <- mean(c(367.911,363.066,357.892,364.145))
+de8m <- sd(c(367.911,363.066,357.892,364.145))
+y8s <- mean(c(307.954,304.565,305.599,306.953,307.400))
+de8s <- sd(c(307.954,304.565,305.599,306.953,307.400))
+
+y12m <- mean(c(254.326,256.559,254.928,254.381,254.538))
+de12m <- sd(c(254.326,256.559,254.928,254.381,254.538))
+y12s <- mean(c(217.012,225.942,230.065,227.284,227.869))
+de12s <- sd(c(217.012,225.942,230.065,227.284,227.869))
+
+y16m <-mean(c(202.406,204.111,201.449,202.919))
+de16m <- sd(c(202.406,204.111,201.449,202.919))
+y16s <- mean(c(165.713,165.816,168.854,166.103,165.971))	
+de16s <- sd(c(165.713,165.816,168.854,166.103,165.971))
+
+y24m <-  mean(c(156.588,151.989,152.466,151.085,154.014))
+de24m <- sd(c(156.588,151.989,152.466,151.085,154.014))
+y24s <- mean(c(119.384,121.125,122.265,118.579,128.173))
+de24s <- sd(c(119.384,121.125,122.265,118.579,128.233))
+
+y32m <- mean(c(127.044, 125.337,126.673, 128.427, 127.720))
+de32m <- sd(c(127.044, 125.337,126.673, 128.427, 127.720))
+y32s <- mean(c(98.571,103.602,105.493,99.773,100.971))
+de32s <- sd(c(98.571,103.602,105.493,99.773,100.971))
+
+ym <- c(y1m,y2m,y4m,y8m,y12m,y16m,y24m,y32m)
+ys  <- c(y2s,y4s,y8s,y12s,y16s,y24s,y32s)
+
+fa2 <- y1m/y2m;
+fa4 <- y1m/y4m;
+fa8 <- y1m/y8m;
+fa12 <- y1m/y12m;
+fa16 <-y1m/y16m;
+fa24 <-y1m/y24m;
+fa32 <-y1m/y32m;
+
+fa2s <- y1m/y2s;
+fa4s <- y1m/y4s;
+fa8s <- y1m/y8s;
+fa12s <- y1m/y12s;
+fa16s <-y1m/y16s;
+fa24s <-y1m/y24s;
+fa32s <-y1m/y32s;
+
+eff2 <- fa2/2.0;
+eff4 <- fa4/4.0;
+eff8 <- fa8/8.0;
+eff12 <- fa12/12.0;
+eff16 <- fa16/16.0;
+eff24 <- fa24/24.0;
+eff32 <- fa32/32.0;
+
+eff2s <- fa2s/2.0;
+eff4s <- fa4s/4.0;
+eff8s <- fa8s/8.0;
+eff12s <- fa12s/12.0;
+eff16s <- fa16s/16.0;
+eff24s <- fa24s/24.0;
+eff32s <- fa32s/32.0;
+
+fares <- c(fa2,fa4,fa8,fa12,fa16,fa24,fa32)
+faresS <- c(fa2s,fa4s,fa8s,fa12s,fa16s,fa24s,fa32s)
+
+effres <- c(eff2,eff4,eff8,eff12,eff16,eff24,eff32)
+effresS <- c(eff2s,eff4s,eff8s,eff12s,eff16s,eff24s,eff32s)
+@
+
+\begin{center}
+	\begin{tabular}{ c c c c}
+		\textbf{ Proc.} & \textbf{T}(s)& \textbf{speed-up} & \textbf{efficiency} \\
+		\hline
+		 serial & \Sexpr{round(y1m,2)} & - & - \\
+		 \hline
+		 2 &  \Sexpr{round(y2m,2)} +- \Sexpr{round(de2m)} & \Sexpr{round(fa2,2)} & \Sexpr{round(eff2,2)} \\
+		 4 &  \Sexpr{round(y4m,2)}  +- \Sexpr{round(de4m)} &\Sexpr{round(fa4,2)}  & \Sexpr{round(eff4,2)}}\\
+		 8 &  \Sexpr{round(y8m,2)}  +- \Sexpr{round(de8m)}  &\Sexpr{round(fa8,2)} &\Sexpr{round(eff8,2)}\\
+		 12 &  \Sexpr{round(y12m,2)}+- \Sexpr{round(de12m)} &\Sexpr{round(fa12,2)} & \Sexpr{round(eff12,2)}\\
+		 16 & \Sexpr{round(y16m,2)} +- \Sexpr{round(de16m)}  &\Sexpr{round(fa16,2)} &\Sexpr{round(eff16,2)}\\
+		 24 & \Sexpr{round(y24m,2)} +- \Sexpr{round(de24m)} &\Sexpr{round(fa24,2)}  & \Sexpr{round(eff24,2)}\\
+		 32 & \Sexpr{round(y32m,2)} +- \Sexpr{round(de32m)} &\Sexpr{round(fa32,2)}  & \Sexpr{round(eff32,2)}\\
+		 \hline
+	\end{tabular}
+\end{center}
+
+<<echo=FALSE ,fig.width=4, fig.height=7, fig.align='center'>>=
+
+par(mfrow=c(2,1),mar=c(4,4,3,1))
+x <- c(2,4,8,12,16,24,32);
+plot(x, fares ,lty=1,type="o",xlab="p",xaxt="n",pch=0, ylab="fa",xlim=c(1, 32), ylim=c(0, 32))
+axis(1, at=x)
+lines(x,x,type="o",lty=3,pch=NA)
+
+plot(x, effres ,lty=1,type="o",xlab="p",xaxt="n",pch=0, ylab="eff",xlim=c(1, 32), ylim=c(0, 1.1))
+axis(1, at=x)
+@
+
+\pagebreak
+\subsection{Fase 2: Mejoras del programa paralelo}
+
+\subsubsection{Comunicaciones inmediatas}
+Las funciones de MPI ISend y Irecv, permiten avanzar al programa sin haber finalizado la comunicación. Esta funcionalidad puede aprovecharse para solapar tiempos de cálculo y comunicación. Así hemos hecho con el envío de las fronteras, se trata de la operación de comunicación más costosa, y era necesario esperar a que se finalizara para recalcular las temperaturas.\\
+
+Ahora se procede a realizar el cálculo directamente, obviando la primera y última líneas, que se calcularán al final del todo, tras comprobar que la comunicación está realizada.\\
+
+El modelo de paso de mensajes implica que el emisor inicia la comunicación. Tal y como se indica en \cite{key-4}, las comunicaciones tendrán en general menores costos si las funciones Receive ya han sido publicadas en el momento en que el emisor inicia la comunicación, los datos pueden ser movidos directamente al buffer de recepción y no hay necesidad de poner en cola una petición de envío. Así hemos procedido, publicando primero todas las llamadas Irecv y luego las Isend.\\
+
+\begin{lstlisting}
+
+if(pid > 0){
+	MPI_Irecv(&grid[0], NCOL, MPI_FLOAT, pid-1, 0, MPI_COMM_WORLD,&reqs[0]);
+}
+if(pid < npr -1 ){
+	MPI_Irecv(&grid[NCOL*(nrows+1)], NCOL, MPI_FLOAT, pid+1, 0, MPI_COMM_WORLD, &reqs[1]);
+}
+if(pid > 0){
+	MPI_Isend(&grid[NCOL], NCOL, MPI_FLOAT, pid-1 , 0, MPI_COMM_WORLD,&reqs[2]);
+}
+if(pid < npr - 1){
+	MPI_Isend(&grid[NCOL*nrows], NCOL, MPI_FLOAT, pid+1 , 0, MPI_COMM_WORLD,&reqs[3]);
+	
+	...
+	//Difusion del calor
+	...
+	
+if( (pid > 0) && (pid < npr -1) ){
+			
+	MPI_Testall(4,reqs, &flag, stats);
+	if(!flag){MPI_Waitall(4,reqs,stats);}
+			
+}else if( pid == 0 ){
+			
+	MPI_Test(&reqs[1], &flag, &stats[1]);
+	if(!flag){MPI_Wait(&reqs[1], &stats[1]);}
+	MPI_Test(&reqs[3], &flag, &stats[3]);
+	if(!flag){MPI_Wait(&reqs[3], &stats[3]);}
+	
+}else{
+			
+	MPI_Test(&reqs[0], &flag, &stats[0]);
+	if(!flag){MPI_Wait(&reqs[0], &stats[0]);}
+	MPI_Test(&reqs[2], &flag, &stats[2]);
+	if(!flag){MPI_Wait(&reqs[2], &stats[2]);}
+	
+}
+
+	...	
+	//Difusion primera y/o ultima linea
+	...	
+
+\end{lstlisting}
+
+La siguiente tabla, compara los tiempos obtenidos con los anteriores. En las gráficas, la línea continua con puntos cuadrados corresponde a los valores anteriores y la línea discontinua con cruces a los nuevos valores. La mejora en los factores de aceleración y eficiencia es considerable en casi todos los casos, sobre todo en los de muchos procesos, que eran los más afectados por el problema de la frontera, y aunque la eficiencia también desciende ya no se aprecia ese brusco descenso a partir de los 8 procesos.   
+
+\end{multicols}
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{c c c c c c c}
+		\textbf{ Proc.} & \textbf{T}(s)& \textbf{T I}(s)& \textbf{speed-up} & \textbf{speed-up I} & \textbf{efficiency} & \textbf{efficiency I}  \\
+		\hline
+		 serial & \Sexpr{round(y1m,2)} & - & - & - & - & -\\
+		 \hline
+		 2 &  \Sexpr{round(y2m,2)}  +- \Sexpr{round(de2m)} &  \Sexpr{round(y2s,2)} +- \Sexpr{round(de2s)} & \Sexpr{round(fa2,2)} & \Sexpr{round(fa2s,2)} & \Sexpr{round(eff2,2)} & \Sexpr{round(eff2s,2)}\\
+		 4 &  \Sexpr{round(y4m,2)} +- \Sexpr{round(de4m)} & \Sexpr{round(y4s,2)} +- \Sexpr{round(de4s,2)}  &\Sexpr{round(fa4,2)} & \Sexpr{round(fa4s,2)} & \Sexpr{round(eff4,2)}& \Sexpr{round(eff4s,2)}\\
+		 8 &  \Sexpr{round(y8m,2)} +- \Sexpr{round(de8m)} & \Sexpr{round(y8s,2)}  +- \Sexpr{round(de8s)}  &\Sexpr{round(fa8,2)} &  \Sexpr{round(fa8s,2)} &\Sexpr{round(eff8,2)}&\Sexpr{round(eff8s,2)}\\
+		 12 &  \Sexpr{round(y12m,2)} +- \Sexpr{round(de12m)}&  \Sexpr{round(y12s,2)}+- \Sexpr{round(de12s)} &\Sexpr{round(fa12,2)} &\Sexpr{round(fa12s,2)} & \Sexpr{round(eff12,2)}&\Sexpr{round(eff12s,2)}\\
+		 16 & \Sexpr{round(y16m,2)} +- \Sexpr{round(de16m)}& \Sexpr{round(y16s,2)} +- \Sexpr{round(de16s)} &\Sexpr{round(fa16,2)} & \Sexpr{round(fa16s,2)} &\Sexpr{round(eff16,2)}&\Sexpr{round(eff16s,2)}\\
+		 24 & \Sexpr{round(y24m,2)} +- \Sexpr{round(de24m)}& \Sexpr{round(y24s,2)} +- \Sexpr{round(de24s)} &\Sexpr{round(fa24,2)} &\Sexpr{round(fa24s,2)} & \Sexpr{round(eff24,2)}& \Sexpr{round(eff24s,2)}\\
+		 32 & \Sexpr{round(y32m,2)} +- \Sexpr{round(de32m)}& \Sexpr{round(y32s,2)} +- \Sexpr{round(de32s)} &\Sexpr{round(fa32,2)} &\Sexpr{round(fa32s,2)} & \Sexpr{round(eff32,2)}& \Sexpr{round(eff32s,2)}\\
+		 \hline
+	\end{tabular}
+\end{table}
+
+
+<<echo=FALSE ,fig.width=8, fig.height=3.6,fig.pos='!h'>>=
+par(mfrow=c(1,2),mar=c(5.1,4.1,4.1,2.1), oma=c(0,0,0,0))
+
+x <- c(2,4,8,12,16,24,32);
+plot(x, fares ,lty=1,type="o",xlab="p",xaxt="n",pch=0, ylab="fa",xlim=c(1, 32), ylim=c(0, 32))
+axis(1, at=x)
+lines(x,x,type="o",lty=3,pch=NA)
+lines(x,faresS,type="o",lty=5,pch=4)
+
+plot(x, effres ,lty=1,type="o",xlab="p",xaxt="n",pch=0, ylab="eff",xlim=c(1, 32), ylim=c(0, 1.1))
+axis(1, at=x)
+lines(x,effresS,type="o",lty=5,pch=4)
+
+@
+
+\begin{multicols}{2}
+
+\subsubsection{Modelo manager - worker}
+Aplicando este modelo de comunicación se pretende conseguir un reparto de las tareas más eficiente. Se trata de un reparto dinámico de las tareas, inicialmente, el proceso 0 leía el fichero de configuraciones e inicializaba las mallas y las enviaba al resto de procesos. Ahora el proceso manager lee el fichero de configuraciones y envía configuraciónes a los procesos\textit{ pid\_w} 0 de cada grupo de workers, luego cada uno de estos se encarga de inicializar su configuración y distribuir la malla entre los trabajadores de su grupo.\\
+
+\subsubsubsection{Tipo de dato Chip}
+Para enviar y recibir las configuraciones, necesitabamos una manera sencilla de enviar la información de los microchips. El siguiente código crea un tipo de dato struct, igualito al del chip para utilizarlo en las funciones de comunicación.
+\begin{lstlisting}
+
+ /* Creation of chip data type */
+ MPI_Datatype mpi_chip_type;
+ MPI_Datatype types[nitems];
+ MPI_Aint offsets[nitems];
+	
+ for(j=0; j<nitems; j++)
+			 blocklengths[j]=1;
+ offsets[0] = offsetof(struct info_chip, x);     types[0] = MPI_INT;  
+ offsets[1] = offsetof(struct info_chip, y);     types[1] = MPI_INT; 
+ offsets[2] = offsetof(struct info_chip, h);     types[2] = MPI_INT;  
+ offsets[3] = offsetof(struct info_chip, w);     types[3] = MPI_INT; 
+ offsets[4] = offsetof(struct info_chip, tchip); types[4] = MPI_FLOAT; 
+
+ MPI_Type_create_struct(nitems, &blocklengths[0], &offsets[0], &types[0], &mpi_chip_type);
+ MPI_Type_commit(&mpi_chip_type);
+\end{lstlisting}
+
+\subsubsubsection{Creación de los comunicadores}
+En este programa creamos 4 grupos de comunicadores que es sencillamente adaptable ya que utilizamos la aritmética modular par asignar las claves dentro de cada comunicador.\\
+
+En el siguiente código se crean los communicadores de los workers, se utiliza la función MPI\_Comm\_split obviando al proceso 0, por eso es necesario hacer \textit{npr-1} en las operaciones para calcular el \textit{color} y el \textit{key}.\\
+
+Es una condición que el número de procesadores sea múltiplo de 4 + 1 y mayor o igual a 9 para que funcione correctamente. De ser cinco, el programa se ejecutaría en serie en cada proceso trabajador y lo que queremos es probar el programa paralelo que hemos creado. \\ 
+
+
+\begin{lstlisting}
+ /* Creation of worker communicators */
+ int color,key,pid_w,npr_w;
+ int groupSize = (npr-1)/groupAmount;
+ 
+ if( pid == 0){
+    color = MPI_UNDEFINED; key = 0;
+ }else{
+    color = 1 + floor((pid-1)/groupSize);
+	key =  (pid-1) % groupSize;
+ }
+ MPI_Comm_split(MPI_COMM_WORLD, color, key, &worker_comm);
+\end{lstlisting}
+	
+\subsubsubsection{El Mánager}
+Como ya hemos indicado el mánager se encarga de leer y distribuir bajor de demanda las configuraciones, también calcula el tiempo global de ejecución.\\
+
+Este es pseudocódigo del proceso mánager, puede verse el código original en \textit{Anexos 3.2.1}.
+\fbox{
+\begin{minipage}[t][7cm][b]{\columnwidth}
+	get Time 0\\
+	Send one configuration to each worker 0\\
+	\hspace*{0.8cm} responses ++ \\
+	while waiting responses\\
+	\hspace*{0.8cm}	Receive end of work message\\
+	\hspace*{0.8cm}	responses --\\
+	\hspace*{0.8cm}	if configurations\\
+	\hspace*{1.6cm}		Send work message\\
+	\hspace*{1.6cm}		Send confuration\\
+	\hspace*{1.6cm}		responses++\\
+	\hspace*{0.8cm}	else\\
+	\hspace*{1.6cm}		Send end of work message\\
+			
+	get Time 1\\
+	All reduce workers 0 for best configuration\\
+	Receive	best configuration from best owner \\
+\end{minipage}
+}
+\subsubsubsection{El Worker}
+El worker se parece mucho al código básico utilizado hasta ahora, el anterior proceso 0 ahora es el proceso 0 de los workers y es quien recibe la configuración inicializa la placa y la distribuye.\\
+
+Este es pseudocódigo del proceso worker, puede verse el código original en \textit{Anexos 3.2.1}.
+\fbox{
+\begin{minipage}[t][9cm][b]{\columnwidth}
+
+	if worker 0\\
+	\hspace*{0.8cm}	Allocate memory for one configuration\\
+	\hspace*{0.8cm}	Receive work message from manager\\
+	0 broadcast work message to rest\\
+	while work = 0\\
+	\hspace*{0.8cm}	if worker = 0\\
+\hspace*{1.6cm}			Receive configuration\\
+\hspace*{1.6cm}			Init grid chips\\
+	\hspace*{0.8cm}	Init grid\\
+		\hspace*{0.8cm}0 Scatter grid chips\\
+\hspace*{0.8cm}		difussion \\
+\hspace*{0.8cm}		Gather grid in 0\\
+\hspace*{0.8cm}		if worker 0 \\
+\hspace*{1.6cm}			process results\\
+\hspace*{1.6cm}			Request for work to manager\\
+\hspace*{1.6cm}			Receive manager answer \\
+\hspace*{0.8cm}		0 broadcast work message to rest\\
+	if worker 0\\
+\hspace*{0.8cm}		All reduce workers 0 for best configuration\\
+\hspace*{0.8cm}		if Best\\
+\hspace*{1.6cm}			Send best configuration to manager \\
+	 
+\end{minipage}
+}
+
+\subsubsubsection{Otros cambios en el código}
+Se ha añadido un núevo parámetro a la función difusión, un parámetro MPI\_Comm workers\_comm, ahora la función difusión ya no utiliza MPI\_COMM\_WORLD como comunicador de sus funciones sino el recogido por parámetro.\\
+
+Se ha eliminado el vector \textit{Tej} que contenía los tiempos de ejecución de cada configuración, ahora contamos solamente el tiempo desde el envío de la primera configuración hasta la recepción de la última respuesta. 
+
+\subsubsubsection{Pruebas del nuevo modelo}
+La siguiente tabla muestra los resultados obtenidos siguiendo el procedimiento descrito en el apartado 1.2.5.\\
+
+<<datos, echo=FALSE >>=
+
+y9 <- mean(c(317.381,317.410,317.658,318.004))
+de9 <- sd(c(317.381,317.410,317.658,318.004))
+
+y13 <- mean(c(207.268,206.525,207.344,206.978))
+de13 <- sd(c(207.268,206.525,207.344,206.978))
+
+y17 <- mean(c(150.452,150.609,150.368,150.528))
+de17 <- sd(c(150.452,150.609,150.368,150.528))
+
+y21 <- mean(c(119.814,119.705,119.828,119.481))
+de21 <- sd(c(119.814,119.705,119.828,119.481))
+
+y25 <- mean(c(98.694,98.597,99.789,98.910))	
+de25 <- sd(c(98.694,98.597,99.789,98.910))	
+
+y29 <-  mean(c(85.799,85.913,85.773,86.007))
+de29 <- sd(c(85.799,85.913,85.773,86.007))
+
+y33 <- mean(c(74.478,74.354,74.426,74.345))
+de33 <- sd(c(74.478,74.354,74.426,74.345))
+
+x3 <- c(7,10,13,16,19,22,25,28,31)
+y31.3 <- 79.579
+y28.3 <- 88.789
+y25.3 <- 98.962
+y22.3 <- 122.501
+y19.3 <- 134.941
+y16.3 <- 161.478
+y13.3 <- 204.164
+y10.3 <- 277.887
+y7.3 <- 415.853
+
+fa31.3 <- y1m/y31.3
+fa28.3 <- y1m/y28.3
+fa25.3 <- y1m/y25.3
+fa22.3 <- y1m/y22.3
+fa19.3 <- y1m/y19.3
+fa16.3 <- y1m/y16.3
+fa13.3 <- y1m/y13.3
+fa10.3 <- y1m/y10.3
+fa7.3 <- y1m/y7.3
+
+eff31.3 <- fa31.3/31.0
+eff28.3 <- fa28.3/28.0
+eff25.3 <- fa25.3/25.0
+eff22.3 <- fa22.3/22.0
+eff19.3 <- fa19.3/19.0
+eff16.3 <- fa16.3/16.0
+eff13.3 <- fa13.3/13.0
+eff10.3 <- fa10.3/10.0
+eff7.3 <- fa7.3/7.0
+
+faresW3 <- c(fa7.3,fa10.3,fa13.3,fa16.3,fa19.3,fa22.3,fa25.3,fa28.3,fa31.3)
+effresW3 <- c(eff7.3,eff10.3,eff13.3,eff16.3,eff19.3,eff22.3,eff25.3,eff28.3,eff31.3)
+
+fa9w <- y1m/y9;
+fa13w <- y1m/y13;
+fa17w <- y1m/y17;
+fa21w <- y1m/y21;
+fa25w <-y1m/y25;
+fa29w <-y1m/y29;
+fa33w <-y1m/y33;
+
+eff9 <- fa9w/9.0;
+eff13 <- fa13w/13.0;
+eff17 <- fa17w/17.0;
+eff21 <- fa21w/21.0;
+eff25 <- fa25w/25.0;
+eff29 <- fa29w/29.0;
+eff33 <- fa33w/33.0;
+
+faresW <- c(fa9w,fa13w,fa17w,fa21w,fa25w,fa29w,fa33w)
+effresW <- c(eff9,eff13,eff17,eff21,eff25,eff29,eff33)
+
+x5 <- c(11,16,21,26,31)
+
+y31.5 <- 82.077
+y26.5 <- 97.899
+y21.5 <- 126.754
+y16.5 <- 173.479
+y11.5 <- 263.725
+
+fa31.5 <- y1m/y31.5
+fa26.5 <- y1m/y26.5
+fa21.5 <- y1m/y21.5
+fa16.5 <- y1m/y16.5
+fa11.5 <- y1m/y11.5
+
+eff31.5 <- fa31.5/31.0
+eff26.5 <- fa26.5/26.0
+eff21.5 <- fa21.5/21.0
+eff16.5 <- fa16.5/16.0
+eff11.5 <- fa11.5/11.0
+
+faresW5 <- c(fa11.5,fa16.5,fa21.5,fa26.5,fa31.5)
+effresW5 <- c(eff11.5,eff16.5,eff21.5,eff26.5,eff31.5)
+
+x2 <- c(7,13,17,21,25,31,33)
+y33.2 <- 76.354
+y31.2 <- 80.923
+y25.2 <- 99.640
+y21.2 <- 117.541
+y17.2 <- 149.417
+y13.2 <- 201.189
+y7.2 <-  401.730
+
+fa33.2 <- y1m/y33.2
+fa31.2 <- y1m/y31.2
+fa25.2 <- y1m/y25.3
+fa21.2 <- y1m/y21.2
+fa17.2 <- y1m/y17.2
+fa13.2 <- y1m/y13.2
+fa7.2 <- y1m/y7.2
+
+eff33.2 <- fa33.2/33.0
+eff31.2 <- fa31.2/31.0
+eff25.2 <- fa25.2/25.0
+eff21.2 <- fa21.2/21.0
+eff17.2 <- fa17.2/17.0
+eff13.2 <- fa13.2/13.0
+eff7.2 <- fa7.2/7.0
+
+faresW2 <- c(fa7.2,fa13.2,fa17.2,fa21.2,fa25.2,fa31.2,fa33.2)
+effresW2 <- c(eff7.2,eff13.2,eff17.2,eff21.2,eff25.2,eff31.2,eff33.2)
+
+@
+
+\begin{center}
+	\begin{tabular}{ c c c c}
+		\textbf{ Proc.} & \textbf{T}(s)& \textbf{speed-up} & \textbf{efficiency} \\
+		\hline
+		 serial & \Sexpr{round(y1m,2)} & - & - \\
+		 \hline
+		 9 &  \Sexpr{round(y9,2)} +- \Sexpr{round(de9)} & \Sexpr{round(fa9w,3)} & \Sexpr{round(eff9,2)} \\
+		 13 &  \Sexpr{round(y13,2)}  +- \Sexpr{round(de13)} &\Sexpr{round(fa13w,3)}  & \Sexpr{round(eff13,2)}}\\
+		 17 &  \Sexpr{round(y17,2)}  +- \Sexpr{round(de17)}  &\Sexpr{round(fa17w,3)} &\Sexpr{round(eff17,2)}\\
+		 21 &  \Sexpr{round(y21,2)}+- \Sexpr{round(de21)} &\Sexpr{round(fa21w,3)} & \Sexpr{round(eff21,2)}\\
+		 25 & \Sexpr{round(y25,2)} +- \Sexpr{round(de25)}  &\Sexpr{round(fa25w,3)} &\Sexpr{round(eff25,2)}\\
+		 29 & \Sexpr{round(y29,2)} +- \Sexpr{round(de29)} &\Sexpr{round(fa29w,3)}  & \Sexpr{round(eff29,2)}\\
+		 33 & \Sexpr{round(y33,2)} +- \Sexpr{round(de33)} &\Sexpr{round(fa33w,3)}  & \Sexpr{round(eff33,2)}\\
+		 \hline
+	\end{tabular}
+\end{center}
+
+Los resultados de esta última muestran que el nuevo modelo es muy superior al anterior ya que su eficiencia aumenta con P y alcanza factores de aceleración casi óptimos. Además podemos intuir de los valores de la eficiencia que alcanza su máximo o se acerca a el con los 33 procesadores(4 grupos de 8), esto coincide con los resultados anteriores donde la eficiencia era máxima con 8 procesadores, debido al problema de la frontera y al tamaño de la placa.\\
+
+Esto significa que si desearamos escalar el programa, añadiendo muchas más configuraciones y utilizando muchos procesadores, habría que crear más grupos pero mantener el tamaño de grupo en 8. Si desearamos aumentar el grano de la malla, crearíamos grupos de más procesadores.\\
+
+Por otro lado, el nuevo modelo pierde eficiencia con pocos procesadores, no es hasta 13 procesadores más o menos donde comienza a superar al resto. Además, debido a la restrición del tamaño de grupos de procesos (2 procesos mínimo por grupo) implica disponer al menos de 9 procesadores para ejecutarlo.\\
+
+En la tabla siguiente, se muestran las eficiencias obtenidas con distintos números de grupos y distintos tamaños de grupos, esperabamos probar que efectivamente los grupos de tamaño 8 deberían ser los más eficientes. Si que se puede apreciar en el caso de 2 grupos, como la eficiencia disminuye (aunque poco) al subir a 16 procesos por grupo, en el resto de casos la eficiencia no deja de crecer, necesitaríamos de más procesos para demostrar que los grupos de 8 son los óptimos.\\
+
+\end{multicols}
+
+<<echo=FALSE ,fig.width=8, fig.height=3.6,fig.pos='!h'>>=
+par(mfrow=c(1,2),mar=c(5.1,4.1,4.1,2.1), oma=c(0,0,0,0))
+
+x <- c(2,4,8,12,16,24,32);
+x1 <- c(9,13,17,21,25,29,33)
+plot(x, fares ,lty=1,type="o",xlab="p",xaxt="n",pch=0, ylab="fa",xlim=c(1, 33), ylim=c(0, 33))
+axis(1, at=x1)
+lines(x,x,type="o",lty=3,pch=NA)
+lines(x,faresS,type="o",lty=5,pch=4)
+lines(x1,faresW,type="o",lty=4,pch=1)
+
+plot(x, effres ,lty=1,type="o",xlab="p",xaxt="n",pch=0, ylab="eff",xlim=c(1, 33), ylim=c(0, 1.1))
+axis(1, at=x1)
+lines(x,effresS,type="o",lty=5,pch=4)
+lines(x1,effresW,type="o",lty=4,pch=1)
+
+@
+
+\begin{center}
+	\begin{tabular}{ c c c c c c}
+		\textbf{ Proc. 2 groups} & \textbf{efficiency}& \textbf{ Proc. 3 groups} & \textbf{efficiency} & \textbf{ Proc. 5 groups} & \textbf{efficiency} \\
+		 \hline
+		 1 + 3*2 &  \Sexpr{round(eff7.2,2)}   &  1 + 2*3  & \Sexpr{round(eff7.3,2)}  &  1 + 2*5  & \Sexpr{round(eff11.5,2)}\\
+		 1 + 6*2 &  \Sexpr{round(eff13.2,2)}  &  1 + 3*3  & \Sexpr{round(eff10.3,2)}}  &  1 + 3*5  & \Sexpr{round(eff16.5,2)}\\
+		 1 + 8*2 &  \Sexpr{round(eff17.2,2)}  &  1 + 4*3  &\Sexpr{round(eff13.3,2)} &  1 + 4*5  & \Sexpr{round(eff21.5,2)}\\
+		 1 + 10*2 &  \Sexpr{round(eff21.2,2)} &  1 + 5*3  & \Sexpr{round(eff16.3,2)} &  1 + 5*5  & \Sexpr{round(eff26.5,2)}\\
+		 1 + 12*2 & \Sexpr{round(eff25.2,2)}  &  1 + 6*3  &\Sexpr{round(eff19.3,2)} &  1 + 6*5  & \Sexpr{round(eff31.5,2)}\\
+		 1 + 15*2 & \Sexpr{round(eff31.2,2)}  &  1 + 7*3  & \Sexpr{round(eff22.3,2)} & - & -\\
+		 1 + 16*2 & \Sexpr{round(eff33.2,2)}  &  1 + 8*3  & \Sexpr{round(eff25.3,2)} & - & -\\
+		  -       & -  &  1 + 9*3  & \Sexpr{round(eff28.3,2)} & - & -\\
+		  -       & -  &  1 + 10*3  & \Sexpr{round(eff31.3,2)}& - & -\\
+		 \hline
+	\end{tabular}
+\end{center}
+
+<<echo=FALSE ,fig.width=8, fig.height=3.6,fig.pos='!h'>>=
+par(mfrow=c(1,2),mar=c(5.1,4.1,4.1,2.1), oma=c(0,0,0,0))
+
+x <- c(2,4,8,12,16,24,32);
+x1 <- c(9,13,17,21,25,29,33)
+plot(x2, faresW2 ,lty=1,type="o",xlab="p",xaxt="n",pch=NA,col="blue" ylab="fa",xlim=c(1, 33), ylim=c(0, 33))
+axis(1, at=x1)
+lines(x,x,type="o",lty=3,pch=NA)
+lines(x3,faresW3,type="o",lty=5,pch=NA,col="green")
+lines(x5,faresW5,type="o",lty=4,pch=NA,col="red")
+
+plot(x2, effresW2 ,lty=1,type="o",xlab="p",xaxt="n",pch=NA,col="blue" ylab="eff",xlim=c(1, 33), ylim=c(0, 1.1))
+axis(1, at=x1)
+lines(x3,effresW3,type="o",lty=5,pch=NA,col="green")
+lines(x5,effresW5,type="o",lty=4,pch=NA,col="red")
+
+@
+
+En las gráficas anteriores se ven los factores de aceleración y eficiencia de la tabla anterior. En azul las curvas de 2 grupos, en verde 3 grupos y en rojo 5 grupos.\\
+
+\pagebreak
+\subsection{Código primera fase}
+\subsubsection{\textit{heats.c}}
+\begin{lstlisting}
+
+/* File: heats.c */ 
+
+#include <stdio.h>
+#include <values.h>
+#include <sys/time.h>
+#include <mpi.h>
+
+#include "defines.h"
+#include "faux.h"
+#include "difussion.h"
+
+// global variables
+float grid_chips[MAX_GRID_POINTS], grid[MAX_GRID_POINTS], grid_aux[MAX_GRID_POINTS], grid_chips_aux[MAX_GRID_POINTS], grid_sol_aux[MAX_GRID_POINTS];
+struct temp BT;
+
+/************************************************************************************/
+void init_grid_chips (int conf, struct info_param param, float *grid_chips)
+{
+  int i, j, n;
+
+  for (i=0; i<NROW; i++)
+  for (j=0; j<NCOL; j++)  
+    grid_chips[i*NCOL+j] = param.t_ext;
+
+  for (n=0; n<param.nchip; n++)
+  for (i=param.chips[conf][n].x*param.scale; i<(param.chips[conf][n].x+param.chips[conf][n].h)*param.scale; i++)
+  for (j=param.chips[conf][n].y*param.scale; j<(param.chips[conf][n].y+param.chips[conf][n].w)*param.scale; j++) 
+    grid_chips[(i+1)*NCOL+(j+1)] = param.chips[conf][n].tchip;
+}
+
+/************************************************************************************/
+void init_grids (struct info_param param, float *grid, float *grid_aux, int nrows){
+		int i, j;
+
+		for (i=0; i<= nrows+1; i++)
+			for (j=0; j<NCOL; j++) 
+				grid[i*NCOL+j] = grid_aux[i*NCOL+j] = param.t_ext;
+}
+
+/************************************************************************************/
+void calculate_chop_points (struct info_param param,  int *displacement, int *size, int npr){
+ /* Compute the division and remainder of rows */
+		int reparto = (NROW - 2)/npr;
+		int remainder = ((NROW - 2) % npr);
+		int i;
+
+		/* Initializations of size and displacement */
+		displacement[0] = 0;
+		if(remainder>0){
+			size[0] = (reparto+1)*NCOL;
+			remainder --;
+		}else{
+			size[0] = reparto*NCOL;
+		}
+
+		for(i=1; i<npr; i++){
+			if(remainder>0){
+				size[i] = (reparto+1)*NCOL;
+				remainder --;
+			}else{
+				size[i] = reparto*NCOL;
+			}
+			displacement[i] = displacement[i-1]+size[i-1];
+		}
+}
+
+/************************************************************************************/
+int main (int argc, char *argv[]){
+  int    conf, nconf, pid, npr, i, j;
+  struct info_param param;
+  struct timeval t0, t1;
+  double *tej, tsim = 0.0;
+  int pos=0;
+  int sizebuf=1024;
+  char buf[sizebuf];
+		
+  // MPI Initializations
+  MPI_Init(&argc, &argv);
+  MPI_Comm_rank(MPI_COMM_WORLD, &pid);
+  MPI_Comm_size(MPI_COMM_WORLD, &npr);
+  
+  if( pid == 0){
+	  
+	 // reading initial data file
+	 if (argc != 2) {
+	   printf ("\n\nERROR: needs a card description file \n\n");
+	   exit (-1);
+	 } 
+
+	 read_data (argv[1], &param);
+
+	 printf ("\n  ===================================================================");
+	 printf ("\n    Thermal difussion - Paralel version ");
+	 printf ("\n    %d x %d points, %d chips", RSIZE*param.scale, CSIZE*param.scale, param.nchip);
+	 printf ("\n    T_ext = %1.1f, Tmax_chip = %1.1f, T_delta: %1.3f, Max_iter: %d", param.t_ext, param.tmax_chip, param.t_delta, param.max_iter);
+	 printf ("\n  ===================================================================\n\n");
+	  
+	 BT.Tmean = MAXDOUBLE;
+	 tej = (double *) malloc(param.nconf * sizeof(double));
+	 
+	 /* EMPAQUETAR */
+	MPI_Pack(&param.scale, 1, MPI_INT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+	MPI_Pack(&param.nconf, 1, MPI_INT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+	MPI_Pack(&param.nchip, 1, MPI_INT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+	MPI_Pack(&param.t_ext, 1, MPI_FLOAT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+	MPI_Pack(&param.t_delta, 1, MPI_FLOAT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+	MPI_Pack(&param.max_iter, 1, MPI_INT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+  }
+  
+  /* Unpacking necesary parameters */
+  MPI_Bcast(&buf[0], sizebuf, MPI_PACKED, 0, MPI_COMM_WORLD);
+  
+  if(pid!=0){
+	 MPI_Unpack(buf, sizebuf, &pos, &param.scale, 	1, MPI_INT, MPI_COMM_WORLD);
+	 MPI_Unpack(buf, sizebuf, &pos, &param.nconf, 	1, MPI_INT, MPI_COMM_WORLD);
+	 MPI_Unpack(buf, sizebuf, &pos, &param.nchip, 	1, MPI_INT, MPI_COMM_WORLD);
+     MPI_Unpack(buf, sizebuf, &pos, &param.t_ext, 	1, MPI_FLOAT, MPI_COMM_WORLD);
+	 MPI_Unpack(buf, sizebuf, &pos, &param.t_delta, 	1, MPI_FLOAT, MPI_COMM_WORLD);
+	 MPI_Unpack(buf, sizebuf, &pos, &param.max_iter, 1, MPI_INT, MPI_COMM_WORLD);
+  }
+		 
+  //Declaration of size and displacement of individual grids
+  int displacement[npr];
+  int size[npr];
+  calculate_chop_points(param, &displacement[0], &size[0], npr);
+  int nrows = size[pid]/NCOL;
+  
+  // loop to process chip configurations
+  for (conf=0; conf<param.nconf; conf++){
+	if(pid == 0){
+	  gettimeofday (&t0, 0);
+	  init_grid_chips (conf, param, grid_chips_aux);
+    }
+	
+	init_grids(param, grid, grid_aux, nrows);
+					
+	/* Scattering of grid chips among the processes */
+	MPI_Scatterv(&grid_chips_aux[NCOL], &size[0], &displacement[0],  MPI_FLOAT,
+					&grid_chips[NCOL], size[pid], MPI_FLOAT, 0, MPI_COMM_WORLD);		
+					
+	/* main loop: thermal injection/disipation until convergence (t_delta or max_iter) */
+	diffusion (param, &grid[0], &grid_chips[0], &grid_aux[0], nrows, npr, pid);
+
+	/* Gathering of grid */
+	MPI_Gatherv(&grid[NCOL], size[pid],MPI_FLOAT, &grid_sol_aux[NCOL], 
+						&size[0], &displacement[0], MPI_FLOAT, 0, MPI_COMM_WORLD);
+						
+	if(pid == 0){
+		// processing configuration results 
+		gettimeofday (&t1, 0);
+		tej[conf] = (t1.tv_sec - t0.tv_sec) + (t1.tv_usec - t0.tv_usec)/1e6;
+		results_conf (conf, param, &grid_sol_aux[0],&grid_chips_aux[0], &BT);
+	}
+  }
+  if(pid == 0){
+	  // writing best configuration results
+	  results (param, &BT, argv[1]);
+	  for (conf=0; conf<param.nconf; conf++) tsim += tej[conf];
+	  printf ("   > Time (Paralel %d) : %1.3f s \n\n",npr, tsim);
+  }	  
+  //MPI Finalisation
+  MPI_Finalize();
+  return(0);
+}
+\end{lstlisting}
+\pagebreak
+
+\subsubsection{\textit{difussion.c}}
+\begin{lstlisting}
+/* File: difussion.c*/
+
+#include "defines.h"
+#include <mpi.h>
+
+/************************************************************************************/
+void thermal_update (struct info_param param, float *grid, float *grid_chips, int nrows){
+	int i, j;
+  
+	// heat injection at chip positions
+	for (i=1; i<=nrows; i++)
+	for (j=1; j<NCOL-1; j++) 
+		if (grid_chips[i*NCOL+j] > grid[i*NCOL+j])
+			grid[i*NCOL+j] += 0.05 * (grid_chips[i*NCOL+j] - grid[i*NCOL+j]);
+
+	// air cooling at the middle of the card
+	int a = 0.45*(NCOL-2)+1;
+	int b = 0.55*(NCOL-2)+1;
+
+	for (i=1; i<=nrows; i++)
+	for (j=a; j<b; j++)
+		grid[i*NCOL+j] -= 0.01 * (grid[i*NCOL+j] - param.t_ext);
+}
+
+
+/************************************************************************************/
+void diffusion (struct info_param param, float *grid, float *grid_chips, float *grid_aux, int nrows, int npr, int pid){
+	int    i, j, end, niter,flag = 0;
+	float  T;
+	double Tmean, tmean, Tmean0 = param.t_ext;
+	MPI_Status info;
+
+	MPI_Status stats[4];
+	MPI_Request reqs[4] ;
+
+	end = 0; niter = 0;
+
+	while (end == 0){	
+		niter++;
+		Tmean = 0.0;
+	
+		// heat injection and air cooling 
+		thermal_update (param, grid, grid_chips, nrows);
+
+		if(pid > 0){
+			MPI_Irecv(&grid[0], NCOL, MPI_FLOAT, pid-1, 0, MPI_COMM_WORLD,&reqs[0]);
+		}
+		if(pid < npr -1 ){
+			MPI_Irecv(&grid[NCOL*(nrows+1)], NCOL, MPI_FLOAT, pid+1, 0, MPI_COMM_WORLD, &reqs[1]);
+		}
+		if(pid > 0){
+			MPI_Isend(&grid[NCOL], NCOL, MPI_FLOAT, pid-1 , 0, MPI_COMM_WORLD,&reqs[2]);
+		}
+		if(pid < npr - 1){
+			MPI_Isend(&grid[NCOL*nrows], NCOL, MPI_FLOAT, pid+1 , 0, MPI_COMM_WORLD,&reqs[3]);
+		}
+		
+		// thermal difussion
+		for (i=2; i<nrows; i++)
+		for (j=1; j<NCOL-1; j++){
+		  T = grid[i*NCOL+j] + 
+			  0.10 * (grid[(i+1)*NCOL+j] + grid[(i-1)*NCOL+j] + grid[i*NCOL+(j+1)] + grid[i*NCOL+(j-1)] + 
+					 grid[(i+1)*NCOL+j+1] + grid[(i-1)*NCOL+j+1] + grid[(i+1)*NCOL+(j-1)] + grid[(i-1)*NCOL+(j-1)] 
+					 - 8*grid[i*NCOL+j]);
+
+		  grid_aux[i*NCOL+j] = T;
+		  Tmean += T;
+		}
+		
+		if( (pid > 0) && (pid < npr -1) ){
+			
+			MPI_Testall(4,reqs, &flag, stats);
+			if(!flag){MPI_Waitall(4,reqs,stats);}
+			
+		}else if( pid == 0 ){
+			
+			MPI_Test(&reqs[1], &flag, &stats[1]);
+			if(!flag){MPI_Wait(&reqs[1], &stats[1]);}
+			MPI_Test(&reqs[3], &flag, &stats[3]);
+			if(!flag){MPI_Wait(&reqs[3], &stats[3]);}
+		}else{
+			
+			MPI_Test(&reqs[0], &flag, &stats[0]);
+			if(!flag){MPI_Wait(&reqs[0], &stats[0]);}
+			MPI_Test(&reqs[2], &flag, &stats[2]);
+			if(!flag){MPI_Wait(&reqs[2], &stats[2]);}
+			i = nrows;
+		}
+		
+		// Finish with first and last lines
+		for (i=1; i<=nrows; i=i+nrows-1)
+			if( ((pid != 0) && (pid != npr-1)) || (((pid == 0)&&(i==nrows)) || ((pid == npr-1)&&(i==1))) )
+			for (j=1; j<NCOL-1; j++){
+			  T = grid[i*NCOL+j] + 
+				  0.10 * (grid[(i+1)*NCOL+j] + grid[(i-1)*NCOL+j] + grid[i*NCOL+(j+1)] + grid[i*NCOL+(j-1)] + 
+						 grid[(i+1)*NCOL+j+1] + grid[(i-1)*NCOL+j+1] + grid[(i+1)*NCOL+(j-1)] + grid[(i-1)*NCOL+(j-1)] 
+						 - 8*grid[i*NCOL+j]);
+
+			  grid_aux[i*NCOL+j] = T;
+			  Tmean += T;
+		}
+		
+		//Update values of the grid
+		for (i=1; i<=nrows; i++)
+		for (j=1; j<NCOL-1; j++)
+		  grid[i*NCOL+j] = grid_aux[i*NCOL+j]; 
+
+		// convergence every 10 iterations
+		if (niter % 10 == 0){
+			
+			MPI_Allreduce(&Tmean, &tmean, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
+		   
+			tmean = tmean / ((NCOL-2)*(NROW-2));
+			if ((fabs(tmean - Tmean0) < param.t_delta) || (niter > param.max_iter))
+				end = 1;
+			else 
+				Tmean0 = tmean;
+		}
+	}
+}
+
+
+\end{lstlisting}
+
+\subsection{Código segunda fase}
+\subsubsection{\textit{heats.c}}
+\begin{lstlisting}
+/* File: heats.c */
+
+	#include <stdio.h>
+	#include <stddef.h>
+	#include <values.h>
+	#include <sys/time.h>
+	#include <mpi.h>
+
+	#include "defines.h"
+	#include "faux.h"
+	#include "difussion.h"
+
+	float grid_chips[MAX_GRID_POINTS], grid[MAX_GRID_POINTS], grid_aux[MAX_GRID_POINTS], grid_chips_aux[MAX_GRID_POINTS], grid_sol_aux[MAX_GRID_POINTS];
+	struct temp BT;
+
+	/************************************************************************************/
+	void init_grid_chips (int conf, struct info_param param, float *grid_chips){
+		int i, j, n;
+
+		 for (i=0; i<NROW; i++)
+			for (j=0; j<NCOL; j++)  
+				grid_chips[i*NCOL+j] = param.t_ext;
+
+		for (n=0; n<param.nchip; n++)
+			for (i=param.chips[conf][n].x*param.scale; i<(param.chips[conf][n].x+param.chips[conf][n].h)*param.scale; i++)
+				for (j=param.chips[conf][n].y*param.scale; j<(param.chips[conf][n].y+param.chips[conf][n].w)*param.scale; j++) 
+					grid_chips[(i+1)*NCOL+(j+1)] = param.chips[conf][n].tchip;
+	}
+	/************************************************************************************/
+	void init_grids (struct info_param param, float *grid, float *grid_aux, int nrows){
+		int i, j;
+
+		for (i=0; i<= nrows+1; i++)
+			for (j=0; j<NCOL; j++) 
+				grid[i*NCOL+j] = grid_aux[i*NCOL+j] = param.t_ext;
+	}
+	/************************************************************************************/
+	void calculate_chop_points (struct info_param param,  int *displacement, int *size, int npr){
+		/* Compute the division and remainder of rows */
+		int reparto = (NROW - 2)/npr;
+		int remainder = ((NROW - 2) % npr);
+		int i;
+
+		/* Initializations of size and displacement */
+		displacement[0] = 0;
+		if(remainder>0){
+			size[0] = (reparto+1)*NCOL;
+			remainder --;
+		}else{
+			size[0] = reparto*NCOL;
+		}
+
+		for(i=1; i<npr; i++){
+			if(remainder>0){
+				size[i] = (reparto+1)*NCOL;
+				remainder --;
+			}else{
+				size[i] = reparto*NCOL;
+			}
+			displacement[i] = displacement[i-1]+size[i-1];
+		}
+	}
+	/************************************************************************************/
+	int main (int argc, char *argv[]){
+		int    conf, nconf, groupAmount, pid, npr, i, j,msg=0;
+		struct info_param param;
+		struct timeval t0, t1;
+		double timeTot=0.0;
+		
+		int pos=0;
+		int sizebuf=1024;
+		char buf[sizebuf];
+	    const int nitems=5;
+		int blocklengths[nitems];
+		BT.Tmean = MAXDOUBLE;
+		MPI_Status info;
+		MPI_Comm worker_comm,worker_leaders_comm;
+		MPI_Group worker_leaders,all_nodes;
+		
+		MPI_Datatype mpi_chip_type;
+		MPI_Datatype types[nitems];
+		MPI_Aint offsets[nitems];
+		
+		/* MPI Initializations */
+		MPI_Init(&argc, &argv);
+		MPI_Comm_rank(MPI_COMM_WORLD, &pid);
+		MPI_Comm_size(MPI_COMM_WORLD, &npr);
+		
+		if( pid == 0){
+			/* reading initial data file */
+			if (argc != 3) {
+				printf ("\n\n ERROR: needs a card description file \n\n");
+				printf ("\n\n ERROR: needs a group size parameter \n\n");
+				exit (-1);
+			}
+
+			read_data (argv[1], &param);
+			
+			char *p;
+			int errno = 0;
+			long conv = strtol(argv[2], &p, 10);
+
+			// or the integer is larger than int
+			if (errno != 0 || *p != '\0' || conv > INT_MAX) {
+				printf ("\n\n ERROR: needs a valid group size parameter \n\n");
+				exit (-1);
+			} else {
+				groupAmount = conv;    
+			}
+
+			printf ("\n  ===================================================================");
+			printf ("\n    Thermal difussion - Parallel Version ");
+			printf ("\n  Groups %d  %d x %d points, %d chips", groupAmount, RSIZE*param.scale, CSIZE*param.scale, param.nchip);
+			printf ("\n    T_ext = %1.1f, Tmax_chip = %1.1f, T_delta: %1.3f, Max_iter: %d", param.t_ext, param.tmax_chip, param.t_delta, param.max_iter);
+			printf ("\n  ===================================================================\n\n");
+
+
+		    /* EMPAQUETAR */
+			MPI_Pack(&param.scale, 1, MPI_INT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+			MPI_Pack(&param.nconf, 1, MPI_INT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+			MPI_Pack(&param.nchip, 1, MPI_INT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+			MPI_Pack(&param.t_ext, 1, MPI_FLOAT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+			MPI_Pack(&param.t_delta, 1, MPI_FLOAT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+			MPI_Pack(&param.max_iter, 1, MPI_INT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+			MPI_Pack(&groupAmount, 1, MPI_INT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+		}
+
+		 /* Unpacking necesary parameters */
+		 MPI_Bcast(&buf[0], sizebuf, MPI_PACKED, 0, MPI_COMM_WORLD);
+		 if(pid!=0){
+			MPI_Unpack(buf, sizebuf, &pos, &param.scale, 	1, MPI_INT, MPI_COMM_WORLD);
+			MPI_Unpack(buf, sizebuf, &pos, &param.nconf, 	1, MPI_INT, MPI_COMM_WORLD);
+			MPI_Unpack(buf, sizebuf, &pos, &param.nchip, 	1, MPI_INT, MPI_COMM_WORLD);
+			MPI_Unpack(buf, sizebuf, &pos, &param.t_ext, 	1, MPI_FLOAT, MPI_COMM_WORLD);
+			MPI_Unpack(buf, sizebuf, &pos, &param.t_delta, 	1, MPI_FLOAT, MPI_COMM_WORLD);
+			MPI_Unpack(buf, sizebuf, &pos, &param.max_iter, 1, MPI_INT, MPI_COMM_WORLD);
+			MPI_Unpack(buf, sizebuf, &pos, &groupAmount, 1, MPI_INT, MPI_COMM_WORLD);
+		 }
+		
+		 /* Creation of chip data type */
+		 for(j=0; j<nitems; j++)
+			 blocklengths[j]=1;
+		 offsets[0] = offsetof(struct info_chip, x);     types[0] = MPI_INT;  
+		 offsets[1] = offsetof(struct info_chip, y);     types[1] = MPI_INT; 
+		 offsets[2] = offsetof(struct info_chip, h);     types[2] = MPI_INT;  
+		 offsets[3] = offsetof(struct info_chip, w);     types[3] = MPI_INT; 
+		 offsets[4] = offsetof(struct info_chip, tchip); types[4] = MPI_FLOAT; 
+
+		 MPI_Type_create_struct(nitems, &blocklengths[0], &offsets[0], &types[0], &mpi_chip_type);
+		 MPI_Type_commit(&mpi_chip_type);
+			
+		/* Creation of worker communicators */
+		int color,key,pid_w,npr_w;
+		int groupSize = (npr-1)/groupAmount;
+		if( pid == 0){
+			color = MPI_UNDEFINED; key = 0;
+		}else{
+			color = 1 + floor((pid-1)/groupSize);
+			key =  ((pid-1) % groupSize);
+		}
+		MPI_Comm_split(MPI_COMM_WORLD, color, key, &worker_comm);
+		if(pid > 0){
+			MPI_Comm_rank( worker_comm, &pid_w) ;
+			MPI_Comm_size ( worker_comm, &npr_w) ;
+		}	
+		
+		/* Creation of communicator for processes ranked as 0 */
+		int npr_w0,pid_w0,l;
+		if( (pid % (groupSize) == 1) || (pid == 0)){
+			color=1;
+			if(pid==0){
+				key =0;
+			}else{
+				key= floor(pid/groupSize)+1;
+			}
+		}else{
+			color=MPI_UNDEFINED;
+			key=pid;
+		}
+		MPI_Comm_split(MPI_COMM_WORLD, color, key, &worker_leaders_comm);;
+		if( (pid % (groupSize) == 1) || (pid == 0)){
+			MPI_Comm_size(worker_leaders_comm, &npr_w0);
+			MPI_Comm_rank(worker_leaders_comm, &pid_w0);
+		}
+			
+		/* Manager process code */
+		if(pid == 0){
+			gettimeofday (&t0, 0);
+			int responses = 0;
+			/* Initially send one configuration to each workers leader */
+			for(i=0; i<groupAmount; i++){
+				if(i < param.nconf){
+					conf = i; 
+					/* Work message  tag = 0*/
+					MPI_Send(&conf,1,MPI_INT, i+1,0,worker_leaders_comm);
+					/* Send chips data */
+					MPI_Send(&param.chips[i][0], param.nchip, mpi_chip_type, i+1 , 0, worker_leaders_comm);
+					responses++;
+				}else{
+					/* End of work message  tag = 1*/
+					MPI_Send(&msg,1,MPI_INT,i+1,1,worker_leaders_comm);
+				}
+			}
+			/* Until enf work */
+			while(responses>0){
+				/* Receive work request */
+				MPI_Recv(&conf, 2, MPI_DOUBLE, MPI_ANY_SOURCE, 0, worker_leaders_comm, &info);
+				responses--;
+				if(i < param.nconf){	
+					MPI_Send(&i,1,MPI_INT,info.MPI_SOURCE,0,worker_leaders_comm);
+					MPI_Send(&param.chips[i][0], param.nchip, mpi_chip_type, info.MPI_SOURCE , 0, worker_leaders_comm);
+					responses++;
+					i++;
+				}else{
+					MPI_Send(&i,1,MPI_INT,info.MPI_SOURCE,1,worker_leaders_comm);
+				}
+			}
+			gettimeofday (&t1, 0);
+			timeTot = (t1.tv_sec - t0.tv_sec) + (t1.tv_usec - t0.tv_usec)/1e6;			
+			/* Find best configuration */
+			double tmin=MAXDOUBLE;
+			/* Gather best configuration results */
+			MPI_Allreduce(&BT.Tmean, &tmin, 1, MPI_DOUBLE, MPI_MIN, worker_leaders_comm);
+
+			printf ("   > Time (Paralel %d) : %1.3f s \n",npr, timeTot);
+			
+		}else{
+			/* Distribution of problem domain*/
+			int displacement[npr_w];
+			int size[npr_w];
+			calculate_chop_points(param, &displacement[0], &size[0], npr_w);
+			int nrows = size[pid_w]/NCOL;
+		    int work=1;
+			
+			/* Worker leader process code */
+			if(pid_w == 0){
+				/* Allocate memmory for one chip configuration */
+				param.chips = (struct info_chip **) malloc(1*sizeof(struct info_chip*));
+				param.chips[0] = (struct info_chip *) malloc(param.nchip * sizeof(struct info_chip));
+			
+				/* Receive work message and with configuration number */
+				MPI_Recv(&conf, 1, MPI_INT, 0, MPI_ANY_TAG, worker_leaders_comm, &info);//Recibe trabajo
+				if(info.MPI_TAG == 0){
+					work = 0;
+				}else{
+					work = 1;
+				}
+			}	
+			/* Broadcast work message*/
+			MPI_Bcast(&work, 1, MPI_INT, 0, worker_comm);
+			while(work == 0){
+				if(pid_w == 0){
+					/* Receive configuration */
+					MPI_Recv(&param.chips[0][0], param.nchip, mpi_chip_type, 0, 0, worker_leaders_comm, &info);
+					
+					init_grid_chips (0, param, grid_chips_aux);
+				}	
+				init_grids(param, grid, grid_aux, nrows);
+					
+				/* Scattering of grid chips among the processes */
+				MPI_Scatterv(&grid_chips_aux[NCOL], &size[0], &displacement[0],  MPI_FLOAT,
+					&grid_chips[NCOL], size[pid_w], MPI_FLOAT, 0, worker_comm);		
+					
+				/* main loop: thermal injection/disipation until convergence (t_delta or max_iter) */
+				diffusion (param,worker_comm, &grid[0], &grid_chips[0], &grid_aux[0], nrows, npr_w, pid_w);
+
+				/* Gathering of grid */
+				MPI_Gatherv(&grid[NCOL], size[pid_w],MPI_FLOAT, &grid_sol_aux[NCOL], 
+						&size[0], &displacement[0], MPI_FLOAT, 0, worker_comm);
+
+				if(pid_w==0){
+					/* processing configuration results */		
+					results_conf (conf, param, &grid_sol_aux[0], &grid_chips_aux[0], &BT);
+					
+					/* Request for work */
+					MPI_Send(&conf,1,MPI_DOUBLE,0,0,worker_leaders_comm);
+					/* Receive work message */
+					MPI_Recv(&conf, 1, MPI_INT, 0, MPI_ANY_TAG, worker_leaders_comm, &info);//Recibe trabajo
+					if(info.MPI_TAG == 0){
+						work = 0;
+					}else{
+						work = 1;
+					}
+				}
+				MPI_Bcast(&work, 1, MPI_INT, 0, worker_comm);
+			}
+			if(pid_w==0){
+				double tmin=MAXDOUBLE;
+				/* Gather best configuration results */
+				MPI_Allreduce(&BT.Tmean, &tmin, 1, MPI_DOUBLE, MPI_MIN, worker_leaders_comm);
+			
+				if(BT.Tmean == tmin){
+					results(param, &BT, argv[1]);
+					printf ("\n\n >>> BEST CONFIGURATION: %2d\t Tmean: %1.2f\n\n", BT.conf, BT.Tmean); 
+				}
+			}
+		}
+		
+		//MPI Finalisation
+		MPI_Finalize();
+		return(0);
+	}
+
+	
+
+\end{lstlisting}
+\pagebreak
+\subsubsection{\textit{difussion.c}}
+\begin{lstlisting}
+/* File: difussion.c */ 
+
+#include "defines.h"
+#include <mpi.h>
+
+/************************************************************************************/
+void thermal_update (struct info_param param, float *grid, float *grid_chips, int nrows){
+	int i, j;
+  
+	// heat injection at chip positions
+	for (i=1; i<=nrows; i++)
+	for (j=1; j<NCOL-1; j++) 
+		if (grid_chips[i*NCOL+j] > grid[i*NCOL+j])
+			grid[i*NCOL+j] += 0.05 * (grid_chips[i*NCOL+j] - grid[i*NCOL+j]);
+
+	// air cooling at the middle of the card
+	int a = 0.45*(NCOL-2)+1;
+	int b = 0.55*(NCOL-2)+1;
+
+	for (i=1; i<=nrows; i++)
+	for (j=a; j<b; j++)
+		grid[i*NCOL+j] -= 0.01 * (grid[i*NCOL+j] - param.t_ext);
+}
+
+
+/************************************************************************************/
+void diffusion (struct info_param param, MPI_Comm worker_comm, float *grid, float *grid_chips, float *grid_aux, int nrows, int npr, int pid){
+	int    i, j, end, niter,flag = 0;
+	float  T;
+	double Tmean, tmean, Tmean0 = param.t_ext;
+	MPI_Status info;
+
+	MPI_Status stats[4];
+	MPI_Request reqs[4] ;
+
+	end = 0; niter = 0;
+
+	while (end == 0){	
+		niter++;
+		Tmean = 0.0;
+	
+		// heat injection and air cooling 
+		thermal_update (param, grid, grid_chips, nrows);
+		
+		if(pid > 0){
+			MPI_Irecv(&grid[0], NCOL, MPI_FLOAT, pid-1, 0, worker_comm,&reqs[0]);
+		}
+		if(pid < npr -1 ){
+			MPI_Irecv(&grid[NCOL*(nrows+1)], NCOL, MPI_FLOAT, pid+1, 0, worker_comm, &reqs[1]);
+		}
+		if(pid > 0){
+			MPI_Isend(&grid[NCOL], NCOL, MPI_FLOAT, pid-1 , 0, worker_comm,&reqs[2]);
+		}
+		if(pid < npr - 1){
+			MPI_Isend(&grid[NCOL*nrows], NCOL, MPI_FLOAT, pid+1 , 0, worker_comm,&reqs[3]);
+		}
+		
+		// thermal difussion
+		for (i=2; i<nrows; i++)
+		for (j=1; j<NCOL-1; j++){
+		  T = grid[i*NCOL+j] + 
+			  0.10 * (grid[(i+1)*NCOL+j] + grid[(i-1)*NCOL+j] + grid[i*NCOL+(j+1)] + grid[i*NCOL+(j-1)] + 
+					 grid[(i+1)*NCOL+j+1] + grid[(i-1)*NCOL+j+1] + grid[(i+1)*NCOL+(j-1)] + grid[(i-1)*NCOL+(j-1)] 
+					 - 8*grid[i*NCOL+j]);
+
+		  grid_aux[i*NCOL+j] = T;
+		  Tmean += T;
+		}
+		
+		if( (pid > 0) && (pid < npr -1) ){
+			
+			MPI_Testall(4,reqs, &flag, stats);
+			if(!flag){MPI_Waitall(4,reqs,stats);}
+			
+		}else if( pid == 0 ){
+			
+			MPI_Test(&reqs[1], &flag, &stats[1]);
+			if(!flag){MPI_Wait(&reqs[1], &stats[1]);}
+			MPI_Test(&reqs[3], &flag, &stats[3]);
+			if(!flag){MPI_Wait(&reqs[3], &stats[3]);}
+		}else{
+			
+			MPI_Test(&reqs[0], &flag, &stats[0]);
+			if(!flag){MPI_Wait(&reqs[0], &stats[0]);}
+			MPI_Test(&reqs[2], &flag, &stats[2]);
+			if(!flag){MPI_Wait(&reqs[2], &stats[2]);}
+			i = nrows;
+		}
+		
+		// Finish with first and last lines
+		for (i=1; i<=nrows; i=i+nrows-1)
+			if( ((pid != 0) && (pid != npr-1)) || (((pid == 0)&&(i==nrows)) || ((pid == npr-1)&&(i==1))) )
+			for (j=1; j<NCOL-1; j++){
+			  T = grid[i*NCOL+j] + 
+				  0.10 * (grid[(i+1)*NCOL+j] + grid[(i-1)*NCOL+j] + grid[i*NCOL+(j+1)] + grid[i*NCOL+(j-1)] + 
+						 grid[(i+1)*NCOL+j+1] + grid[(i-1)*NCOL+j+1] + grid[(i+1)*NCOL+(j-1)] + grid[(i-1)*NCOL+(j-1)] 
+						 - 8*grid[i*NCOL+j]);
+
+			  grid_aux[i*NCOL+j] = T;
+			  Tmean += T;
+		}
+		
+		//Update values of the grid
+		for (i=1; i<=nrows; i++)
+		for (j=1; j<NCOL-1; j++)
+		  grid[i*NCOL+j] = grid_aux[i*NCOL+j]; 
+
+		// convergence every 10 iterations
+		if (niter % 10 == 0){
+			
+			MPI_Allreduce(&Tmean, &tmean, 1, MPI_DOUBLE, MPI_SUM, worker_comm);
+		   
+			tmean = tmean / ((NCOL-2)*(NROW-2));
+			if ((fabs(tmean - Tmean0) < param.t_delta) || (niter > param.max_iter))
+				end = 1;
+			else 
+				Tmean0 = tmean;
+		}
+	}
+}
+\end{lstlisting}
+
+\pagebreak
+\begin{multicols}{2}
+\section{Puzle}
+\subsection{Comunicaciones colectivas}
+En la comunicación entre un grupo de individuos, existen mecanismos que permiten una comunicación más eficiente. En este trabajo en el apartado 1.1 \textit{Comunicación en forma de árbol} se muestran varios modelos de comunicación compuestos por árboles.\\
+
+En MPI, la comunicación colectiva consiste en una serie de funciones que sirven para que un grupo de procesos se comuniquen entre ellos. En el apartado 1.2 \textit{Comunicaciones colectivas frente a comunicaciones Punto a Punto} se muestran las diferencias principales entre las funciones de comunicación colectiva y las de punto a punto. En el apartado 1.3 \emph{Funciones de Comunicación Colectiva en MPI} se describen las funciones más utilizadas y sus parámetros.\\
+\subsubsection{Comunicación en forma de árbol}
+
+En \cite{key-1} se describe esta forma de comunicación, mostrando como ejemplo un problema de suma \textit{one-to-all}. Aunque inicialmente pueda parecer que no mejora demasiado, ya que la mitad de los nodos realizan las mismas comunicaciones que realizarían punto a punto(esto es, cuando todos los nodos envían su valor a un único nodo), mejora considerablemente reduciendo la cantidad de recepciones y sumas que tiene que realizar el nodo líder. 
+
+En el ejemplo de la imagen, el nodo 0 pasa de realizar \textit{n-1} recepciones y sumas a realizar 3 recepciones y sumas, esto es, la altura del árbol $log_2\;n$($log_d\;n$ en el caso general, siendo \textit{d} el grado de árbol). De esta forma la carga de trabajo de los nodos crece logarítmica-mente con el número de procesadores, la mejora es notable frente al crecimiento lineal de la comunicación centralizada.
+
+\begin{Figure}
+	\centering
+	\includegraphics[width=1\columnwidth]{TreeSum.png}
+	%\caption{Imágen extraída de \cite{key-1} , Apartado 3.4.1 .}  	    
+	\label{figure}
+\end{Figure}
+
+El mismo modelo invertido se puede utilizar para comunicación \textit{one-to-all}.
+\begin{Figure}
+	\centering
+		\includegraphics[width=1\columnwidth]{TreeBroadcast.png}
+		%\caption{Imágen extraída de \cite{key-1} , Apartado 3.4.5 .}						\label{figure}
+\end{Figure}
+
+Este último ejemplo muestra un modelo de comunicación all-to-all en el que se construyen n árboles siendo cada nodo raíz de uno de ellos. 
+\begin{Figure}
+	\centering
+		\includegraphics[width=1\columnwidth]{Butterfly.png}
+		%\caption{Imágen extraída de \cite{key-1} , Apartado 3.4.5 .}						\label{figure}
+\end{Figure}
+
+El problema de este modelo de comunicación es la dificultad de programarlo, existen incontables maneras distintas de hacerlo pero no sabríamos cual es la mejor, para que tipos y tamaños de problemas cual es la óptima. En \cite{key-2} se sugiere también el uso de árboles de profundidad logarítmica para la comunicación, pero tampoco indican o desconocen si las funciones MPI hacen uso de ellos.
+\subsubsection{Comunicaciones colectivas frente a comunicaciones Punto a Punto}
+
+\begin{itemize}
+\item[1.] Todos los procesos en el comunicador deben llamar a la misma función colectiva independientemente del tipo de comunicación que se realice. Mientras en la comunicación punto a punto queda definido por la llamada quien es emisor y quien es receptor, MPI\_Recv y MPI\_Send.
+\item[2.] Todos los procesos en el comunicador tienen que tener los parámetros compatibles, esto es, si en una llamada MPI\_Reduce dos procesos tiene \textit{root} distinto el programa va a fallar.
+\item[3.] Las funciones de comunicación punto a punto se conectan mediante etiquetas (\textit{tags}) y comunicadores, en las colectivas solamente mediante comunicadores y el orden en el que son llamadas.
+\item[4.] Otra restricción que las funciones de comunicación punto a punto no tienen es que la cantidad de datos enviados en el bufer tiene que coincidir exactamente con la esperada en el destino.
+\item[5.] No exiten funciones de comunicación colectivas que no sean bloqueante, todas utilizan la función Barrier para asegurar las sincronización de los datos.
+\end{itemize} 
+
+\subsubsection{Funciones de Comunicación Colectiva en MPI}
+
+Podemos dividir las funciones de comunicación colectiva en función del tipo de comunicación que realizan y también en función del tipo de dato que manejan ya que así las distingue MPI.
+
+\begin{itemize}
+\item[-] \textit{all-to-one}:
+	\begin{itemize}
+		\item[•] MPI\_REDUCE
+		\item[•] MPI\_GATHER
+	\end{itemize}
+\item[-] \textit{one-to-all}
+    \begin{itemize}
+		\item[•] MPI\_BCAST
+		\item[•] MPI\_SCATTER
+	\end{itemize}
+\item[-] \textit{all-to-all}
+	 \begin{itemize}
+	    \item[•] MPI\_ALLREDUCE
+		\item[•] MPI\_ALLGATHER
+		\item[•] MPI\_ALLTOALL
+		\item[•] MPI\_REDUCE\_SCATTER
+	\end{itemize}
+\item[-] \textit{\textit{all-to-some}}
+	\begin{itemize}
+		\item[•] MPI\_SCAN
+	\end{itemize}
+\end{itemize}
+
+Respecto al tipo de dato que manejan, MPI dispone de las \textit{vector variant} de las funciones vistas; MPI\_GATHERV, MPI\_SCATTERV, MPI\_ALLGATHERV, MPI\_ALLTOALLV.\\
+
+Estas funciones permiten enviar una serie de datos de tamaño variable, se diferencian por tener un argumento extra llamado displs, que es un array de enteros que indica las posiciones de cada dato.\\
+
+Respecto a las funciones ALL, en estas los parámetros son idénticos que los de sus semejantes con la excepción de que sobra el parámetro \textit{root} ya que todos recibirán el mensaje.\\
+
+La cabecera de una función colectiva puede tener los siguientes parámetros:
+
+\begin{itemize}
+\item[•] buffer : Contiene la dirección de comienzo del buffer.
+\item[•] count : Número de entradas en el buffer.
+\item[•] datatype : Tipo de datos del buffer.
+\item[•] root : Identificador del proceso raíz.
+\item[•] comm : Comunicador MPI, representa a los procesos involucrados en la comunicación.
+\end{itemize}
+
+Las funciones Scatter y Gather utilizan dos buffers distintos.
+\begin{itemize}
+\item[•] send buffer : Contiene la dirección de comienzo del buffer a enviar.
+\item[•] recv buffer : Contiene la dirección de comienzo del buffer a recibir.
+\item[•] send count : Número de entradas en send buffer.
+\item[•] recv count : Número de entradas en recv buffer.
+\item[•] displs : Vector de enteros con las posiciones de cada dato en el buffer.
+\end{itemize}
+
+Es de especial interés el parámetro \textit{op} de Reduce, que define el tipo de operación a realizar. Existen los siguientes tipos de operaciones:
+
+\begin{center}
+	\begin{tabular}{|l|l|}
+		\hline
+		\cellcolor{gray}Operation Value & \cellcolor{gray}Meaning \\
+		\hline
+		MPI\_MAX & Máximo\\
+		MPI\_MIN & Mínimo\\
+		MPI\_SUM & Suma\\
+		MPI\_PROD & Producto\\
+		MPI\_LAND & And lógico	\\
+		MPI\_BAND & And binario	\\
+		MPI\_LOR & Or lógico\\
+		MPI\_BOR & Or binario	\\
+		MPI\_LXOR & Or exclusivo lógico	\\
+		MPI\_BXOR & Or exclusivo binario	\\
+		MPI\_MAXLOC & Máximo y su dirección	\\
+		MPI\_MINLOC & Mínimo y su dirección	\\
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsection{Tipos de datos derivados y comunicadores}
+
+Hasta ahora, antes de conocer el paralelismo de datos, se ha trabajado con tipos de datos primitivos (int, double, char, etc.). Estos son contiguos en memoria.\\
+
+MPI ofrece un nuevo paradigma. Es posible que el programador desee enviar datos de carácter heterogéneo o no contiguos en memoria, MPI permite realizar este tipo de transferencias.
+Se puede ver en el siguiente ejemplo:
+
+\begin{Figure}
+\centering
+\includegraphics[width=0.8\columnwidth]{Mat.png}
+\end{Figure}
+
+Las filas de una matriz no son contiguas en memoria, están separadas por un stride igual al número de columnas. Es decir, la segunda fila está en este caso a un stride 6 de la primera fila.\\
+
+Si se desea acceder a los datos de la matriz coloreados en gris se puede hacer de una manera eficiente un nuevo tipo de dato.
+Los objetos irregulares son conocidos como tipos de datos derivados.\\
+
+\subsubsection{Tipos de datos elementales}
+
+MPI tiene un número de tipos de datos elementales, que se corresponden a los tipos simples de los lenguajes de programación. Los nombres se asemejan a los de C y Fortran. Así tenemos los tipos MPI\_FLOAT y MPI\_DOUBLE, y por otro lado los tipos MPI\_REAL y MPI\_DOUBLE\_PRECISION. Hay que respetar su uso, no se puede usar MPI\_FLOAT si programamos en Fortran ni MPI\_REAL si trabajamos en C.\\
+
+Las llamadas de MPI aceptan arrays de elementos, para enviar un único elemento hay que apuntar a su dirección.
+Hay dos problemas al usar únicamente tipos de datos elementales:
+\begin{itemize}
+\item[•]Las rutinas de comunicación de MPI sólo pueden enviar elementos de un único tipo, homogéneos, aunque estén en posiciones de memoria contiguas. Se puede usar MPI\_BYTE, pero no es recomendable.
+\item[•]Tampoco es posible enviar elementos del mismo tipo si no están contiguos en memoria. Se puede enviar memoria contigua que contenga esos elementos (además de otros), pero supondría un gasto innecesario de ancho de banda.
+\end{itemize}
+
+\subsubsection{Tipos de datos derivados} 
+
+MPI permite crear tipos de datos propios, algo similar a definir una estructura en un lenguaje de programación, pero no del todo. Son especialmente útiles cuando se trata de enviar múltiples elementos en un mismo mensaje.\\
+
+Los tipos de datos derivados permiten solucionar los problemas anteriormente comentados de diferentes formas:
+\begin{itemize}
+\item[1.]Se puede crear un tipo de dato contiguo que consiste en un array de elementos de distintos tipos de datos. No hay diferencia entre enviar un elemento de un tipo o múltiples de distinto tipo.
+\item[2.]Se puede crear un tipo de datos vector que consista en bloques espaciados de forma regular de elementos de un mismo tipo. Es una solución al problema de no poder enviar datos no contiguos.
+\item[3.]Para los datos no contiguos espaciados de forma irregular existe el tipo de dato indexado. Se trata de un array que contiene las ubicaciones de los bloques. Los bloques pueden ser de distinto tamaño.
+\item[4.]El tipo de datos struct puede albergar múltiples tipos de datos.
+\end{itemize}
+
+Todos estos mecanismos se pueden combinar para obtener tipos datos de tipo heterogéneo espaciados de forma irregular.
+
+\subsubsubsection{Datatype signatures}
+
+Con los tipos de datos primitivos, si el emisor envía un array de enteros, el receptor tiene que declarar el tipo de dato también como enteros. Con los tipos de datos derivados ya no ocurre esto. El emisor y el receptor pueden declarar diferentes tipos de datos siempre y cuando tengan el mismo “datatype signature”.\\
+
+La firma del tipo de dato es la representación interna del tipo de dato. Por ejemplo, si el emisor declara un tipo consistente en 2 enteros y envía 4 elementos de ese tipo, el receptor puede recibir dos elementos de un tipo que consista en 4 enteros. En ambos casos se envían 8 enteros y se reciben 8 enteros.
+
+\subsubsubsection{Basic calls}
+
+Los nuevos tipos de datos se crean con:
+\begin{itemize}
+\item[•]MPI\_Type\_contiguous
+\item[•]MPI\_Type\_create\_subarray
+\item[•]MPI\_Typevector
+\item[•]MPI\_Type\_struct
+\item[•]MPI\_Type\_indexed
+\item[•]MPI\_Type\_hindexed
+\end{itemize}
+
+Es necesario llamar a MPI\_Type\_commit, el cual se encarga de que MPI haga los cálculos de indexación para los tipos de datos. Cuando no se necesite ya más hay que llamar a MPI\_Type\_free.\\
+
+\subsubsubsection{Tipo contiguo}
+
+Es el tipo derivado más simple. Define un array de elementos de un tipo elemental o de otro tipo definido con anterioridad. No hay diferencia entre enviar un elemento de tipo contiguo o múltiples elementos del tipo que lo componen.\\
+\subsubsubsection{Tipo vector}
+
+Es el tipo de dato no contiguo más simple. Describe una serie de bloques, todos de la misma longitud, y espaciados con un mismo stride, constante.\\
+
+\begin{Figure}
+\centering
+\includegraphics[width=1\columnwidth]{VectorStride.png}
+		%\caption{Imágen extraída de \cite{key-1} , Apartado 3.4.5 .}	
+\end{Figure}
+
+\subsubsubsection{Tipo indexado}
+
+El tipo indexado puede enviar elementos ubicados arbitrariamente de un array de un tipo único. Para ello hay que proporcionar un array de posiciones, acompañado de un array de longitudes con un  array separado con el tamaño de cada bloque.
+
+\subsubsubsection{Tipo struct}
+
+El tipo struct puede contener múltiples tipos de datos. La especificación contiene un contador que indica cuantos bloques hay en una única estructura.
+\begin{Figure}
+\centering
+\includegraphics[width=1\columnwidth]{Strides.png}
+		%\caption{Imágen extraída de \cite{key-1} , Apartado 3.4.5 .}	
+\end{Figure}
+El tipo de estructura es muy similar en funcionalidad al tipo MPI\_Type\_hindexed, que usa un indexado basado en el Byte. El uso del tipo struct probablemente sea más limpio.
+
+\subsubsubsection{Empaquetado}
+
+Una de las razones para usar tipos de datos derivados es poder tratar con datos no contiguos. Anteriormente esto sólo se podía hacer empaquetando los datos de su contenedor original en un buffer y desempaquetándolo en su receptor en sus estructuras de datos de destino.\\
+
+MPI ofrece esa opción de empaquetado, parcialmente por la compatibilidad entre librerías, pero también por flexibilidad. A diferencia de los tipos de datos derivados, que transfieren los datos automáticamente, las rutinas de empaquetado añaden datos de forma secuencial en un buffer, y el empaquetado hay que hacerlo en orden.\\
+
+\begin{Figure}
+\centering
+\includegraphics[width=1\columnwidth]{paking.png}
+		%\caption{Imágen extraída de \cite{key-1} , Apartado 3.4.5 .}	
+\end{Figure}
+
+\subsection{Reparto dinámico de carga}
+
+\subsubsection{Partición de los datos}
+
+
+Uno de los primeros pasos a la hora de diseñar un programa paralelo es el de dividir el problema en bloques de trabajo discretos que puedan ser distribuidos entre múltiples procesos.\\
+
+Existen dos formas básicas de dividir los datos, la descomposición funcional y la descomposición del dominio.
+
+\subsubsection{Descomposición del dominio del problema}
+En este tipo de partición los datos se dividen entre los procesos y luego estos trabajan con ellos.
+\begin{Figure}
+\centering
+\includegraphics[width=1\columnwidth]{domaindecomp.png}
+\end{Figure}
+
+\begin{Figure}
+\centering
+\includegraphics[width=1\columnwidth]{distributions.png}
+\end{Figure}
+
+\subsubsection{Descomposición funcional}
+
+La descomposición funcional no se centra tanto en los datos como en las cargas de trabajo del problema, de manera que cada proceso realiza un proporción equivalente del trabajo total.
+
+\begin{Figure}
+\centering
+\includegraphics[width=1\columnwidth]{functionaldecomp.png}
+\end{Figure}
+
+\subsubsection{Intercambio de las fronteras}
+En ciertos problemas, se requiere de datos que al dividir tocaron a otro procesador.
+El problema que se forma entonces es cuando un computador posee el valor p pero no el valor p+1. MPI nos ofrece dos métodos para gestionar dicho problema:
+
+\begin{itemize}
+\item[•]Un procesador envía algo a otro procesador.
+\item[•]Un procesador recibe algo de un origen.
+\end{itemize}
+
+\subsubsection{Ejemplo de envío: Ping-Pong}
+
+Un procesador A envía algo a un procesador B y este se lo devuelve, el código que se ejecuta en A sería el siguiente:
+
+\begin{lstlisting}
+MPI_Send( /* to: */ B ….);
+MPI_Recv(/* from: */ B ….);
+\end{lstlisting}
+
+Mientras que en B se ejecutaría el siguiente:
+
+\begin{lstlisting}
+MPI_Recv(/* from: */ A ….);
+MPI_Send( /* to: */ A ….);
+\end{lstlisting}
+
+Si estamos trabajando en el modo SPMD el programa se mostraría así:
+
+\begin{lstlisting}
+if ( /* I am process A */ ) {
+	MPI_Send( /* to: */ B ….);
+	MPI_Recv(/* from: */ B ….);
+}
+else if ( /* I am process B */ ) {
+	MPI_Recv (/* from: */ A ….);
+	MPI_Send ( /* to: */ A ….);
+}
+\end{lstlisting}
+
+\subsubsection{Comunicación bloqueante}
+
+El uso de MPI\_Send y MPI\_Recv bloqueará durante unos momentos la comunicación. Recv bloqueará al computador hasta recibir el dato deseado del MPI\_Send.\\
+\hspace*{0.4cm}El problema que se puede dar en la comunicación bloqueante es el interbloqueo. Cuando dos computadores esperan que el otro les envíe algo pero jamás llega ya que el otro está bloqueado también en el MPI\_Recv.\\
+
+Una manera de evitar los interbloqueos es crear un grafo usando los vértices como procesadores y las aristas como las comunicaciones de entrada y salida.\\
+\hspace*{0.4cm} Otro posible caso es que un procesador necesita un dato de su predecesor y ha de enviar un dato a su sucesor, en este caso el algoritmo a utilizar será el siguiente:
+\begin{lstlisting}
+Sucesor = mythid+1;
+Predecesor = mythid +1;
+If ( /* I am not the first processor */ )
+	Send (target=successor);
+If ( /* I am not the first processor */ )
+	Receive (source=predecesor)
+\end{lstlisting}
+
+\begin{thebibliography}{rules}
+\bibitem{key-1} Pacheco P.:\textit{An Introduction to Parallel Programming}. Morgan Kaufmann,2011. Capítulo 3, apartado 4. 
+
+\bibitem{key-2} Snir M., Otto S., Huss-Lederman S., Walker D., Dongarra J. \textit{MPI: The Complete Reference, Volume 1, The MPI Core.} The MIT PRess, 1999. Capítulo 4.
+
+\bibitem{key-3} Victor Eijkhout, \textit{Parallel Computing for Science and Engineering}, 1st Edition 2015.
+
+\bibitem{key-4} Blaise Barney, Lawrence Livermore National Laboratory, \textit{Introduction to Parallel Computing}.
+
+\end{thebibliography}
+
+\end{multicols}
+\pagebreak
+
+\begin{multicols}{2}
+\subsection{Ejercicios}
+
+\subsubsection{P1.1}
+Hay que repartir un vector de N elementos entre npr procesos. Completa el programa serie \textit{P11-distribute0.c}, para que genere el tamaño de cada trozo del vector y el desplazamiento desde el origen del vector al comienzo de cada trozo, en estos dos casos: 
+
+\begin{itemize}
+\item[\textbf{a.}] los posibles restos se añaden al último trozo
+\item[\textbf{b.}] los posibles restos se añaden uno a uno a diferentes trozos
+\end{itemize}
+
+\hline
+\vspace*{0.4cm}
+
+\textbf{a.}
+Inicialmente calculo Nloc y remainder.
+\begin{lstlisting}
+//Compute Nloc and remainder
+Nloc = floor((double)N/(double)npr);
+remainder = N - Nloc*npr;
+\end{lstlisting}
+
+Este caso es sencillo y se resuelve con el siguiente bucle y las asignaciones finales.
+\begin{lstlisting}
+//We distribute the work among the procesesses
+for(i=0; i<npr-1; i++){
+	size[i] = Nloc;
+	shift[i] = i*Nloc;
+}
+//Finally we charge the last process with the remainder
+size[npr-1] = Nloc + remainder;
+shift[npr-1] = (npr-1)*Nloc;
+\end{lstlisting}
+
+\textbf{b.}
+En este segundo caso he comenzado distribuyendo la carga del resto entre los primeros procesadores, luego,
+las cargas distintas entre procesos no permiten el cálculo de shift usado anteriormente, por lo que tomo las referencias de tamaño y shift calculadas en la anterior iteración para calcular el shift, sabemos donde empezamos porque sabemos dónde termina el anterior.\\
+
+\begin{lstlisting}
+//Value asignment to first process  
+size2[0] = Nloc;
+shift2[0] = 0; 
+
+//Distribution of the remainder among the first processes 
+i = 0;
+while(remainder){
+	size2[i] += 1;
+	remainder -= 1;
+	i++;
+}
+	
+//Distribute the rest of the vector among the processes
+for(i=1; i<npr; i++){
+	size2[i] += Nloc;
+	shift2[i] = shift2[(i-1)] + size2[(i-1)];
+}
+\end{lstlisting}
+
+\subsubsection{P1.2}
+El programa \textit{P12-inteser.c} calcula el valor de una integral mediante el conocido método de sumar las áreas de n trapecios bajo la curva que representa una función. A mayor valor de n, más preciso el resultado.\\
+
+Completa el programa MPI \textit{P12-inteser.c} para realizar esa misma función entre P procesos, utilizando funciones de comunicación colectiva. Compara el resultado con el de la versión serie.\\
+
+\hline
+\vspace*{0.4cm}
+Para resolver el problema es necesario modificar la función Read\_data, encargada de leer por pantalla los límites superior, inferior y número de evaluaciones de la función. Dado que todos los nodos no pueden utilizar la entrada estándar al mismo tiempo, limito la lectura a un único nodo y luego distribuyo los datos leídos entre el resto de procesos utilizando la función \textbf{MPI\_Bcast}.\\
+
+\begin{lstlisting}
+void Read_data(double* a_ptr, double* b_ptr, int* n_ptr, int pid){
+
+  float a, b;
+  float buf[3];
+  
+  if (pid == 0){
+	printf("\n  Introduce a, b (limits) and n (num. of trap.)  \n");
+	scanf("%f %f %d", &a, &b, n_ptr);
+	buf[0] = a; 	
+	buf[1] = b;
+	buf[2] = (float)*n_ptr;
+  }
+  //Distribute read values
+  MPI_Bcast(&buf,3,MPI_INT,0,MPI_COMM_WORLD)
+
+  (*a_ptr)= (double)(buf[0]);
+  (*b_ptr)= (double)(buf[1]);
+  (*n_ptr)= (double)(buf[2]);
+\end{lstlisting}
+
+Tras realizar el cálculo del área correspondiente en cada proceso, es necesario sumarlas todas para obtener la integral en todo el intervalo. Esto puede realizarse en una única línea llamando a la función \textbf{MPI\_Reduce} con los siguientes parámetros.
+
+\begin{lstlisting}
+/* 
+Adding the partial results,
+
+  Description of parameters:
+  sendbuf  - local result of integral
+  recvbuf  - total result of integral
+  count    - 1 element in send buffer per porcess
+  datatype - We are using double precission
+  op       - We will compute a sume
+  root     - the process 0
+  comm     - All the processes active 
+*/
+ MPI_Reduce(&resul_loc, &resul, 1, MPI_DOUBLE	, MPI_SUM, 0, MPI_COMM_WORLD);
+\end{lstlisting}
+
+Las siguientes imágenes muestran los resultados comparando la ejecución para distintos números de procesadores. Los tiempos, los factores de aceleración y la eficiencia de cada uno.
+\end{multicols}
+\begin{center}
+<<echo=FALSE ,fig.width=8, fig.height=4,fig.pos='!h',>>=
+y1 <- c(17,170,1680,16764,23630);
+y4 <- c( 9.065, 45.928,423.052, 4192.455,5911.248);
+y8 <- c(12.810,27.683, 217.307,2102.099, 2960.332);
+y16 <- c(20.801, 21.893,116.333, 1053.954, 1482.393);
+y32 <- c( 35.006, 28.622,76.996,545.764,759.434);
+x <- c(1,2,3,4,5);
+xrange <- range(x) 
+yrange <- range(y1) 
+linetype <- c(1,2,3,4,5) 
+plot(x, y1, lty=linetype[5], type="o",xlab="n",xaxt="n", ylab="T(ms)")
+axis(1, at=c(1,2,3,4,5), labels=expression(10^6,
+10^7, 10^8, 10^9, 10^10))
+lines(x,y4,type="o",lty=linetype[1])
+lines(x,y8,type="o",lty=linetype[2])
+lines(x,y16,type="o",lty=linetype[3])
+lines(x,y32,type="o",lty=linetype[4])
+legend(xrange[1],yrange[2] ,c(1,4,8,16,32), cex=0.8, lty=c(5,1,2,3,4),title="P")
+
+@
+
+<<echo=FALSE ,fig.width=8, fig.height=4.6,fig.pos='!h'>>=
+par(mfrow=c(1,2))
+
+fa4 <- y1/y4;
+fa8 <- y1/y8;
+fa16 <- y1/y16;
+fa32 <-y1/y32;
+
+x <- c(1,2,3,4,5);
+xrange <- range(x) 
+yrange <- range(fa4) 
+
+plot(x, fa32 ,lty=linetype[4],type="o",xlab="n",xaxt="n", ylab="fa")
+axis(1, at=c(1,2,3,4,5), labels=expression(10^6,
+10^7, 10^8, 10^9, 10^10))
+lines(x,fa4,type="o",lty=linetype[1])
+lines(x,fa8,type="o",lty=linetype[2])
+lines(x,fa16,type="o",lty=linetype[3])
+lines(x,fa32,type="o",lty=linetype[4])
+legend(xrange[1],30 ,c(4,8,16,32), cex=0.8, lty=linetype,title="P")
+
+eff4 <- fa4/4.0;
+eff8 <- fa8/8.0;
+eff16 <- fa16/16.0;
+eff32 <- fa32/32.0;
+
+x <- c(1,2,3,4,5);
+xrange <- range(x) 
+
+plot(x, eff32 ,lty=linetype[4],type="o",xlab="n",xaxt="n", ylab="eff")
+axis(1, at=c(1,2,3,4,5), labels=expression(10^6,
+10^7, 10^8, 10^9, 10^10))
+linetype <- c(1,2,3,5) 
+lines(x,eff4,type="o",lty=linetype[1])
+lines(x,eff8,type="o",lty=linetype[2])
+lines(x,eff16,type="o",lty=linetype[3])
+@
+\end{center}
+
+\begin{multicols}{2}
+
+\subsubsection{P1.3}
+
+En una ejecución con cuatro procesos, P2 reparte datos del vector B (de 16 enteros) de la siguiente manera: a P0; B[3], B[4], B[5]; a P1: B[7], B[8]; a P2; B[12], B[13], B[14], B[15]. Tras ello, cada proceso suma 100 a los elementos recibido, y, finalmente, se recopilan los datos en P2, en las mismas posiciones iniciales del vector B.\\
+
+Completa el programa MPI \textit{P13-scatter-gather0.c} para que realice esa función; al principio, P2 debe inicializar B[i]=i, y, al final, imprimir el nuevo vector B.\\
+
+\hline
+\vspace*{0.4cm}
+Como los segmentos a entregar son de tamaños distintos he utilizado la variante de vector de las funciones Scatter y Gather. Primero creo los vectores de displacement, y sendcounts, desde que posiciones quiero que reciban datos y la cantidad de los mismos.\\
+
+\begin{lstlisting}
+int  displacements[4];
+int  sendcounts[4];
+displacements[0] = 3;  sendcounts[0] = 3;
+displacements[1] = 7;  sendcounts[1] = 2;
+displacements[2] = 10;  sendcounts[2] = 1;
+displacements[3] = 12;  sendcounts[3] = 4;
+  
+// Scattering of B from pid=2
+MPI_Scatterv(&B, &sendcounts[0], &displacements[0], MPI_INT, &Bloc, sendcounts[pid], MPI_INT, 2, MPI_COMM_WORLD);
+ 
+// Local calculation
+for(i=0; i < sizeof(&Bloc); i++){ Bloc[i]+=100; }
+ 
+// Gathering of Bloc in pid=2
+MPI_Gatherv(&Bloc, sendcounts[pid], MPI_INT, &B, &sendcounts[0], &displacements[0], MPI_INT, 2, MPI_COMM_WORLD);
+\end{lstlisting}
+
+\vspace*{5cm}
+
+\subsubsection{P2.1}
+
+En un programa MPI, el proceso P3 tiene una matriz MAT de 10x10 enteros, de la que tiene que enviar la diagonal al resto de procesos. Completa el programa \textit{P21-diagonal0.c} para que ejecute esa operación en estos dos casos:
+\begin{itemize}
+\item[-] la diagonal se recibe en los otros procesos como un simple vector, y se calcula e imprime la suma de los elementos recibidos.
+\item[-] la diagonal se recibe sustituyendo a la diagonal de la matriz local MAT.
+\end{itemize}
+Ejecuta el programa con 4 procesos.\\ 
+
+\hline
+\vspace*{0.3cm}
+Lo primero que se ha hecho es definir el tipo \\
+\textit{diagonal}.
+
+\begin{lstlisting}
+// Defining the diagonal type
+MPI_Datatype diagonal;
+MPI_Type_vector(N, 1, N, MPI_INT, &diagonal);
+MPI_Type_commit(&diagonal);
+\end{lstlisting}
+
+A continuación, se desea enviar la diagonal desde el nodo P3 a los nodos P0, P1 y P2.
+El nodo P3 tendrá que rellenar su tipo diagonal. 
+En este caso, suponiendo que se trabaje con cuatro nodos, todos los nodos ejecutan \textbf{broadcast}. El nodo P3 es el emisor y el resto los receptores Se podría haber hecho con un tres \textit{sends} a los respectivos nodos.
+
+\begin{lstlisting}
+// 1. Sending the diagonal of the matrix MAT in P3 to P0, P1 and P2
+// It is received as a vector in a buffer
+if (pid==3){
+	printf("Soy nodo %d.Voy a enviar mi diagonal:\n",pid);
+	for (i=0; i<N; i++){
+		buf[i]=MAT[i][i];
+		printf ("%d",buf[i]);
+		printf(",");
+	}
+	printf("\n");
+}
+//Sended data by broadcast
+MPI_Bcast(&buf, N, MPI_INT, 3, MPI_COMM_WORLD);
+if (pid !=3){
+	for (i=0; i<N; i++){
+		printf ("Nodo: %d Buf: [%d][%d] %d\n",pid,i,i,buf[i]);
+	}
+}
+\end{lstlisting}
+\pagebreak
+
+\subsubsection{P2.2}
+
+Completa el programa \textit{P22-pack0.c} para que P1 envíe a P2 tres elementos en un solo mensaje: una matriz A de 100x100 enteros, un vector B de 2.000 flotantes, y C, un double. Para ello, P1 empaqueta los datos y envía el paquete a P2; por su parte, P2 recibe el mensaje y desempaqueta los datos.
+Ejecuta el programa con 4 procesos.\\
+\hline
+\vspace*{0.4cm}
+Lo primero que se hace es inicializar los datos en P1. A continuación, se empaquetan los datos de interés y se envían al nodo de destino mediante MPI\_Send.\\
+
+\begin{lstlisting}
+if (pid==1){
+	for(i=0; i<sizeA; i++)
+	for(j=0; j<sizeA; j++) A[i][j] = i*j;
+
+	for(i=0; i<sizeB; i++) B[i] = (float)i*0.4; 
+	C = 2.2;
+
+// Packing the data in P1 and sending the packet to P2
+	MPI_Pack(&A[0][0], sizeA*sizeA, MPI_INT, buf, sizebuf, &pos, MPI_COMM_WORLD );
+	MPI_Pack(&B[0], sizeB, MPI_FLOAT, buf, sizebuf, &pos, MPI_COMM_WORLD);
+	MPI_Pack(&C, 1, MPI_DOUBLE, buf, sizebuf, &pos, MPI_COMM_WORLD);
+	MPI_Send(buf, pos, MPI_PACKED, 2, 0, MPI_COMM_WORLD);		
+}
+\end{lstlisting}
+
+Ahora hay que recibir los datos en el nodo P2. Hay que tener en cuenta que hay que desempaquetar en el mismo orden que en el que se envía.\\
+\begin{lstlisting}
+if (pid==2){
+	MPI_Recv(buf, sizebuf, MPI_PACKED, 1, 0, MPI_COMM_WORLD, &info);
+//Unpacking
+	pos=0;
+	MPI_Unpack(buf, sizebuf, &pos, &A[0][0], sizeA*sizeA , MPI_INT, MPI_COMM_WORLD);
+	MPI_Unpack(buf, sizebuf, &pos, &B[0], sizeB, MPI_FLOAT, MPI_COMM_WORLD);
+	MPI_Unpack(buf, sizebuf, &pos, &C, 1, MPI_DOUBLE, MPI_COMM_WORLD);
+}
+\end{lstlisting}
+
+\vspace*{2cm}
+\subsubsection{P2.3}
+Una aplicación paralela se ejecuta en 8 procesos. En un momento dado, necesitamos construir dos grupos diferentes, de 4 procesos cada uno: Los procesos 0 a 3 por un lado, y los procesos 4 a 7 por otro. En cada grupo, los procesos tendrán un nuevo identificador.\\
+
+Tras ello, en cada grupo se efectúa una operación de recogida de datos, de tal manera que, partiendo de vectores \textit{V} de 5 enteros en cada proceso (inicializados al valor del \textit{pid} del proceso), al final todos ellos dispongan del vector\textit{ W} de 20 elementos, formado por la concatenación de los vectores \textit{V} de los 4 procesos de cada grupo.\\
+
+Completa el programa \textit{P23-groups0.c} para que realice esa función. Ejecuta el programa con 8 procesos; debe imprimir:\\
+
+\begin{minipage}[t][2cm][b]{0.9\columnwidth}
+\textit{I am pid:0 and pid2: 0 and W(0,5,10,15) are 0 1 2 3}\\
+
+\textit{I am pid:0 and pid2: 0 and W(0,5,10,15) are 0 1 2 3}\\
+\end{minipage}
+
+
+\subsubsection{P3.1}
+
+El programa \textit{P31-collatzser.c} aplica una función basada en el algoritmo de Collatz a números enteros desde 1 a 320, con una carga de trabajo proporcional al número de iteraciones necesarias para que los números converjan a 1.\\
+
+Hay que hacer dos versiones paralelas de ese programa. En la primera, se reparten las tareas entre todos los proceso de modo estático consecutivo, procesando cada uno de ellos 320/npr números consecutivos.\\
+
+En la segunda, el reparto de tareas debe ser dinámico, bajo demanda. Uno de los procesos (P0, por ejemplo) funciona como manager y reparte a cada uno de los restantes procesos (workers) números a procesar, uno a uno, cuando lo solicitan. Cada worker procesa ese número, y devuelve al manager el número de iteraciones que ha necesitado para converger. Si quedan números por analizar, se le envía una nueva tarea, hasta terminar de analizar entre todos los workers todos los números. El proceso manager debe controlar cuántos números ha procesado cada worker, y el número que ha necesitado más iteraciones para converger.\\
+
+\hline
+\vspace*{0.4cm}
+\textbf{Versión estática}\\
+
+Una vez declaradas las funciones y variables necesarias para llevar a cabo nuestro objetivo podemos empezar con la distribución de elementos a analizar:\\
+\begin{lstlisting}
+//Distribution of tasks
+reparto = floor(NUMBER/npr);
+resto = NUMBER - reparto*npr;
+int i = 0;
+first[0]= 1;
+for(i=1; i<npr+1; i++){
+	if(resto > 0){
+		first[i] = first[i-1] + reparto + 1;
+		resto--;
+	}else{
+		first[i] = first[i-1] + reparto;
+	}
+}
+\end{lstlisting}
+
+De esta manera conseguimos que los elementos que forman el problema a solventar se reparten de manera equitativa y en orden con el número de procesadores involucrados en el desarrollo.
+\begin{verbatim}
+Ej: npr = 4
+pid = 0 => 1..80 pid = 1 => 81..160	
+pid = 2 => 161..240	pid = 3 => 241..320
+\end{verbatim}
+
+Una vez distribuidos los elementos cada procesador ejecuta el algoritmo de Collatz en el rango de valores asignado:
+
+\begin{lstlisting}
+//Execution of work
+for (n=first[pid]; n<first[pid+1]; n++){
+	steps=collatz(n);
+	work(steps);
+	total_steps+=steps;
+	if (steps > max_steps) {n_max_steps = n; max_steps = steps;}
+}
+\end{lstlisting}
+Una vez calculados los distintos valores de la ejecución en paralelo recogemos los resultados obtenidos:
+\begin{lstlisting}
+//Gather of results
+int all_max_steps, all_steps;
+	
+MPI_Reduce( &total_steps,&all_steps, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+MPI_Reduce( &max_steps,&all_max_steps, 1, MPI_INT, MPI_MAX, 0, MPI_COMM_WORLD); 
+\end{lstlisting}
+
+\textbf{Versión dinámica}\\
+
+En este caso el reparto de tareas se hace en tiempo de ejecución, El algoritmo utilizado es el siguiente:\\
+
+\textbf{Manager:}\\
+Inicialmente enviamos una tarea a cada Worker, por cada envío esperamos una respuesta por lo que llevamos la cuenta en la variable answer.
+\begin{lstlisting}
+int n = 1,answer = 0;
+	
+//Send initial work to each worker
+for(i=1; i < npr; i++ ){
+	if(n < NUMBER+1){ 
+		MPI_Send(&n, 1, MPI_INT, i, 0, MPI_COMM_WORLD);
+		n++;
+		answer++;
+	//In case npr is greater than NUMBER, the remaining processes wont work
+	}else{
+		MPI_Send(&n, 1, MPI_INT, info.MPI_SOURCE, 1, MPI_COMM_WORLD);
+	}
+}
+\end{lstlisting}
+
+Mientras esperemos respuestas, esto es, que answer sea mayor que cero, recibimos el resultado de alguno de los Workers, answer decrece, en caso de quedar trabajo, se envía otro dato junto con el Tag 0, como esperamos una respuesta, answer aumenta, sino, se envía un mensaje junto con el Tag 1 y no esperamos respuesta.
+\begin{lstlisting}
+//MANAGER LOOP
+while(answer > 0){
+	MPI_Recv(&f, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &info);
+	answer--;
+	total_steps+=f; 
+	if (f > max_steps) {n_max_steps = n; max_steps = f;}
+				
+	if(n < NUMBER + 1){
+		MPI_Send(&n, 1, MPI_INT, info.MPI_SOURCE, 0, MPI_COMM_WORLD);
+		answer++;
+		n++;
+	}else{
+		MPI_Send(&n, 1, MPI_INT, info.MPI_SOURCE, 1, MPI_COMM_WORLD);
+	}
+}
+\end{lstlisting}
+
+\textbf{Worker:}\\
+El bucle de Worker es mucho más simple y consiste en una recepción inicial, si se trata de trabajo (TAG 0), se ejecuta la tarea y se envían los resultados. Esperamos la respuesta del Manager con más trabajo o indicando el final de este.
+\begin{lstlisting}
+//WORKER LOOP
+MPI_Recv(&b, 1, MPI_INT, 0, MPI_ANY_TAG, MPI_COMM_WORLD, &info);//Recibe trabajo
+while(info.MPI_TAG != 1){
+	steps=collatz(b);
+	work(steps);
+	MPI_Send(&steps, 1, MPI_INT, 0, 1, MPI_COMM_WORLD);//Envía resultados
+	MPI_Recv(&b, 1, MPI_INT, 0, MPI_ANY_TAG, MPI_COMM_WORLD, &info);//Recibe trabajo
+}
+\end{lstlisting}
+
+En los siguientes gráficos pueden apreciarse las diferencias en los factores de aceleración y eficiencias en cada caso.\\
+
+Como era de esperar el reparto dinámico consigue mejores factores de aceleración para todos los números de procesadores exceptuando el primer caso, dónde el modelo manager worker carecería de sentido. Del mismo modo se aprecia como la eficiencia aumenta con el número de procesadores, los beneficios del reparto dinámico van superando los costes de la comunicación entre el Manager y los Worker, eficiencia que alcanza su máximo con 9 procesadores y va bajando suavemente hasta los 33, probablemente esto se deba a que los Workers terminan su trabajo y hacen cola esperando la respuesta del Manager.\\
+
+Por otro lado, las cargas de trabajo no están homogéneamente distribuidas y el reparto estático lo ignora, esto explica los resultados para este caso y la mala eficiencia.
+
+\end{multicols}
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{c c c c}
+		\textbf{ Proc.} & \textbf{Tstatic}(ms)& \textbf{ Proc.} & \textbf{Tdynamic}(ms) \\
+		 \hline
+		 1 & 30082 & 1+1 & 30107 \\
+		 2 & 17883 & 1+2 & 15076 \\
+		 4 & 9093  & 1+4 & 7572\\
+		 8 & 4649  & 1+8 & 3869\\
+		 16 & 2848 & 1+16 & 2062 \\
+		 24 & 2146 & 1+24 & 1473\\
+		 32 & 1572 & 1+32 & 1210\\
+		 \hline
+	\end{tabular}
+\end{table}
+
+<<echo=FALSE >>=
+#---DATA OF SERIAL EXECUTION-----
+Ts <- 30082
+
+#---DATA OF STATIC PARALLEL EXECUTIONS-----
+t2 <- 17883
+t4 <- 9093
+t8 <- 4649
+t16 <- 2848
+t24 <- 2146
+t32 <- 1572
+
+fa2 <- Ts/t2
+fa4 <- Ts/t4
+fa8 <- Ts/t8
+fa16 <- Ts/t16
+fa24 <- Ts/t24
+fa32 <- Ts/t32
+Sfares <- c(fa2,fa4,fa8,fa16,fa24,fa32)
+
+eff2 <- fa2/2
+eff4 <- fa4/4
+eff8 <- fa8/8
+eff16 <- fa16/16
+eff24 <- fa24/24
+eff32 <- fa32/32
+Seffres <- c(eff2,eff4,eff8,eff16,eff24,eff32)
+
+#---DATA OF DYNAMIC PARALLEL EXECUTIONS-----
+t1 <- 30107
+t2 <- 15076
+t4 <- 7572
+t8 <- 3869
+t16 <- 2062
+t24 <- 1473
+t32 <- 1210
+
+fa1 <- Ts/t1
+fa2 <- Ts/t2
+fa4 <- Ts/t4
+fa8 <- Ts/t8
+fa16 <- Ts/t16
+fa24 <- Ts/t24
+fa32 <- Ts/t32
+fares <- c(fa1,fa2,fa4,fa8,fa16,fa24,fa32)
+
+eff1 <- fa1/2
+eff2 <- fa2/3
+eff4 <- fa4/5
+eff8 <- fa8/9
+eff16 <- fa16/17
+eff24 <- fa24/25
+eff32 <- fa32/33
+effres <- c(eff1,eff2,eff4,eff8,eff16,eff24,eff32)
+@
+
+<<echo=FALSE ,fig.width=8, fig.height=7,fig.pos='!h'>>=
+par(mfrow=c(2,2),mar=c(5.1,4.1,4.1,2.1), oma=c(0,0,0,0))
+
+#---PLOT STATIC -----
+x <- c(2,4,8,16,24,32);
+plot(x, Sfares ,lty=1,type="o",xlab="p",xaxt="n",pch=0, ylab="fa",xlim=c(1, 32), ylim=c(0, 32),main="Static")
+axis(1, at=x)
+lines(x,x,type="o",lty=3)
+
+plot(x, Seffres ,lty=1,type="o",xlab="p",xaxt="n",pch=0, ylab="eff",xlim=c(1, 32), ylim=c(0, 1.1),main="Static")
+axis(1, at=x)
+
+#---PLOT DYNAMIC -----
+x <- c(2,3,5,9,17,25,33);
+plot(x, fares ,lty=1,type="o",xlab="p",xaxt="n",pch=0, ylab="fa",xlim=c(1, 34), ylim=c(0, 33),main="Dynamic")
+axis(1, at=x)
+lines(x,x,type="o",lty=3)
+
+
+plot(x, effres ,lty=1,type="o",xlab="p",xaxt="n",pch=0, ylab="eff",xlim=c(1, 34), ylim=c(0, 1.1),main="Dynamic")
+axis(1, at=x)
+@
+
+\pagebreak
+
+\begin{multicols}{2}
+\subsubsection{P3.2}
+En una determinada aplicación (\textit{P32-convoser.c}) se procesa un vector de \textit{N} = 1002 elementos al que se aplica una operación de convolución de manera iterativa
+
+\begin{lstlisting}
+for (i=1; i<N-1; i++) Aux[i] = (A[i-2] + 2*A[i] + A[i+1]) / 4
+for (i=1; i<N-1; i++) A[i] = Aux[i]
+\end{lstlisting}
+hasta que el valor máximo de los elementos del vector sea menor al 60\% del valor máximo inicial. Como puedes ver, el primer y el último elemento del vector no se procesan.\\
+
+El programa se va a ejecutar con un número de procesos divisor de 1000. Escribe una versión paralela del programa en el que \textbf{(a)} \textit{P0} reparte los 1000 elementos del vector que hay que procesar, en trozos de 1000/\textit{npr} elementos: el primero lo procesará el mismo, el segundo \textit{P1}...; \textbf{(b)} cada proceso efectúa la operación sobre el trozo de vector que le ha tocado y calcula el máximo local;\textbf{(c)} los procesos envían su máximo local a \textit{P0}, el que calcula el máximo global y, tras ello, avisa a todos los procesos si hay que efectuar una nueva convolución o si la operación ha terminado;\textbf{(d)} al acabar, los procesos envían a \textit{P0} su trozo de vector S procesado, para que éste los reconstruya.\\
+
+Ten en cuenta que cada procesador va a necesitar para procesar su trozo los datos que le han correspondido y 2 más, el anterior al primero y el posterior al último, que estarán en el procesador anterior y en el siguiente. Por tanto, te sugerimos que cada proceso utilice un buffer de 1 + 1000/\textit{npr} + 1 elementos, y que previo a la operación de convolución se intercambien con \textit{pid}-1 y \textit{pid}+1 los datos que necesiten(que van a ir cambiando iteración a iteración).\\
+
+\begin{Figure}
+\centering
+\includegraphics[width=0.8\columnwidth]{frontera.png}
+\end{Figure}
+
+\hline
+\vspace*{0.3cm}
+Tal y como indica el enunciado, hay que repartir los trozos de vector entre los procesadores. Primero calculamos en todos los procesos los tamaños y desplazamientos. Comprobamos que efectivamente el número de procesadores es divisor de 1000 y creamos los array locales donde trabajará cada procesador. 
+
+\begin{lstlisting}
+reparto = floor((NELEM-2)/npr);
+resto = (NELEM-2) - reparto*npr;
+if(resto != 0){
+	printf ("\n\n ERROR: 1000 must be multiple of npr\n\n");
+	exit (-1);
+} 
+int size[npr],displacement[npr];
+	for(i=0; i<npr; i++){
+	size[i] = reparto;
+	displacement[i] = i*reparto;
+}
+ 
+float A[NELEM], Aux[NELEM];
+float A_loc[reparto+2], Aux_loc[reparto+2];
+\end{lstlisting}
+Tras llenar aleatoriamente en el proceso 0 el vector A, procedemos a su reparto utilizando la función Scatterv con los vectores size y displacement previamente calculados. El primer y último elemento de A, no se reparten ni modifican ni tampoco se comunican como frontera, pero si son necesarios para el cálculo por lo que los asigno a mano.
+\begin{lstlisting}
+//Reparto de los datos iniciales
+ MPI_Scatterv(&A[1], &size[0], &displacement[0],  MPI_FLOAT,
+					 &A_loc[1], size[pid], MPI_FLOAT, 0, MPI_COMM_WORLD);
+if(pid == 0){
+	A_loc[0] = 150;
+}
+if(pid == npr-1){
+	A_loc[reparto+1] = 150;
+}
+\end{lstlisting}
+
+Después del reparto inicial, comienza el bucle de cálculo hasta la convergencia, pero cada iteración, antes de realizar la convolución hay que actualizar los datos que son frontera entre procesadores, para ello realizamos dos envíos en cascada uno desde 0 hasta el último proceso, enviando cada proceso su "último" elemento al sucesor. Y otro envío desde el último proceso hasta 0 enviando cada proceso su "primer" elemento a su predecesor.
+
+\begin{lstlisting}
+if(pid > 0){
+	//Recibimos en la primera posicion el ante ultimo elemento del predecesor
+	MPI_Recv(&A_loc[0], 1, MPI_FLOAT, pid-1, 0, MPI_COMM_WORLD, &info);
+	//Enviamos ante ultimo elemento al sucesor en caso de que exista
+	if(pid < npr-1){
+		MPI_Send(&A_loc[reparto], 1, MPI_FLOAT, pid+1 , 0, MPI_COMM_WORLD);
+	}
+}else{
+	//Enviamos ante ultimo elemento al sucesor
+	MPI_Send(&A_loc[reparto], 1, MPI_FLOAT, pid+1 , 0, MPI_COMM_WORLD);
+}
+	
+if(pid < npr-1){
+	//Recibimos en la ultima posicion el segundo elemento de los sucesores
+	MPI_Recv(&A_loc[reparto+1], 1, MPI_FLOAT, pid+1, 0, MPI_COMM_WORLD, &info );
+	//Enviamos segundo elemento al predecesor en caso de que exista
+	if(pid > 0){
+		MPI_Send(&A_loc[1], 1, MPI_FLOAT, pid-1 , 0, MPI_COMM_WORLD);
+	}
+}else{
+	//Enviamos segundo elemento al predecesor
+	MPI_Send(&A_loc[1], 1, MPI_FLOAT, pid-1 , 0, MPI_COMM_WORLD);
+}
+\end{lstlisting}	
+
+Para determinar el final del cálculo, se recoge el máximo global en 0 y se envía el resultado del control de convergencia.
+\begin{lstlisting}
+//Recogemos el maximo global
+MPI_Reduce(&max_loc, &max, 1, MPI_FLOAT, MPI_MAX, 0, MPI_COMM_WORLD);
+// convergence control
+if(pid == 0){
+	steps++;
+	if (max < lim) end=1;
+}
+//Send convergence result
+MPI_Bcast(&end, 1, MPI_INT, 0, MPI_COMM_WORLD);
+\end{lstlisting}	
+Finalmente, una vez fuera del bucle, recogemos en 0 el vector entero utilizando la función gatherv.
+\begin{lstlisting}
+//Recogida del vector final
+MPI_Gatherv(&A_loc[1], size[pid], MPI_FLOAT, &A[1], &size[0],&displacement[0], MPI_FLOAT, 0, MPI_COMM_WORLD);
+\end{lstlisting}	
+\end{multicols}
+
+\pagebreak
+
+
+\section{Anexos}
+
+\subsection{El Hardware}
+En su forma más simple, una máquina de memoria distribuida es un conjunto de ordenadores conectados a través de cables de red, a esto se le denomina “Beowulf Cluster”. Cada procesador puede ejecutar de forma independiente una tarea, y tiene su propia memoria, sin acceso directo a la del resto de nodos. MPI es el que permite ejecutar múltiples instanciaciones de un mismo ejecutable e intercambiar información a través de la red.
+
+
+\subsection{Modelo Básico: Configuración MPI Interactiva}
+Este es el modelo con el que se trabaja en el laboratorio:
+
+\begin{Figure}
+\centering
+\includegraphics[scale=0.7]{mpiinteractive.png}
+%\caption{Configuración MPI Interactiva} \label{figure}
+\end{Figure}
+
+El usuario trabaja con una máquina interactiva, la cual tiene acceso a un número de hosts, normalmente formados por una red de “Workstations” o estaciones de trabajo.\\
+
+El usuario tecleará el comando “mpiexec” y deberá proporcionar el número de nodos con los que quiere trabajar, sus nombres (habitualmente en un archivo llamado “hostfile”), y algunos otros parámetros seguidos del nombre de la aplicación y sus argumentos.\\
+
+El programa “mpirun” se conectará mediante ssh a cada host, dándole la información necesaria para que se puedan encontrar entre ellos. Toda salida de los nodos irá encaminada a través del mpirun, y aparecerá en la consola interactiva.\\
+
+Existe otro segundo escenario llamado Configuración MPI Batch. El usuario crea un script con la tarea a ejecutar y es controlado por un “scheduler” que envía la tarea a los hosts. El script contiene el comando “mpirun”, y el “hostfile” se genera dinámicamente cuando empieza el trabajo. Como la tarea puede comenzar cuando el usuario no esté activo, la salida se guarda en un fichero.
+
+\begin{Figure}
+\centering
+\includegraphics[scale=0.7]{mpibatchconfig.png}
+%\caption{Configuración MPI Batch} \label{figure}
+\end{Figure}
+
+\subsection{Características de las Máquinas}
+A la hora de ejecutar un programa conviene conocer el entorno de pruebas con el que se está trabajando. Para este proyecto se está utilizando un cluster de tipo “Beowulf” que consiste en 33 máquinas de las mismas características. Más abajo se expondrán sus detalles técnicos.
+El entorno de trabajo es bajo SSH.
+Mediante el comando “lshw” se obtiene información sobre el hardware.
+\begin{itemize}
+\item[•] Procesador: Intel Core 2 Duo E6320 1.86GHz (Lanzado en Q2 del año 2007).
+\begin{itemize}
+\item[-] Núcleos: 2
+\item[-]Frecuencia: 1860MHz
+\item[-]Caché L2: 4MB
+\end{itemize}
+\item[•]Chipset: Intel P965 Express
+\item[•]Memoria RAM: 1977MiB DDR2 ($\approx$ 2GB)
+\item[•]Adaptador de Red 1: 82566DC Gigabit Network Connection (Integrado en placa base)
+\begin{itemize}
+\item[-]Size: 100Mbit/s
+\item[-]Capacity: 1Gbit/s
+\end{itemize}
+\item[•]Adaptador de Red 2: DGE-528T Gigabit Ethernet Adapter
+\begin{itemize}
+\item[-]Size: 1Gbit/s
+\item[-]Capacity: 1Gbit/s
+\item[-]2000Mbps Gigabit full duplex support
+\end{itemize}
+\end{itemize}
+
+Pese a que existan dos adaptadores de red, lo más probable es que todos los equipos vayan conectados a un mismo switch a través del segundo adaptador, es decir, con una conexión de Gigabit Ethernet.\\
+
+A partir del comando “lsblk” se obtiene información sobre los dispositivos de almacenamiento del sistema:\\
+
+NAME	MAJ:MIN	RM	SIZE	RO	TYPE	MOUNTPOINT\\
+\hspace*{1.4cm}sda	8:0	0	149,1G	0	Disk	\\
+\hspace*{1.4cm}sda1	8:1	0	146,1G	0	Part	/   \\
+\hspace*{1.4cm}sda2	8:2	0	1K	0	Part	\\
+\hspace*{1.4cm}sda5	8:5	0	3G	0	Part	\\
+
+Para conocer la información sobre el Sistema Operativo que está en ejecución se utiliza el comando “lsb\_release –a” \\
+No LSB modules are available.\\
+Distributor ID: Ubuntu\\
+Description:    Ubuntu 12.04.1 LTS\\
+Release:        12.04\\
+Codename:       precise\\
+
+Para conocer con qué compiladores se va a trabajar, se introduce en la consola de Linux el siguiente comando, “mpicc –v”. Éste muestra la versión del mpicc y la del icc, de modo que no hay necesidad de introducir “icc –v”. El resultado es el siguiente.\\
+mpicc for MPICH2 version 1.5\\
+icc version 13.0.1 (gcc version 4.6.0 compatibility)\\
+A la hora de compilar se usa el nivel 2 de optimización.\\
+
+\subsubsection{Posibles mejoras de hardware}
+Con estos datos que se han obtenido del hardware actual de los equipos, se pueden considerar ciertas mejoras que disminuirían los tiempos de ejecución de los programas. Algunas son las siguientes.\\
+
+\subsubsubsection{Combinar MPI con Multi-threading y OpenMP}
+Esta mejora se encuentra entre el hardware y la programación. Cuando empezó MPI hace veinte años, los procesadores sólo tenían un único núcleo. En caso de que se estuviera trabajando con un cluster, a los procesadores se les denominaba nodos. Cuando se ejecutaba un programa en MPI cada procesador tendría un único proceso.\\
+\begin{Figure}
+\centering
+\includegraphics[scale=0.7]{monocore.png}
+\end{Figure}
+
+Actualmente puede haber más de un núcleo en cada procesador, de hecho es ya algo más que habitual. En las placas base destinadas a servidores es también común que existan más de un socket, por lo que puede haber dos procesadores físicos con sus correspondientes núcleos. Por ejemplo, en la siguiente imagen aparece el ejemplo de dos nodos, cada uno de ellos con dos procesadores que a su vez contienen 6 núcleos. Por lo tanto, cada nodo tiene 12 núcleos para procesar información. Ahora un mismo nodo podría tener más de un proceso en ejecución al mismo tiempo, ya que cada núcleo se comporta como un procesador independiente, con la ventaja de tener acceso a memoria compartida.\\
+ 	
+\begin{Figure}
+\centering
+\includegraphics[scale=0.7]{multicore.png}
+\end{Figure}
+
+El modelo básico de MPI, en un principio, ignora la memoria compartida  y trata a cada núcleo como un nodo más de la red de comunicación. No se puede ver de forma inmediata qué núcleos están en la misma máquina. Esto es ineficiente, ya que los mensajes a través de la red son más lentos y además consumen ancho de banda. Sin embargo se puede configurar para que esto no ocurra y se aprovechen de la cercanía y la memoria compartida.\\
+
+Un usuario puede hacer una petición de multi-threading con “MPI\_Init\_thread”, y el sistema responderá con el mayor nivel soportado.\\
+
+En cuanto a la programación híbrida (MPI + OpenMP) pretende aprovechar las ventajas de los dos mundos. Como OpenMP trabaja con un espacio de memoria compartida, es posible reducir el coste de memoria asociado a las tareas de MPI y la necesidad de duplicar datos. Otras ventajas son el balanceo de carga y la posibilidad de trabajar con dos niveles de paralelismo al mismo tiempo. Sin embargo, el principal problema de mezclar MPI con OpenMP es que hay muchas dificultades\\
+
+\subsubsubsection{Mejora de las comunicaciones}
+Se ha comprobado que las máquinas trabajan con dos interfaces de red, una integrada en placa y otra a través de PCI. Hay que recordar que PCI tiene un ancho de banda de 133,3MB/s, y que 1Gbit son 125MB. Si se desea trabajar con Gigabit Ethernet puede ser una interfaz de comunicación bastante acertada.\\
+
+Si se van a usar las dos interfaces para la comunicación, la velocidad máxima de la interfaz más lenta va a ser un condicionante.\\
+
+En tal caso, una mejora sería utilizar otra interfaz de red. Se puede utilizar otra con PCI o PCI-e.\\
+\subsubsubsection{Procesadores}
+El procesador es un elemento clave a la hora de procesar datos. En este caso se ha visto que se está usando un Socket 775 con un Intel Core2 Duo E6320 1.86GHz.\\
+
+Para el socket 775 existe una técnica que se denomina “775 mod”. Consiste en, mediante una pequeña modificación, hacer compatible éste socket con los procesadores del socket 771, que son los Intel Xeon, destinados a servidores.\\
+
+Aunque en el momento de su aparición llegaron a costar los 1000\euro, actualmente se pueden encontrar por 20\euro. Un ejemplo podría ser un Xeon X5450, aunque hay mejores opciones.
+Los únicos inconvenientes que tiene el realizar esta técnica es el tener que manipular parte del hardware y que el procesador E6320 que se está utilizando actualmente tiene un costo energético bastante bajo. Aunque el procesador del X5450 sea bastante mejor en muchos aspectos (Frecuencia de 3Ghz, 4 nucleos, mejor rendimiento, instrucciones SSE4.1…), éste consume significativamente más, por lo que para el uso que se le da al cluster, es muy probable que no merezca la pena esa modificación. No obstante, si fuera un cluster muy activo y en el que el tiempo es algo realmente significativo, sí que se podría plantear esta opción.\\
+
+\pagebreak
+\subsection{Poster}
+
+\begin{Figure}
+\centering
+\includegraphics[width=1\columnwidth]{Esquemilla.png}
+		%\caption{Imágen extraída de \cite{key-1} , Apartado 3.4.5 .}	
+\end{Figure}
+
+\subsection{Tabla de dedicación}
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|l|c|c|c|}
+		\hline
+		 \cellcolor{gray} Tarea & \cellcolor{gray} Mikel & \cellcolor{gray} Jose Ángel & \cellcolor{gray} Christian \\
+		\hline
+		 \cellcolor{lightgray} Estudio Programación MPI & \cellcolor{lightgray} 1h 30' & \cellcolor{lightgray} 1h & \cellcolor{lightgray} 1h\\
+		 \cellcolor{lightgray} Puzle 1 & \cellcolor{lightgray} 13h 45' &  \cellcolor{lightgray}15h 45' & \cellcolor{lightgray} 8h 30'\\
+		 \hspace*{0.5cm}-Estudio & 7h & 8h & 3h\\
+		 \hspace*{0.5cm}-Documentación & 3h & 2h & 2h\\
+		 \hspace*{0.5cm}-Problemas & 3h & 5h & 3h\\
+		 \hspace*{0.5cm}-Presentación & 45' & 45' & 30' \\
+		  \cellcolor{lightgray} Parte 1 Aplicación & \cellcolor{lightgray} 12h & \cellcolor{lightgray} 6h &  \cellcolor{lightgray}- \\
+		 \hspace*{0.5cm}-Adaptación del código & 8h & 4h & -\\
+		 \hspace*{0.5cm}-Documentación & 4h & 2h & -\\
+		 \cellcolor{lightgray} Parte 2 Aplicación & \cellcolor{lightgray} 16h &  \cellcolor{lightgray}11h & \cellcolor{lightgray} - \\
+		 \hspace*{0.5cm}-Adaptación del código & 8h & 5h & -\\
+		 \hspace*{0.5cm}-Documentación & 8h & 5h & -\\
+		 \cellcolor{lightgray} Presentación & \cellcolor{lightgray} 2h 30' &  \cellcolor{lightgray}2h 30'& \cellcolor{lightgray} - \\
+		 \hline
+		 \hline
+		 \cellcolor{gray} Total & \cellcolor{gray} 46h & \cellcolor{gray} 35h 45' & \cellcolor{gray} 9h 30'\\
+		 \hline
+	\end{tabular}
+\label{table}
+\end{table}
+
+\pagebreak
+\includepdf[pages=-,scale=0.8,offset=1cm -6cm,pagecommand={\subsection{Actas}}]{Acta_Constitucion.pdf}
+
+\includepdf[pages=-,scale=0.9,offset=1cm -5cm]{Acta_14_marzo.pdf}
+
+\includepdf[pages=-,scale=0.9,offset=1cm -5cm]{Acta_4_abril.pdf}
+
+\includepdf[pages=-,scale=0.9,offset=1cm -5cm]{Acta_18_abril.pdf}\\
+
+\includepdf[pages=-,scale=0.9,offset=1cm -5cm]{Acta_2_mayo.pdf}
+
+\includepdf[pages=-,scale=0.9,offset=1cm -5cm]{Acta_16_mayo.pdf}
+
+\pagebreak
+
+
+\pagebreak
+\subsection{Ejercicios de representación de datos}
+\textbf{Ejercicio 1:} Se ejecuta 8 veces un determinado programa y se mide su tiempo de ejecución. Los resultados obtenidos aparecen en la siguiente tabla. Hacer una estimación del tiempo de ejecución del programa.
+\begin{wraptable}{l}{2cm}
+	\begin{tabular}{|c|}
+		\hline
+		\cellcolor{gray}Tiempo (ms) \\
+		\hline
+		23,256 \\
+		24,128 \\
+		23,872 \\
+		24,190 \\
+		25,876 \\
+		144,637 \\
+		22,987 \\
+		23,386\\ 
+		\hline
+	\end{tabular}
+\end{wraptable} 
+<<prob1, echo=FALSE>>=
+x <- c(23.256,24.128,23.872,24.190,25.876,144.637,22.987,23.386)
+media <- mean(x)
+moda  <- median(x)
+@
+La media de los datos de la tabla es: \Sexpr{media}. Parece que no es acorde a los datos, esto se debe a que la media no es un estadístico robusto y se ve influenciada con facilidad por los valores extremos, no así la moda, que sí lo es y tiene un valor: \Sexpr{moda} refleja mucho mejor el tiempo de ejecución del programa. \\
+
+De todas formas no podemos desechar un valor a la ligera, para ello voy a utilizar un modelo en el que considero como extremos todos los datos que no se encuentren entre los cuartiles Q1 y Q3 de la distribución. Para no hacer un modelo tan restrictivo multiplico el rango intercuartil por 1.5.\\
+
+<<prob11, echo=TRUE>>=
+Q1 <- quantile(x,probs=0.25)	
+Q3 <- quantile(x,probs=0.75)
+step<- 2.5 * (Q3-Q1)	
+res <- sapply(x,FUN=function(x){
+	if( x < Q3-step | x > Q1+step ){
+	    x <- NA
+	}else{ x }})
+res
+@
+
+<<prob12, echo=FALSE>>=
+x1 <- c(23.256,24.128,23.872,24.190,25.876,22.987,23.386)
+media1 <- mean(x1)
+@
+
+En definitiva, el programa tendría un tiempo de ejecución de 24 ms, la media del resto de valores no excluidos.\\
+
+\pagebreak
+\textbf{Ejercicio 2:} En un determinado experimento se ha medido el tiempo de ejecución de dos alternativas de un programa en función del tamaño de los vectores procesados (y, en consecuencia, en función de la carga de cálculo), y se han obtenido los datos de la tabla. Representar los datos en un gráfico de la manera más adecuada posible y sacar conclusiones.
+\begin{wraptable}{l}{5.5cm}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\cellcolor{gray} N(Bytes) &\cellcolor{gray} T1(ms) &\cellcolor{gray} T2(ms)\\
+		\hline
+		1 & 0,081 & 20,020 \\
+		2 & 0,162 & 20,053 \\
+		5 &0,405 &20,215 \\
+		100 &8,104 &22,167 \\
+		1000 &81,062 &39,893 \\
+		2000 &162,010 &59,756 \\
+3000 &242,013 &80,176 \\
+		3200 &259,197 &83,830 \\
+		3500 &283,518 &89,875 \\
+		4000 &323,998 &99,518 \\
+		20000 &1620,012 &421,532 \\
+		100000 &8099,996 &2020,225 \\
+		\hline
+	\end{tabular}
+\end{wraptable}
+
+Los datos de la siguiente tabla abarcan un gran número de valores y N incrementa diferentemente. Sabemos que ambos algoritmos son lineales mirando a los datos, el tiempo crece con N = 100 de 8ms para T1 y 22ms para T2 a 8000ms y 20000ms con N=100*1000.También sabemos que hay un punto de corte entre 100 y  1000.\\
+
+Los siguientes gráficos muestran ambas rectas y su punto de corte, que se ha realizando creando puntos entre 150 y 600 con las funciones ajustadas de T1 y T2.\\
+
+Podemos concluir que el programa 1 es más rápido con vectores pequeños, de 350 Bytes o menos aproximadamente, a partir de dicho tamaño el programa 2 es mejor ya que crece con una pendiente de 2\%
+y el programa 1 del 8\%.\\
+
+<<fig.width=8, echo=FALSE, fig.height=6,fig.pos='!h'>>=
+par(mfrow=c(2,2))
+
+x1 <- c(1,2,5,100,1000,2000,3000,3200,3500,4000,20000,100000)
+x <- log(x1)
+y1 <- c(0.081, 0.162, 0.405, 8.104, 81.062, 162.010, 242.013, 259.197, 283.518,323.998,1620.012,8099.996)
+y2 <- c(20.020, 20.053, 20.215, 22.167, 39.893, 59.756, 80.176, 83.830, 89.875,99.518,421.532,2020.225)
+
+tabla1<- data.frame (cbind(x,y1))
+tabla2<- data.frame (cbind(x,y2))
+
+plot(x, y1,lty=1,type="o",xlab="log n", ylab="T1")
+
+plot(x, y2, lty=5, col="blue",type="o",xlab="log n", ylab="T2")
+
+plot(x, y1,lty=1,type="o",xlab="log n", ylab="T")
+lines(x, y2, lty=5,type="o", col="blue")
+
+regresion1 <- lm(y1 ~ x1 + I(x1^2),data = tabla1); 
+regresion2 <- lm(y2 ~ x1 + I(x1^2),data = tabla2); 
+c01 <-regresion1$coefficients[1]
+c11 <-regresion1$coefficients[2]
+c21 <-regresion1$coefficients[3]
+
+c02 <-regresion2$coefficients[1]
+c12 <-regresion2$coefficients[2]
+c22 <-regresion2$coefficients[3]
+
+y11 <- seq(from=150, to=600, by=50)
+curve1 <- sapply(y11,FUN = function(x){
+return(regresion1$coefficients[1]+regresion1$coefficients[2]*x+ regresion1$coefficients[3]*x^2)})
+y22 <- seq(from=150, to=600, by=50)
+curve2 <- sapply(y22,FUN = function(x){
+return(regresion2$coefficients[1]+regresion2$coefficients[2]*x+ regresion2$coefficients[3]*x^2)})
+x <- seq(from=150, to=600, by=50)
+x <- log(x)
+plot(x, curve1,lty=1,xlab="log n",type="o", ylab="T")
+lines(x, curve2, lty=5,type="o" ,col="blue")
+@
+
+\pagebreak
+
+\textbf{Ejercicio 3:} Las siguientes tablas muestran los tiempos de ejecución de dos programas diferentes en función del parámetro N. Representa los datos y obtén una expresión matemática que indique cómo varía T en función de N. A partir de ahí calcula el tiempo de ejecución esperado en cada caso para N=100.\\
+
+\begin{tabular}{|c|c|}
+		\hline
+		\cellcolor{gray} N &\cellcolor{gray} T1\\
+		\hline
+		10&83\\
+		20&108\\
+		30&141\\
+		40&179\\
+		50&207\\
+		60&241\\
+		\hline
+	\end{tabular}
+\begin{tabular}{|c|c|}
+		\hline
+		\cellcolor{gray} N &\cellcolor{gray} T2\\
+		\hline
+		1&53\\
+		5&77\\
+		10&118\\
+		15&185\\
+		25&440\\
+		40&1611\\
+		\hline
+	\end{tabular}\\
+\\
+
+En las siguientes gráficas pueden verse las representaciones de los datos en negro y sus respectivos ajustes en rojo. 
+
+<<echo=FALSE ,fig.width=8, fig.height=4,fig.pos='!h'>>=
+par(mfrow=c(1,2))
+
+x <- c(10,20,30,40,50,60)
+y1 <- c(83,108,141,179,207,241)
+tabla1<- data.frame (cbind(x,y1))
+regresion1 <- lm(y1 ~ x, data = tabla1)
+
+plot(x, y1 ,lty=1,type="o",xlab="n",xaxt="n", ylab="T1")
+axis(1, at=x)
+abline(regresion1,lty=5,col = "red")
+
+x <- c(1,5,10,15,25,40);
+y2 <- c(53,77,118,185,440,1611)
+tabla2<- data.frame (cbind(x,y2))
+
+regresion2 <- lm(y2 ~ x + I(x^2),data = tabla2); 
+
+curve <- sapply(x,FUN = function(x){
+return(regresion2$coefficients[1]+regresion2$coefficients[2]*x+ regresion2$coefficients[3]*x^2)})
+plot(x, y2 ,lty=1,type="o",xlab="n",xaxt="n", ylab="T2")
+axis(1, at=x)
+lines(x, curve, lty=5, col = "red")
+
+l0 <-regresion1$coefficients[1]
+l1 <-regresion1$coefficients[2]
+c0 <-regresion2$coefficients[1]
+c1 <-regresion2$coefficients[2]
+c2 <-regresion2$coefficients[3]
+
+p1 <- l0 + l1*100
+p2 <- c0 + c1*100 + c2*100^2
+@
+
+Se ha ajustado las tablas con las siguientes funciones:
+
+\begin{itemize}
+\item[]  Lineal : $y=$ \Sexpr{l0} $+$ \Sexpr{l1} $x$
+\item[] Cuadrático : $y=$ \Sexpr{c0} \Sexpr{c1} $x$ $+$ \Sexpr{c2} $x^2$
+\end{itemize}
+
+El tiempo de ejecución esperado a cada caso sería aproximado al los siguientes:
+\begin{itemize}
+\item[ ]Lineal : \Sexpr{p1} ms.
+\item[ ]Cuadrático : \Sexpr{p2} ms.
+\end{itemize}
+
+\pagebreak
+
+\includepdf[pages={1},scale=0.8,offset=-0cm -5cm,pagecommand={\subsection{Escenario y Puzle}}]{Proyecto-puzle-aplicacion.pdf}
+
+\includepdf[pages={3-13,15,17-24},scale=1,offset=-0cm -3.5cm,pagecommand=\thispagestyle{plain}]{Proyecto-puzle-aplicacion.pdf}
+
+
+\includepdf[pages={25},scale=0.9,offset=-0cm -5cm,pagecommand={\subsection{Aplicación a paralelizar}}]{Proyecto-puzle-aplicacion.pdf}
+
+\includepdf[pages={26-35},scale=1,offset=-0cm -3.5cm,pagecommand=\thispagestyle{plain}]{Proyecto-puzle-aplicacion.pdf}
+
+%\pagebreak
+
+%\subsection{Acta de Constitución del Grupo}
+%\pagebreak
+%\subsection{Actas de Reunión}
+\end{document}

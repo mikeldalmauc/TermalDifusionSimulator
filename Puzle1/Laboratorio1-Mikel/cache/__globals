@@ -1,0 +1,7 @@
+unnamed-chunk-1	$	^	~	c	cbind	data.frame	lines	lm	par	plot	return	sapply	seq
+unnamed-chunk-2	$	^	~	abline	axis	c	cbind	data.frame	lines	lm	par	plot	return	sapply
+prob1	c	mean	median
+prob11	|	<	>	if	quantile	sapply	x
+prob12	c	mean
+prob2	axis	c	lines	par	plot
+unnamed-chunk-3	$	^	~	abline	axis	c	cbind	data.frame	lines	lm	par	plot	return	sapply
